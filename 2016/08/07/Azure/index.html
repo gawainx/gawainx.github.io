@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://antarx.com">
-  <title>Archives | Gawainx&#39;Blog</title>
+  <title>使用国际版Azure搭建梯子教程 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Gawainx'Blog">
-<meta property="og:url" content="http://antarx.com/archives/index.html">
+  <meta name="description" content="前言本文基于MSDN订阅版本对应的Azure云服务提供的虚拟机服务，搭建自己的影子袜子（自己翻译成英文，懂的人都懂）。
+过程中参考了众多软狗的相关文章，对此表示感谢。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用国际版Azure搭建梯子教程">
+<meta property="og:url" content="http://antarx.com/2016/08/07/Azure/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
+<meta property="og:description" content="前言本文基于MSDN订阅版本对应的Azure云服务提供的虚拟机服务，搭建自己的影子袜子（自己翻译成英文，懂的人都懂）。
+过程中参考了众多软狗的相关文章，对此表示感谢。">
+<meta property="og:updated_time" content="2017-02-06T12:55:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gawainx'Blog">
+<meta name="twitter:title" content="使用国际版Azure搭建梯子教程">
+<meta name="twitter:description" content="前言本文基于MSDN订阅版本对应的Azure云服务提供的虚拟机服务，搭建自己的影子袜子（自己翻译成英文，懂的人都懂）。
+过程中参考了众多软狗的相关文章，对此表示感谢。">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -151,36 +158,87 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Azure" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/07/Azure/" class="archive-article-date">
-  	<time datetime="2016-08-07T14:16:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/07/Azure/">使用国际版Azure搭建梯子教程</a>
+    <h1 class="article-title" itemprop="name">
+      使用国际版Azure搭建梯子教程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/08/07/Azure/" class="archive-article-date">
+  	<time datetime="2016-08-07T14:16:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文基于MSDN订阅版本对应的<a href="https://portal.azure.com" target="_blank" rel="external">Azure云服务</a>提供的虚拟机服务，搭建自己的影子袜子（自己翻译成英文，懂的人都懂）。</p>
+<p>过程中参考了众多软狗的相关文章，对此表示感谢。<br><a id="more"></a></p>
+<h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><p>这部分介绍如何激活自己的Azure服务并配置自己的虚拟机。</p>
+<p>首先用微软账号登录<a href="https://portal.azure.com" target="_blank" rel="external">Azure云服务</a>，注意与国内的Azure区别开来。然后选择新建-&gt;虚拟机-&gt;<code>Ubuntu Server 14.04 LTS</code>，部署类型选择资源管理器。</p>
+<p>这一步结束之后，如果你之前已经激活了Azure服务，则跳过本段继续阅读。否则继续。在未激活Azure订阅时，上一步点击创建之后它会自动导航到“添加您的Azure订阅”的页面,选择Visual Studio Enterprise选项，点击了解更多，进到关于这项订阅的介绍页面，找到相关按钮然后点击激活Azure订阅。</p>
+<p>此后，回到第一步，再新建一个虚拟机，镜像类型同样选择<code>Ubuntu Server 14.04 LTS</code>，就会弹出创建虚拟机的选项卡，基本配置中填写虚拟机的名字，用户名，密码（它默认是SSH公钥登录，你需要切换到密码登录的选项卡中），然后新建一个资源组。主机位置建议选择东亚（香港机房）或美国西部（加利福尼亚机房），虽然在铁通12M宽带环境下发现这俩的速度都差不多QAQ。点击确定以继续。</p>
+<p>接下来，选择虚拟机套餐方案，A1足矣。</p>
+<p>接下来就是虚拟机的配置部分。</p>
+<p>磁盘类型选择标准。公共IP地址中注意选择静态IP（它默认给的是动态）。其他选项保持默认，点击确定.（有人提到在网络安全组当中要建一个入站规则允许所有网络连接，我在部署时未发现这个规则的必要性，所以暂且不表）。</p>
+<p>进入第四步，确定相关信息没问题之后点击确定，开始部署。部署完成后，在概要中记下公共IP地址。</p>
+<h1 id="虚拟机安装影子袜子"><a href="#虚拟机安装影子袜子" class="headerlink" title="虚拟机安装影子袜子"></a>虚拟机安装影子袜子</h1><p>本步骤需要ssh连接虚拟机。在*nix下用bash自带的ssh命令行即可。Windows平台下，可以使用cmder或者Xshell或者securCRT，putty之类的软件，我自己用的是Cygwin。</p>
+<p>输入</p>
+<pre><code>ssh [username]@[your IP]
+</code></pre><p>回车之后，输入Yes，然后输入登录密码，登录到虚拟服务器。</p>
+<blockquote>
+<p>注：方括号部分为根据自己的配置需要自行更改的部分。方括号里面已经标明字段含义。</p>
+</blockquote>
+<p>登录成功后，输入</p>
+<pre><code>sudo apt-get update
+</code></pre><p>更新Ubuntu的软件列表，否则会导致后续软件安装失败。</p>
+<p>然后，输入</p>
+<pre><code>sudo apt-get install python-pip
+</code></pre><p>安装pip软件管理程序。</p>
+<p>输入</p>
+<pre><code>sudo pip install shadowsocks
+</code></pre><p>安装影子袜子。</p>
+<p>输入</p>
+<pre><code>sudo ssserver -p [port number] -k [password] -m aes-256-cfb --user nobody -d start
+</code></pre><p>启动影子袜子的服务器端。</p>
+<p>#客户端操作</p>
+<p>至此，Azure部署影子袜子的服务器端部分已经完毕。接下来就是在需要梯子的地方，安装相关的客户端软件（貌似在水果手机上功能会受到很多限制）.</p>
+<p>安装相关软件后，在设置页面，服务器地址，密码，端口，协议类型分别对应你的虚拟机IP地址，<code>[passport]</code>字段，<code>[port]</code>字段，以及 <code>aes-256-cfb</code>。点击连接，即可。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -192,7 +250,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -205,418 +263,86 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/08/Communication/" class="archive-article-date">
-  	<time datetime="2016-03-08T14:33:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/08/Communication/">通信的基础——大学这三年到底学了啥（主线课程篇）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Communication</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://antarx.com/2016/08/07/Azure/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/26/2015/" class="archive-article-date">
-  	<time datetime="2015-12-26T06:09:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/26/2015/">“软狗”的2015学习总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/25/cygpy/" class="archive-article-date">
-  	<time datetime="2015-12-25T10:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/25/cygpy/">Cygwin安装独立的pip环境</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/23/numpy/" class="archive-article-date">
-  	<time datetime="2015-12-23T14:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/23/numpy/">numpy学习笔记（1）--ndarray类型常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/07/dp/" class="archive-article-date">
-  	<time datetime="2015-12-07T14:41:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/07/dp/">使用动态规划求解字符串编辑距离问题(C#实现）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/27/Win-10/" class="archive-article-date">
-  	<time datetime="2015-11-27T09:54:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/27/Win-10/">用diskpart打造Win 10安装U盘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Win10</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Windows/" class="article-tag-list-link color3">Windows</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/16/四种基本的算法设计模式/" class="archive-article-date">
-  	<time datetime="2015-11-16T15:15:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/16/四种基本的算法设计模式/">四种基本的算法设计模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/21/NET学习笔记（一）/" class="archive-article-date">
-  	<time datetime="2015-10-21T08:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/21/NET学习笔记（一）/">.NET学习笔记（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.NET</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/.NET/" class="article-tag-list-link color5">.NET</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/24/hello-world/" class="archive-article-date">
-  	<time datetime="2015-09-24T08:29:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/03/08/Communication/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">通信的基础——大学这三年到底学了啥（主线课程篇）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -639,8 +365,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

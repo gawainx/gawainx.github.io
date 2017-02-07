@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://antarx.com">
-  <title>Archives | Gawainx&#39;Blog</title>
+  <title>使用动态规划求解字符串编辑距离问题(C#实现） | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Gawainx'Blog">
-<meta property="og:url" content="http://antarx.com/archives/index.html">
+  <meta name="description" content="前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用动态规划求解字符串编辑距离问题(C#实现）">
+<meta property="og:url" content="http://antarx.com/2015/12/07/dp/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
+<meta property="og:description" content="前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg">
+<meta property="og:updated_time" content="2015-12-30T15:17:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gawainx'Blog">
+<meta name="twitter:title" content="使用动态规划求解字符串编辑距离问题(C#实现）">
+<meta name="twitter:description" content="前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -151,240 +157,117 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-dp" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/07/Azure/" class="archive-article-date">
-  	<time datetime="2016-08-07T14:16:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/07/Azure/">使用国际版Azure搭建梯子教程</a>
+    <h1 class="article-title" itemprop="name">
+      使用动态规划求解字符串编辑距离问题(C#实现）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Azure</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Azure/" class="article-tag-list-link color1">Azure</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/08/Communication/" class="archive-article-date">
-  	<time datetime="2016-03-08T14:33:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/08/Communication/">通信的基础——大学这三年到底学了啥（主线课程篇）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Communication</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/26/2015/" class="archive-article-date">
-  	<time datetime="2015-12-26T06:09:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/26/2015/">“软狗”的2015学习总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/25/cygpy/" class="archive-article-date">
-  	<time datetime="2015-12-25T10:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/25/cygpy/">Cygwin安装独立的pip环境</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/23/numpy/" class="archive-article-date">
-  	<time datetime="2015-12-23T14:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/23/numpy/">numpy学习笔记（1）--ndarray类型常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/07/dp/" class="archive-article-date">
+        
+        <a href="/2015/12/07/dp/" class="archive-article-date">
   	<time datetime="2015-12-07T14:41:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/07/dp/">使用动态规划求解字符串编辑距离问题(C#实现）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次提到会在后续通过实际例子更加深入的谈谈对解释四种<a href="http://antarx.com/2015/11/16/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">四种基本算法设计模式</a>的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。<br><a id="more"></a></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><blockquote>
+<p>我们将两个字符串的相似度定义为：将一个字符串转换为另一个字符串时需要付出的代价。转换方法包括插入，删除和替换三种编辑方式。使用对字符串的编辑次数定义为转换的代价。最小的字符串编辑次数就是字符串的编辑距离。                             –《算法的乐趣》</p>
+</blockquote>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>要使用动态规划思想解决这个问题，首先我们需要对问题进行阶段划分，确定边界条件，定义无后效性的几个子状态并且确定状态之间的转移关系，才能在每个子状态中寻找最优解最后得到原问题的解。</p>
+<p>寻找子问题：在本问题中，假设原字符串为<code>source</code>，长度为m，目的字符串为<code>target</code>，长度为n。则问题可以描述为求解<code>source[1..m]</code>转换为<code>target[1..n]</code>所需要的最小编辑次数。注意到，当<code>source</code>的前i个字符和<code>target</code>的前j个字符之间的编辑距离确定之后，不会在后续求解中发生改变，因此此问题的子问题即可定义为求解<code>source</code>的前i个字符和<code>target</code>的前j个字符之间的编辑距离。</p>
+<p>边界条件的确定：当source字符串长度为0时，编辑长度为target的字符串长度n（插入n个字符串）。当target的字符串长度为0时，编辑长度为source的字符串长度（删去m个字符串）。</p>
+<p>关于“备忘录”：动态规划问题的一个特点是使用类似”备忘录“的”表“记录每个状态的相关信息。本问题中用<code>d[i,j]</code>定义为<code>source</code>的前i个字符和<code>target</code>的前j个字符之间的编辑距离，作为每个状态的标志。</p>
+<p>状态之间的转换：以<code>d[i-1,j]+1</code>为删除字符时转移的状态,<code>d[i,j-1]+1</code>为插入字符时转移额状态，<code>d[i-1,j-1]+1</code>为替换字符串时转移的状态。</p>
+<p>子问题的最优解：字符串之间的转换方式并不是唯一的，通过操作若干次添加字符，删除字符，替换字符操作都可以实现字符串转换，每次转换状态时，将三种操作方式中的距离的最小值作为<code>d[i,j]</code>，可以保证每个子问题的解都是最优的，从而保证整个问题的解是最优解。</p>
+<h2 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h2><p>使用C#语言实现。</p>
+<pre><code>using System;
 
-        <div class="article-info info-on-right">
-          
+namespace EditDistance
+{
+    class Program
+    {
+        public static int MAX_STR_LEN = 100;//initialize the max length of string
+        static void Main(string[] args)
+        {
+            //test code
+            Console.WriteLine(&quot;Please input Source string:&quot;);
+            String src = Console.ReadLine();
+            Console.WriteLine(&quot;Please input Target string:&quot;);
+            String dist = Console.ReadLine();
+            Console.WriteLine(EditDistance(src, dist));
+        }
+        private static int EditDistance(string src, string dist)
+        {
+            int i, j;
+            int[,] d = new int[MAX_STR_LEN,MAX_STR_LEN];
+            //initialize the margin condition
+            for (i = 0; i &lt;= src.Length; i++)
+                d[i, 0] = i;
+            for (j = 0; j &lt;= dist.Length; j++)
+                d[0, j] = j;
+            for(i = 1;i&lt;=src.Length;i++)
+            {
+                for(j=1;j&lt;=dist.Length;j++)
+                {
+                    if(src[i-1]==dist[j-1])
+                    {
+                        d[i, j] = d[i - 1, j - 1];
+                    }
+                    else
+                    {
+                        int edIns = d[i, j - 1] + 1;
+                        int edDel = d[i - 1, j] + 1;
+                        int edRep = d[i - 1, j - 1] + 1;
+
+                        d[i,j]=Math.Min(Math.Min(edIns,edDel),edRep);
+                    }
+                }
+            }
+            return d[src.Length, dist.Length];
+        }
+    }
+}
+</code></pre><p>运行结果：</p>
+<p><img src="http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg" alt=""></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>求解字符串的编辑距离问题应该是动态规划的最典型案例，体现了动态规划问题的基本特点。适合用动态规划解决的问题，一般都是可以划分多多个子状态的，每个子状态之间存在状态转移关系，每个状态的解一旦确定，就会用类似“备忘录”的表储存起来。在后续求解时，将会直接使用该状态的解，而且，<strong>不会再回溯子状态的时候改变该状态的解</strong>。</p>
+<p>另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对<code>d[i,0]</code>和<code>d[0,j]</code>需要初始化为i和j），将得不到正确的解。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -396,7 +279,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -409,214 +292,95 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://antarx.com/2015/12/07/dp/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/27/Win-10/" class="archive-article-date">
-  	<time datetime="2015-11-27T09:54:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-27</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/27/Win-10/">用diskpart打造Win 10安装U盘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Win10</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Windows/" class="article-tag-list-link color3">Windows</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/16/四种基本的算法设计模式/" class="archive-article-date">
-  	<time datetime="2015-11-16T15:15:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/16/四种基本的算法设计模式/">四种基本的算法设计模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/21/NET学习笔记（一）/" class="archive-article-date">
-  	<time datetime="2015-10-21T08:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/21/NET学习笔记（一）/">.NET学习笔记（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.NET</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/.NET/" class="article-tag-list-link color5">.NET</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/24/hello-world/" class="archive-article-date">
-  	<time datetime="2015-09-24T08:29:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2015/12/23/numpy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          numpy学习笔记（1）--ndarray类型常用属性
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2015/11/27/Win-10/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用diskpart打造Win 10安装U盘</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -639,8 +403,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
