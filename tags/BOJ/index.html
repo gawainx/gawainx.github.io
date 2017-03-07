@@ -6,20 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://antarx.com">
-  <title>vscode配置 c++ 开发环境(一):智能提示 | Gawainx&#39;Blog</title>
+  <title>Tag: BOJ | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vscode配置 c++ 开发环境(一):智能提示">
-<meta property="og:url" content="http://antarx.com/2017/02/18/vscode/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Gawainx'Blog">
+<meta property="og:url" content="http://antarx.com/tags/BOJ/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
-<meta property="og:description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
-<meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg">
-<meta property="og:updated_time" content="2017-02-18T11:16:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vscode配置 c++ 开发环境(一):智能提示">
-<meta name="twitter:description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
-<meta name="twitter:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg">
+<meta name="twitter:title" content="Gawainx'Blog">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -143,166 +137,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vscode" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      vscode配置 c++ 开发环境(一):智能提示
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/07/87-cpp/" class="archive-article-date">
+  	<time datetime="2017-03-07T11:58:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/07/87-cpp/">BOJ 解题报告(1)-87-日期</a>
     </h1>
   
 
-        
-        <a href="/2017/02/18/vscode/" class="archive-article-date">
-  	<time datetime="2017-02-18T10:48:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#前言<br><a href="https://code.visualstudio.com" target="_blank" rel="external">vscode</a>是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.<br><a id="more"></a></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><ol>
-<li>首先, 下载对应系统的 VScode.</li>
-<li>如果是 Mac 系统,那么请安装 xcode 命令行工具,如果是 Linux 系统,请安装clang 编译器.</li>
-<li>安装 cpptools 和 C++clang 插件.其中, cpptools 可以提供代码检错等功能,而 IntelliSense 功能,是通过 C++clang 插件实现的.</li>
-<li>按<code>command+,</code>,打开用户配置文件<code>setting.json</code>, 将以下代码拷贝进去.</li>
-</ol>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   	<span class="attr">"clang.executable"</span>: <span class="string">"/usr/bin/clang++"</span>,</div><div class="line">   	<span class="attr">"clang.completion.enable"</span>: <span class="literal">true</span>,</div><div class="line">   	<span class="attr">"clang.completion.triggerChars"</span>: [</div><div class="line">   	<span class="string">"."</span>,</div><div class="line">   	<span class="string">":"</span>,</div><div class="line">   	<span class="string">"&gt;"</span>],</div><div class="line"> 		<span class="attr">"clang.cxxflags"</span>: [<span class="string">"-std=c++11"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>要注意到配置文件是 json 格式,所以,如果之前已经有其它的设置,请按照 json 文件的语法格式将大括号里面的内容拷贝进去.</p>
-<ol>
-<li>重启应用程序,即可享受 vscode 带来的智能提示功能了.效果图如下.<br><img src="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg" alt=""></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">M$</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BOJ</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://antarx.com/2017/02/18/vscode/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/03/07/87-cpp/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          BOJ 解题报告(1)-87-日期
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/08/07/Azure/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用国际版Azure搭建梯子教程</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vscode" data-title="vscode配置 c++ 开发环境(一):智能提示" data-url="http://antarx.com/2017/02/18/vscode/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"27472befa2905b8591e16168a47c3b8b"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -325,9 +213,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",

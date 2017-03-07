@@ -6,20 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://antarx.com">
-  <title>vscode配置 c++ 开发环境(一):智能提示 | Gawainx&#39;Blog</title>
+  <title>BOJ 解题报告(1)-87-日期 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
+  <meta name="description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
+计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。
+题目链接
+思路这是个典型的涉及闰年的日期问题, 要求解某一年是第几天.思路很直接,从月份入手,先计算前$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vscode配置 c++ 开发环境(一):智能提示">
-<meta property="og:url" content="http://antarx.com/2017/02/18/vscode/index.html">
+<meta property="og:title" content="BOJ 解题报告(1)-87-日期">
+<meta property="og:url" content="http://antarx.com/2017/03/07/87-cpp/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
-<meta property="og:description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
-<meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg">
-<meta property="og:updated_time" content="2017-02-18T11:16:11.000Z">
+<meta property="og:description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
+计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。
+题目链接
+思路这是个典型的涉及闰年的日期问题, 要求解某一年是第几天.思路很直接,从月份入手,先计算前$">
+<meta property="og:updated_time" content="2017-03-07T12:22:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vscode配置 c++ 开发环境(一):智能提示">
-<meta name="twitter:description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
-<meta name="twitter:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg">
+<meta name="twitter:title" content="BOJ 解题报告(1)-87-日期">
+<meta name="twitter:description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
+计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。
+题目链接
+思路这是个典型的涉及闰年的日期问题, 要求解某一年是第几天.思路很直接,从月份入手,先计算前$">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -143,38 +150,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vscode" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-87-cpp" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vscode配置 c++ 开发环境(一):智能提示
+      BOJ 解题报告(1)-87-日期
     </h1>
   
 
         
-        <a href="/2017/02/18/vscode/" class="archive-article-date">
-  	<time datetime="2017-02-18T10:48:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-18</time>
+        <a href="/2017/03/07/87-cpp/" class="archive-article-date">
+  	<time datetime="2017-03-07T11:58:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#前言<br><a href="https://code.visualstudio.com" target="_blank" rel="external">vscode</a>是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.<br><a id="more"></a></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><ol>
-<li>首先, 下载对应系统的 VScode.</li>
-<li>如果是 Mac 系统,那么请安装 xcode 命令行工具,如果是 Linux 系统,请安装clang 编译器.</li>
-<li>安装 cpptools 和 C++clang 插件.其中, cpptools 可以提供代码检错等功能,而 IntelliSense 功能,是通过 C++clang 插件实现的.</li>
-<li>按<code>command+,</code>,打开用户配置文件<code>setting.json</code>, 将以下代码拷贝进去.</li>
-</ol>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   	<span class="attr">"clang.executable"</span>: <span class="string">"/usr/bin/clang++"</span>,</div><div class="line">   	<span class="attr">"clang.completion.enable"</span>: <span class="literal">true</span>,</div><div class="line">   	<span class="attr">"clang.completion.triggerChars"</span>: [</div><div class="line">   	<span class="string">"."</span>,</div><div class="line">   	<span class="string">":"</span>,</div><div class="line">   	<span class="string">"&gt;"</span>],</div><div class="line"> 		<span class="attr">"clang.cxxflags"</span>: [<span class="string">"-std=c++11"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>要注意到配置文件是 json 格式,所以,如果之前已经有其它的设置,请按照 json 文件的语法格式将大括号里面的内容拷贝进去.</p>
-<ol>
-<li>重启应用程序,即可享受 vscode 带来的智能提示功能了.效果图如下.<br><img src="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg" alt=""></li>
-</ol>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。</p>
+<p>计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。</p>
+<p><a href="http://code.bupt.edu.cn/problem/p/87/" target="_blank" rel="external">题目链接</a></p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这是个典型的涉及闰年的日期问题, 要求解某一年是第几天.思路很直接,从月份入手,先计算前$ Y-1$个月一共有多少天,然后在加上这个月中这一天之前有多少天,就可以得到结果.</p>
+<h1 id="输入输出处理"><a href="#输入输出处理" class="headerlink" title="输入输出处理"></a>输入输出处理</h1><p>在所有 OJ 中,输入输出都是绕不过的坎,很多时候会因为输出处理不好而导致莫名其妙的 WA, 又有很多时候可以从输入格式中获得解题的灵感.</p>
+<p>回到本题,输入格式为<code>X:Y:Z</code>的形式, X,Y,Z 都是整数, 以冒号隔开.这不由得让我们想到了可以利用 scanf 的格式字段做”手脚”, 直接将 X, Y, Z 读入到整形变量当中进行后续的处理.所以有了以下代码来处理日期的输入.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> X,Y,Z;</div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;X,&amp;Y,&amp;Z);</div></pre></td></tr></table></figure>
+<p>输出方面,只需要输出天数,是一个整形变量,没有什么特别的技巧.</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>这部分描述题目中的”边沿”情况, 如果忽略这些情况,就会导致 WA</p>
+<h3 id="闰年的处理"><a href="#闰年的处理" class="headerlink" title="闰年的处理"></a>闰年的处理</h3><p>题目中也给出了提示.在代码中可以利用宏来判断闰年.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ISYEAP(x) ((x%100!=0)&amp;&amp;(x%4==0))||(x%400==0)?1:0</span></div></pre></td></tr></table></figure>
+<p>使用宏的时候一定要注意, 编译器在编译的时候会将宏展开之后插到每一个调用宏的地方,为了避免由于运算符优先级问题带来奇奇怪怪的 bug, 建议前后用括号括起来,像这样<code>( ISYEA(X))</code></p>
+<h3 id="一月份"><a href="#一月份" class="headerlink" title="一月份"></a>一月份</h3><p>1月份的时候,天数即为当日的日期,直接输出 Z 字段即可.</p>
+<h3 id="二月份"><a href="#二月份" class="headerlink" title="二月份"></a>二月份</h3><p>这也是个容易踩坑的地方,大家都知道闰年要算2月29天,但有时太匆忙的时候,会糊里糊涂把闰年1月2月的日期也会莫名其妙的加上了”1天”,导致 WA. 因此要单独处理.也可以通过构造合理的<code>if</code> 语句和一月份的情况一起处理.</p>
+<h3 id="对每个月的日子进行预处理"><a href="#对每个月的日子进行预处理" class="headerlink" title="对每个月的日子进行预处理"></a>对每个月的日子进行预处理</h3><p>在程序开始之前可以定义一个数组储存每个月的天数, 计算日子时直接根据下标找到天数相加即可,可以减少代码量和运行时间.</p>
+<p>预处理的时候要注意, c 语言的数组下标从0开始, 而月份是从1月开始,所以可以构造一个13个元素的数组并且让第一个元素值为0避免不必要的麻烦.</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ISYEAP(x) ((x%100!=0)&amp;&amp;(x%4==0))||(x%400==0)?1:0</span></div><div class="line"><span class="keyword">int</span> daysOfMonth[<span class="number">13</span>] = &#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)&#123;</div><div class="line">        <span class="keyword">int</span> yy,mm,dd;</div><div class="line">        <span class="keyword">int</span> days=<span class="number">0</span>;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;yy,&amp;mm,&amp;dd);</div><div class="line">        <span class="keyword">if</span>(mm==<span class="number">1</span>)&#123;</div><div class="line">            days = dd;<span class="comment">//special situation</span></div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;mm;i++)&#123;</div><div class="line">                days+=daysOfMonth[i];</div><div class="line">            &#125;</div><div class="line">            days+=dd;</div><div class="line">            <span class="keyword">if</span>(ISYEAP(yy))&#123;</div><div class="line">                <span class="keyword">if</span>(mm&gt;<span class="number">2</span>)&#123;</div><div class="line">                    days++;</div><div class="line">                &#125;                  </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,days);</div><div class="line">        &#125;            </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -188,7 +200,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">M$</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BOJ</a>
         		</li>
       		
 		</ul>
@@ -244,7 +256,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://antarx.com/2017/02/18/vscode/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://antarx.com/2017/03/07/87-cpp/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -258,18 +270,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/07/87-cpp/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/07/89/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          BOJ 解题报告(1)-87-日期
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2016/08/07/Azure/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用国际版Azure搭建梯子教程</div>
+    <a href="/2017/02/18/vscode/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vscode配置 c++ 开发环境(一):智能提示</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -283,7 +295,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vscode" data-title="vscode配置 c++ 开发环境(一):智能提示" data-url="http://antarx.com/2017/02/18/vscode/"></div>
+	<div class="ds-thread" data-thread-key="87-cpp" data-title="BOJ 解题报告(1)-87-日期" data-url="http://antarx.com/2017/03/07/87-cpp/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
