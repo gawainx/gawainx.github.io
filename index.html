@@ -152,6 +152,70 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mongodbj" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/20/mongodbj/">Java Mongodb 使用指南（一）增删查过</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/20/mongodbj/" class="archive-article-date">
+  	<time datetime="2017-07-20T08:22:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。</p>
+        
+          <a class="article-more-a" href="/2017/07/20/mongodbj/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/20/mongodbj/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-uc2017" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -746,80 +810,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-cygpy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/cygpy/">Cygwin安装独立的pip环境</a>
-    </h1>
-  
-
-        
-        <a href="/2015/12/25/cygpy/" class="archive-article-date">
-  	<time datetime="2015-12-25T10:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过<code>pip install virtualenv</code>命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。</p>
-<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><ol>
-<li>首先，安装Cygwin并在软件包选择页面选择安装Python软件包。</li>
-<li>前往<a href="https://pip.pypa.io/en/latest/installing.html" target="_blank" rel="external">Get Pip</a>下载get-pip.py文件到cygwin的home目录.</li>
-<li>在Cygwin命令行环境下进行pip的安装。执行<code>python get-pip.py</code>命令即可。</li>
-<li>安装完毕之后，关闭Cygwin交互环境再打开，就可以进行虚拟环境的安装了。<h1 id="pip安装成功的标志"><a href="#pip安装成功的标志" class="headerlink" title="pip安装成功的标志"></a>pip安装成功的标志</h1><strong>注意</strong>: 直接输入pip命令没有提示<code>command not found</code>并不能说明pip被成功安装在cygwin的python运行环境下。如果Windows下也存在Python和pip的话，在Cygwin命令行输入pip会直接调用Windows平台下的<code>pip</code>命令。</li>
-</ol>
-<p>可行的判断方法如下：（以下命令均在Cygwin交互环境下输入）</p>
-<ol>
-<li>命令行输入<code>which pip</code>返回的结果为’/usr/bin/pip’</li>
-<li>命令行输入<code>pip -V</code>返回的结果为<code>pip 1.5.6 from /usr/lib/python2.7/site-packages (python 2.7)</code></li>
-</ol>
-<p>至此，Cygwin下独立的pip环境已经配置完毕，之后就可以安装Linux下配置Flask，Pyramid或者Django环境的办法愉快的玩耍了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/25/cygpy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -927,14 +917,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cpp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Life</a>
               </li>
              
@@ -967,11 +949,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Win10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Win10</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -988,6 +974,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cpp</a>
               </li>
             
             <div class="clearfix"></div>
