@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Gawainx'Blog">
 <meta property="og:description" content="本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。">
 <meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg">
-<meta property="og:updated_time" content="2017-11-27T13:17:52.310Z">
+<meta property="og:updated_time" content="2017-11-27T13:46:50.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词">
 <meta name="twitter:description" content="本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。">
@@ -219,11 +219,12 @@ ga('send', 'pageview');
 </blockquote>
 <p>除了第一个词之外都是重叠的，生成的子图也是一样的，无需重复的递归进行处理。</p>
 <p>基于这种分析，在考虑生成 DAG 函数的关键参数：<code>firstWord</code>和 <code>subsentence</code>，将这两个参数构成一个元组（tuple），用一个集合记录下已经进行了“子图生成”的元组，每次要执行递归前，首先判断关键参数组合是否在集合中，如果在集合中则直接跳过，否则再执行递归过程，执行完毕后将关键参数组合添加到集合中。</p>
-<h1 id="最优左近邻词（bLAW）"><a href="#最优左近邻词（bLAW）" class="headerlink" title="最优左近邻词（bLAW）"></a>最优左近邻词（bLAW）</h1><p>考虑词序列$w_1,w_2,w<em>3,…,w</em>{i-1},w_i,…,w_n$</p>
+<h1 id="最优左近邻词（bLAW）"><a href="#最优左近邻词（bLAW）" class="headerlink" title="最优左近邻词（bLAW）"></a>最优左近邻词（bLAW）</h1><p>考虑词序列</p>
+<p>$$w_1,w_2,w<em>3,…,w</em>{i-1},w_i,…,w_n$$</p>
 <p>$w_{i-1}$即为$w_i$的左近邻词。</p>
 <p>用输入句子生成 DAG 之后，对结束词集合中的每一个词，从后往前回溯，寻找每一个词的最优左近邻词，直到“S”结束，得到潜在的切分序列。如果切分序列不止一个的时候，则计算每个切分句子的概率，取概率较大者作为切分结果序列。</p>
 <h3 id="如何寻找最优左近邻词？"><a href="#如何寻找最优左近邻词？" class="headerlink" title="如何寻找最优左近邻词？"></a>如何寻找最优左近邻词？</h3><p>考虑累计概率计算公式：</p>
-<p>$P_a(w_i)=P<em>a (w</em>{i-1})*P(w<em>i/w</em>{i-1})$</p>
+<p>$$P_a(w_i)=P<em>a (w</em>{i-1})*P(w<em>i/w</em>{i-1})$$</p>
 <p>对每一个左近邻词（在 DAG 中表示为一个结点的所有前向相邻结点），计算累积概率，取概率较大者作为最优左近邻词。</p>
 <h1 id="潜在问题"><a href="#潜在问题" class="headerlink" title="潜在问题"></a>潜在问题</h1><p>以下潜在问题的讨论仅限于本文讨论的 DAG 和寻找左近邻词的算法，并不一定 LAW 这个概念本身可能存在的问题。</p>
 <ol>
