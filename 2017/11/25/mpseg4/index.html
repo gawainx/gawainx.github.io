@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://antarx.com">
-  <title>FMM 与 BMM 在分词中的应用 | Gawainx&#39;Blog</title>
+  <title>最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。
-FMMBMM未登录词的处理方法选取最优结果">
+  <meta name="description" content="本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FMM 与 BMM 在分词中的应用">
+<meta property="og:title" content="最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用">
 <meta property="og:url" content="http://antarx.com/2017/11/25/mpseg4/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
-<meta property="og:description" content="本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。
-FMMBMM未登录词的处理方法选取最优结果">
-<meta property="og:updated_time" content="2017-11-25T10:13:06.767Z">
+<meta property="og:description" content="本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。">
+<meta property="og:updated_time" content="2017-11-27T13:40:09.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FMM 与 BMM 在分词中的应用">
-<meta name="twitter:description" content="本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。
-FMMBMM未登录词的处理方法选取最优结果">
+<meta name="twitter:title" content="最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用">
+<meta name="twitter:description" content="本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -170,7 +167,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      FMM 与 BMM 在分词中的应用
+      最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用
     </h1>
   
 
@@ -183,8 +180,18 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。</p>
-<h1 id="FMM"><a href="#FMM" class="headerlink" title="FMM"></a>FMM</h1><h1 id="BMM"><a href="#BMM" class="headerlink" title="BMM"></a>BMM</h1><h1 id="未登录词的处理方法"><a href="#未登录词的处理方法" class="headerlink" title="未登录词的处理方法"></a>未登录词的处理方法</h1><h1 id="选取最优结果"><a href="#选取最优结果" class="headerlink" title="选取最优结果"></a>选取最优结果</h1>
+        <p>本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。<br><a id="more"></a></p>
+<h1 id="FMM"><a href="#FMM" class="headerlink" title="FMM"></a>FMM</h1><p>FMM，可以理解成前向（Forward）最长词，就是对一个句子，每次切分找词的时候，都是从前往后“切出”最长的词和剩下的子句，例如：</p>
+<p>“<strong>有意见分歧</strong>”这句话，用 FMM 进行切分找第一个词的时候就会切分成：</p>
+<p><strong>有意/见分歧</strong></p>
+<p>只利用 FMM 进行分词时，对每次切分后的子句都反复寻找最长前缀词，直到子句为空。注意到，FMM 得到的切分序列是唯一的。</p>
+<h1 id="BMM"><a href="#BMM" class="headerlink" title="BMM"></a>BMM</h1><p>BMM，可以理解成后向（Backward）最长词，就是对一个句子进行切分的时候，都是从后往前“切出”最长词和剩下的子句，例如</p>
+<p>“有意见分歧”这句话，用 BMM 切分的时候会分成：</p>
+<p><strong>有意见/分歧</strong></p>
+<p>其中，“分歧”是寻找到的“第一个词”，“有意见”是待切分的子句。</p>
+<p>用 BMM 分词的时候，对每次切分后的子句都反复寻找最长后缀词，直到句子为空。</p>
+<h1 id="FMM-与-BMM-组合分词"><a href="#FMM-与-BMM-组合分词" class="headerlink" title="FMM 与 BMM 组合分词"></a>FMM 与 BMM 组合分词</h1><p>只用 FMM 或 BMM 进行分词的话，由于算法本身“贪心”的属性，往往得不到最理想的切分结果。所以在进行汉语切分的时候，可以将两个算法结合使用，用于发现歧义（因为对于没有歧义的句子，FMM 和 BMM 得到的切分结果一定是一致的），也可以将两个算法得到的序列计算整句话的概率（利用 BiGram 模型），选取概率较大者作为最终的切分结果。</p>
+
       
 
       
@@ -218,6 +225,17 @@ ga('send', 'pageview');
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
