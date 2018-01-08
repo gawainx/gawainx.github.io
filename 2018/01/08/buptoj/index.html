@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://antarx.com">
-  <title>.NET学习笔记（一） | Gawainx&#39;Blog</title>
+  <title>网研机试101 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阅读.NET基础拾遗系列文章读书笔记">
+  <meta name="description" content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。
+实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。
+简单介绍首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judg">
 <meta property="og:type" content="article">
-<meta property="og:title" content=".NET学习笔记（一）">
-<meta property="og:url" content="http://antarx.com/2015/10/21/NET学习笔记（一）/index.html">
+<meta property="og:title" content="网研机试101">
+<meta property="og:url" content="http://antarx.com/2018/01/08/buptoj/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
-<meta property="og:description" content="阅读.NET基础拾遗系列文章读书笔记">
-<meta property="og:updated_time" content="2015-10-21T08:53:14.000Z">
+<meta property="og:description" content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。
+实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。
+简单介绍首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judg">
+<meta property="og:updated_time" content="2018-01-08T11:25:41.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".NET学习笔记（一）">
-<meta name="twitter:description" content="阅读.NET基础拾遗系列文章读书笔记">
+<meta name="twitter:title" content="网研机试101">
+<meta name="twitter:description" content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。
+实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。
+简单介绍首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judg">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -160,43 +166,57 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-NET学习笔记（一）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-buptoj" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      .NET学习笔记（一）
+      网研机试101
     </h1>
   
 
         
-        <a href="/2015/10/21/NET学习笔记（一）/" class="archive-article-date">
-  	<time datetime="2015-10-21T08:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-21</time>
+        <a href="/2018/01/08/buptoj/" class="archive-article-date">
+  	<time datetime="2018-01-08T10:13:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>基础类型相关<br>  .NET中所有内建类型都继承自System.Object,若同时继承自System.ValueType类则为值类型，否则为引用类型。</p>
-<p>  值类型和引用类型的区别如下：</p>
-<ol>
-<li><em>赋值时</em>，值类型变量会直接获得真实数据的一个副本，而引用类型只会将对象的引用赋值给变量，会造成多个对象指向同一个内存区块（对象实例）的情况。</li>
-<li><em>内存分配时</em>，引用类型对象会在堆上分配内存，而值类型变量会在堆栈上分配内存，运行效率比堆高很多。</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>装箱拆箱的概念<br>  装箱，指的是CLR需要做额外工作把堆栈上的值类型移动到堆上。<br>  拆箱，指的是把堆中的对象复制到堆栈中，返回其值。<br>  应该注意的是，装箱和拆箱行为，都对应了堆栈上的一系列操作，会造成较大的性能代价。因此减少程装箱拆箱操作，是程序性能优化的一个重点。<br>  避免装箱拆箱操作的思路，在于从两方面避免发生装箱拆箱行为的场合：<ol>
-<li>值类型的格式化输出。</li>
-<li>System.Object类型的容器。对于这种情况，可以使用泛型技术来避免使用System.Object类型的容器。</li>
-</ol>
-</li>
-</ul>
-<p>原文链接<a href="http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=222183396&amp;idx=1&amp;sn=c57968ca0f153ddf7940c841f46b9ab5&amp;scene=23&amp;srcid=1021B6INnSSOjObgVfcahXwA#rd" target="_blank" rel="external">.NET基础拾遗(1)类型语法基础和内存管理基础</a></p>
+        <p>2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。</p>
+<p>实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。</p>
+<h1 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h1><p>首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judge）形式，也就是在线提交，在线判题返回程序在测试结果集的运行结果。AC（accept）代表正确解题，WA（Wrong Answer）表示错误答案，另外还有超时、超出内存空间等等结果。所有考试前准备的目的，就是为了更多的 AC，或者保底情况，避免 A0。</p>
+<h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1><h2 id="该用什么语言"><a href="#该用什么语言" class="headerlink" title="该用什么语言"></a>该用什么语言</h2><p>北邮 OJ 平台可以用的编程语言有三种，C（gcc4.8），C++（g++ 4.8）和 Java（注意：没有 Python，没有 JavaScript）。另外，C++是<strong>不支持 c++11的</strong>，Java 只支持到 Java6。</p>
+<p>在这个天煞的背景下，考虑到程序时间限制（1ms）和开发速度（避免无谓的造轮子），用 C + STL 是最理想的选择。</p>
+<p>展开来说，就是用 C 的那一套输入输出（scanf 和 printf），C 与 C++通用的循环控制、选择结构、数组等，在加上 C++独特的“宝具”——STL 标准库，来进行解题。提交的时候编译器选 g++即可。</p>
+<p>STL 标准库内容非常多，只需要了解 Map，stack，list，queue就够了。</p>
+<h2 id="IDE？不存在的"><a href="#IDE？不存在的" class="headerlink" title="IDE？不存在的"></a>IDE？不存在的</h2><p>两个小时做四道题对大脑转数的要求还是挺高的，更何况在那种紧张的气氛和不熟悉的开发环境之下。要保证解题能够快狠准，就需要从现在开始培养一定的针对考试的编程习惯，包括 编辑器和编译器、调试器的使用等等。</p>
+<p>首先，抛弃手上所有的 IDE，包括但不限于 Visual Studio和 Clion，DevC++，或者只在疑难杂症的时候拿它们当单步调试的工具（但也不能依赖）。考试环境只提供了（没有智能提示的）devcpp，（长得贼丑的）CFree两种最“原始”的开发工具，也就拿来当代码高亮，保证括号补全没有基本的语法问题差不多了，很多现代 IDE、开发工具可以做的事它们一概做不了。</p>
+<p>要适应这种艰苦恶劣的考试环境，就得从准备机试的时候开始，把开发工具换成 VScode and g++。VScode 是微软提供的跨平台编辑器，有着漂亮的界面和基本的语法高亮功能，在配置各种插件之前基本可以拿来模拟考场的开发环境，用来编辑代码，而且还能保证练习的时候是比较舒服的。</p>
+<p>编译过程全部转到命令行用 g++完成。</p>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>两个最基本额调试手段：打印大法和单步调试大法。个人推荐第一种。单步调试大法需要掌握 gdb这个 g++配套的调试工具，相对来说比较费时间（无论上手还是在考场上使用），而且比较容易出一些奇奇怪怪的问题。想成为 AK 达人的话，倒是必须掌握的。</p>
+<p>打印大法就是在关键步骤将关键变量输出的方法，简单易行，只要注意提交之前注释掉代码就OK。</p>
+<h2 id="参考教材"><a href="#参考教材" class="headerlink" title="参考教材"></a>参考教材</h2><p>注意到，机试是可以带任何纸质打印资料的，一本简介明了的语言参考指南显得非常重要。</p>
+<p>抛弃所有国内教科书，包括但不限于谭浩强，除非你想拿成绩开玩笑在考试的时候验证一下<code>int a++++</code>会不会报错。</p>
+<p>在这里，只推荐<a href="https://item.jd.com/10057446.html" target="_blank" rel="external">K&amp;R The C Programming Language</a>小薄本。将 ANSI C 的所有内容都讲得很透彻而简洁，里面的习题也可以作为入门练手。</p>
+<h1 id="能力层级"><a href="#能力层级" class="headerlink" title="能力层级"></a>能力层级</h1><p>这一部分提供平时训练刷题的参考方向。列举我在去年准备的时候看过的一些题型，具体知识和代码在<a href="https://item.jd.com/11399054.html" target="_blank" rel="external">王道机试指南</a>和<a href="https://item.jd.com/11469701.html" target="_blank" rel="external">算法竞赛入门经典</a>介绍的比较详尽。</p>
+<h2 id="基本输入输出"><a href="#基本输入输出" class="headerlink" title="基本输入输出"></a>基本输入输出</h2><p>OJ 的输入输出风格可是能玩死不少人的，怎么保证循环接收输入，接收特定符号能退出，每一轮输入怎么界定，怎么输出小数点后三位浮点数，输出的时候删掉无谓信息（比如句子最后的致命空格），等等等等，都是值得关注的内容，也是首先要练习的。所幸 scanf 和 printf 函数在 KR 里面已经介绍得非常详尽，对照着看和练习就行。</p>
+<h2 id="数字和数组处理"><a href="#数字和数组处理" class="headerlink" title="数字和数组处理"></a>数字和数组处理</h2><p>数字部分有点像小学数学的找规律填数，也会夹带私货弄些奇形怪状的浮点数处理，数组处理方面典型例子就是找最大最小数，找次小数，奇偶数分离这些。一般都在签到题出现。</p>
+<h2 id="日期问题"><a href="#日期问题" class="headerlink" title="日期问题"></a>日期问题</h2><p>闰年问题，星期几问题等等。</p>
+<h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><p>翻转字符串，回文字符串判断，甚至字符串匹配、简易正则表达式识别、字符串搜索都是有可能出现的，活用 std::string 和 char 数组的下标嗯。</p>
+<h2 id="模板题"><a href="#模板题" class="headerlink" title="模板题"></a>模板题</h2><p>图论的 D 算法 F 算法，深度优先搜索，矩阵乘法等等。这种基本都是最终 boss 级别，因为很多 ACM 资料都会有典型的算法题目，代码可以直接套用，改改关键变量就可以，所以称为模板题。</p>
+<h2 id="特别提名：模拟题"><a href="#特别提名：模拟题" class="headerlink" title="特别提名：模拟题"></a>特别提名：模拟题</h2><p>模拟题，可不是模拟卷子，而是一类型模拟计算机内部操作比如进程调度，死锁识别等的题目，印象最深刻就是去年最后一题算进程完成时间的。</p>
+<h1 id="思维方法"><a href="#思维方法" class="headerlink" title="思维方法"></a>思维方法</h1><p>这里介绍一些玄学的东西，也是机试对以后的开发生涯最有帮助的东西</p>
+<h3 id="边界值控制和处理"><a href="#边界值控制和处理" class="headerlink" title="边界值控制和处理"></a>边界值控制和处理</h3><p>刚开始接触 OJ 的时候很容易会遇到本地编译没问题，提供的测试数据也能获得预期结果可是提交之后就是 WA 这种百思不得其解的问题，根源便在于边界值考虑不周全，比如整数0，范围的边界，字符串中的空串等等，解决之道便是通过大量的练习，对每个算法题首先花上几秒考虑可能的边界情况和特殊情况，久而久之形成严密的思维。</p>
+<h3 id="时间性能"><a href="#时间性能" class="headerlink" title="时间性能"></a>时间性能</h3><p>1ms 的时间限制，看起来非常的充分，那只是还没遇到大规模输入。在那种几万甚至十万级别的数据（OJ 上真的会有），就算是$O(n^3)$的算法，翻车也是随时随地的。</p>
+<p>应对这个问题，得对计算机内部执行过程有最基本的认识，更好一点的得对算法的时间复杂度有认识，优化起来才不会像无头苍蝇一样。</p>
+<p>还是祭出<a href="https://item.jd.com/12006637.html" target="_blank" rel="external">CSAPP</a>，里面对程序优化的介绍比较详细，充分利用 Cache 可以编写更高效程序。</p>
+<h4 id="奇技淫巧"><a href="#奇技淫巧" class="headerlink" title="奇技淫巧"></a>奇技淫巧</h4><p>这里特别提名位运算，关键时刻可以省下大量的时间。</p>
+<p>安利<a href="https://item.jd.com/1092950325.html" target="_blank" rel="external">Hackers’ Delight</a></p>
+<h2 id="基本的算法设计思想"><a href="#基本的算法设计思想" class="headerlink" title="基本的算法设计思想"></a>基本的算法设计思想</h2><p>递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。</p>
 
       
 
@@ -236,32 +256,13 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.NET</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BOJ</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/NET//" class="article-tag-list-link color5">.NET</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -311,7 +312,7 @@ ga('send', 'pageview');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://antarx.com/2015/10/21/NET学习笔记（一）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://antarx.com/2018/01/08/buptoj/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,18 +326,9 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/2015/11/16/四种基本的算法设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          四种基本的算法设计模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/09/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/12/06/dockertf/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TensorFlow For Docker 初体验</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://antarx.com">
-  <title>.NET学习笔记（一） | Gawainx&#39;Blog</title>
+  <title>Archives: 2018 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阅读.NET基础拾遗系列文章读书笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content=".NET学习笔记（一）">
-<meta property="og:url" content="http://antarx.com/2015/10/21/NET学习笔记（一）/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Gawainx'Blog">
+<meta property="og:url" content="http://antarx.com/archives/2018/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
-<meta property="og:description" content="阅读.NET基础拾遗系列文章读书笔记">
-<meta property="og:updated_time" content="2015-10-21T08:53:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".NET学习笔记（一）">
-<meta name="twitter:description" content="阅读.NET基础拾遗系列文章读书笔记">
+<meta name="twitter:title" content="Gawainx'Blog">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -160,216 +156,60 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-NET学习笔记（一）" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      .NET学习笔记（一）
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/01/08/buptoj/" class="archive-article-date">
+  	<time datetime="2018-01-08T10:13:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/01/08/buptoj/">网研机试101</a>
     </h1>
   
 
-        
-        <a href="/2015/10/21/NET学习笔记（一）/" class="archive-article-date">
-  	<time datetime="2015-10-21T08:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>基础类型相关<br>  .NET中所有内建类型都继承自System.Object,若同时继承自System.ValueType类则为值类型，否则为引用类型。</p>
-<p>  值类型和引用类型的区别如下：</p>
-<ol>
-<li><em>赋值时</em>，值类型变量会直接获得真实数据的一个副本，而引用类型只会将对象的引用赋值给变量，会造成多个对象指向同一个内存区块（对象实例）的情况。</li>
-<li><em>内存分配时</em>，引用类型对象会在堆上分配内存，而值类型变量会在堆栈上分配内存，运行效率比堆高很多。</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>装箱拆箱的概念<br>  装箱，指的是CLR需要做额外工作把堆栈上的值类型移动到堆上。<br>  拆箱，指的是把堆中的对象复制到堆栈中，返回其值。<br>  应该注意的是，装箱和拆箱行为，都对应了堆栈上的一系列操作，会造成较大的性能代价。因此减少程装箱拆箱操作，是程序性能优化的一个重点。<br>  避免装箱拆箱操作的思路，在于从两方面避免发生装箱拆箱行为的场合：<ol>
-<li>值类型的格式化输出。</li>
-<li>System.Object类型的容器。对于这种情况，可以使用泛型技术来避免使用System.Object类型的容器。</li>
-</ol>
-</li>
-</ul>
-<p>原文链接<a href="http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=222183396&amp;idx=1&amp;sn=c57968ca0f153ddf7940c841f46b9ab5&amp;scene=23&amp;srcid=1021B6INnSSOjObgVfcahXwA#rd" target="_blank" rel="external">.NET基础拾遗(1)类型语法基础和内存管理基础</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://7xpabg.com1.z0.glb.clouddn.com/20171025154641_H9X6yV_mm_facetoface_collect_qrcode_1508917484107.jpeg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.NET</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BOJ</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/NET//" class="article-tag-list-link color5">.NET</a>
-        		</li>
-      		
-		</ul>
-	</div>
+          
 
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://antarx.com/2015/10/21/NET学习笔记（一）/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2015/11/16/四种基本的算法设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          四种基本的算法设计模式
-        
-      </div>
-    </a>
   
   
-    <a href="/2015/09/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -392,8 +232,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
