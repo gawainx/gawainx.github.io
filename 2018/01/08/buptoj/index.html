@@ -9,21 +9,18 @@
   <title>网研机试101 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。
-实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。
-简单介绍首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judg">
+实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网研机试101">
 <meta property="og:url" content="http://antarx.com/2018/01/08/buptoj/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
 <meta property="og:description" content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。
-实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。
-简单介绍首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judg">
-<meta property="og:updated_time" content="2018-01-08T11:25:41.720Z">
+实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。">
+<meta property="og:updated_time" content="2018-01-08T11:42:20.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网研机试101">
 <meta name="twitter:description" content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。
-实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。
-简单介绍首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judg">
+实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -187,7 +184,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。</p>
-<p>实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。</p>
+<p>实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。<br><a id="more"></a></p>
 <h1 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h1><p>首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judge）形式，也就是在线提交，在线判题返回程序在测试结果集的运行结果。AC（accept）代表正确解题，WA（Wrong Answer）表示错误答案，另外还有超时、超出内存空间等等结果。所有考试前准备的目的，就是为了更多的 AC，或者保底情况，避免 A0。</p>
 <h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1><h2 id="该用什么语言"><a href="#该用什么语言" class="headerlink" title="该用什么语言"></a>该用什么语言</h2><p>北邮 OJ 平台可以用的编程语言有三种，C（gcc4.8），C++（g++ 4.8）和 Java（注意：没有 Python，没有 JavaScript）。另外，C++是<strong>不支持 c++11的</strong>，Java 只支持到 Java6。</p>
 <p>在这个天煞的背景下，考虑到程序时间限制（1ms）和开发速度（避免无谓的造轮子），用 C + STL 是最理想的选择。</p>
