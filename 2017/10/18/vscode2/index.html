@@ -183,7 +183,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次在<a href="http://antarx.com/2017/02/18/vscode/">vscode配置 c++ 开发环境(一):智能提示</a>文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode 用的也越来越得心应手，今天终于有机会更新这个系列的第二篇文章，讲讲如何配置<code>includePath</code>来避免不愉快的波浪线和怎么用 vscode 对 cpp 程序进行调试。<br><a id="more"></a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次在<a href="http://antarx.com/2017/02/18/vscode/" target="_blank" rel="external">vscode配置 c++ 开发环境(一):智能提示</a>文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode 用的也越来越得心应手，今天终于有机会更新这个系列的第二篇文章，讲讲如何配置<code>includePath</code>来避免不愉快的波浪线和怎么用 vscode 对 cpp 程序进行调试。<br><a id="more"></a></p>
 <h1 id="头文件目录配置"><a href="#头文件目录配置" class="headerlink" title="头文件目录配置"></a>头文件目录配置</h1><p>在默认情况下，就算是已经将 cpp 开发相关的插件装好，用 VScode 打开一个 cpp 文件的时候，通常还会看到令人不悦的波浪线，就像下面这样：<br><img src="http://7xpabg.com1.z0.glb.clouddn.com/20171018165327_gOFgYN_Screenshot.jpeg" alt="软件找不到头文件时会有波浪线提示"></p>
 <p>刚开始的时候我也非常的头疼这个问题，后来在<a href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="external">vscode 官方博客</a>的文章中找到了解决方案。</p>
 <p>首先，在使用习惯上，要用 vscode 打开源代码所在的文件夹而不是打开单个文件，比如所，我有个<code>Josephus.cpp</code>源文件在<code>cppcode</code>文件夹下，那么就要在终端上输入<code>code cppcode</code> 用 vscode 打开这个文件夹，再对那个源代码文件进行编辑和处理，而避免直接<code>code Josephus.cpp</code>打开单个文件。（下面的相关配置都是基于这个使用习惯的基础之上的）</p>
@@ -483,6 +483,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Azure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">macOS</a>
               </li>
              
@@ -495,10 +499,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BOJ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Life</a>
               </li>
              
@@ -507,15 +507,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Azure</a>
+                <a href="javascript:void(0)" class="js-tag color4">BOJ</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Communication</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Win10</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,10 +527,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
               </li>
              
@@ -543,11 +535,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">Win10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,7 +567,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,19 +579,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">M$</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">M$</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
