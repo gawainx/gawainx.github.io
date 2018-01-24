@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://140.143.193.168">
-  <title>Archives: 2017 | Gawainx&#39;Blog</title>
+  <title>Keras 手写数字识别 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Gawainx'Blog">
-<meta property="og:url" content="http://140.143.193.168/archives/2017/index.html">
+  <meta name="description" content="之前机器学习课程布置的大作业是用尽可能多的模型来探索经典的手写数字识别问题。这里分享一下Keras的基本使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keras 手写数字识别">
+<meta property="og:url" content="http://140.143.193.168/2018/01/23/aml/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
+<meta property="og:description" content="之前机器学习课程布置的大作业是用尽可能多的模型来探索经典的手写数字识别问题。这里分享一下Keras的基本使用">
+<meta property="og:updated_time" content="2018-01-24T01:38:01.430Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gawainx'Blog">
+<meta name="twitter:title" content="Keras 手写数字识别">
+<meta name="twitter:description" content="之前机器学习课程布置的大作业是用尽可能多的模型来探索经典的手写数字识别问题。这里分享一下Keras的基本使用">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -156,449 +160,195 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-aml" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Keras 手写数字识别
+    </h1>
+  
+
+        
+        <a href="/2018/01/23/aml/" class="archive-article-date">
+  	<time datetime="2018-01-23T10:42:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>之前机器学习课程布置的大作业是用尽可能多的模型来探索经典的手写数字识别问题。这里分享一下Keras的基本使用<br><a id="more"></a></p>
+<h1 id="Keras简介"><a href="#Keras简介" class="headerlink" title="Keras简介"></a>Keras简介</h1><p>Keras 是由纯 Python 写成的，调用 TensorFlow 或者 Theano（最新版本还支持 CNTK）进行运算的类库。相比于 TensorFlow，Keras 使用起来更加简洁方便，便于调参，非常适合初学者进行机器学习探索。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在安装好 anaconda 的前提下，输入<code>conda install keras</code>即可进行安装。</p>
+<p>注意到，安装过程会自动判断机器是否已经安装好了TensorFlow，如果没有的话会自动进行安装。所以，如果想安装 TensorFlow GPU 版本加速计算过程的话，要先手动安装好 TensorFlow 的 GPU 版本，然后再安装 Keras。</p>
+<h1 id="实现单层感知机"><a href="#实现单层感知机" class="headerlink" title="实现单层感知机"></a>实现单层感知机</h1><p>核心代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">batch_size = <span class="number">128</span></div><div class="line">classes = <span class="number">10</span></div><div class="line">epoch = <span class="number">10</span></div><div class="line">img_size = <span class="number">28</span> * <span class="number">28</span></div><div class="line"></div><div class="line">print(<span class="string">'Loading Data...'</span>)</div><div class="line">(X_train, y_train),(X_test,y_test) = mnist.load_data()</div><div class="line"></div><div class="line">X_train = X_train.reshape(y_train.shape[<span class="number">0</span>], img_size).astype(<span class="string">'float32'</span>) / <span class="number">255</span></div><div class="line">X_test = X_test.reshape(y_test.shape[<span class="number">0</span>], img_size).astype(<span class="string">'float32'</span>) / <span class="number">255</span></div><div class="line"></div><div class="line"><span class="comment">#encode labels</span></div><div class="line">Y_train = np_utils.to_categorical(y_train,classes)</div><div class="line">Y_test = np_utils.to_categorical(y_test,classes)</div><div class="line"></div><div class="line"></div><div class="line">model = Sequential([Dense(<span class="number">10</span>, input_shape=(img_size,), activation=<span class="string">'softmax'</span>),])</div><div class="line">model.compile(optimizer=<span class="string">'rmsprop'</span>, loss=<span class="string">'mean_absolute_error'</span>, metrics=[<span class="string">'accuracy'</span>])</div><div class="line"></div><div class="line">print(<span class="string">"Training..."</span>)</div><div class="line">model.fit(X_train, Y_train,batch_size=batch_size, epochs=epoch, verbose=<span class="number">1</span>, validation_data=(X_test,Y_test))</div><div class="line"></div><div class="line">score = model.evaluate(X_test,Y_test,verbose=<span class="number">0</span>)</div><div class="line"></div><div class="line">print(<span class="string">'accuracy: &#123;&#125;'</span>.format(score[<span class="number">1</span>]))</div></pre></td></tr></table></figure>
+<p>前面很大一部分都是进行数据加载和处理，与模型有关的代码只有三行</p>
+<p><code>model = Sequential([Dense(10, input_shape=(img_size,), activation=&#39;softmax&#39;),])</code>这一行是模型基本形态的定义，以图像的 size 作为输入，激活函数采用 softmax。</p>
+<p><code>model.compile(optimizer=&#39;rmsprop&#39;, loss=&#39;mean_absolute_error&#39;, metrics=[&#39;accuracy&#39;])</code>这一行则是对模型的微观参数进行客制化。<code>optimizer</code>指定的是优化策略，<code>rmsprop</code>是一种改进的随机梯度下降策略。<code>loss</code>指的是损失函数。<code>metrics</code>是评估方法，这里用准确率进行评估。</p>
+<p><code>model.fit(X_train, Y_train,batch_size=batch_size, epochs=epoch, verbose=1, validation_data=(X_test,Y_test))</code>这一句是训练过程，指定训练数据，训练轮次（迭代次数），是否输出训练过程，验证数据。</p>
+<h1 id="多层全连接网络"><a href="#多层全连接网络" class="headerlink" title="多层全连接网络"></a>多层全连接网络</h1><p>核心代码部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">model = Sequential([Dense(<span class="number">512</span>,input_shape=(img_size,)),</div><div class="line">                    Activation(<span class="string">'relu'</span>),</div><div class="line">                    Dropout(<span class="number">0.2</span>),</div><div class="line">                    Dense(<span class="number">512</span>, input_shape=(<span class="number">512</span>,)),</div><div class="line">                    Activation(<span class="string">'relu'</span>),</div><div class="line">                    Dropout(<span class="number">0.2</span>),</div><div class="line">                    Dense(<span class="number">10</span>,input_shape=(<span class="number">512</span>,),activation=<span class="string">'softmax'</span>)</div><div class="line">                    ])</div></pre></td></tr></table></figure>
+<p>每一个 Dense 都是一个神经元训练层。训练层输出接 ReLU 激活函数层。如此类推。最后一层接单层感知机获取结果。值得注意的是两个 Dropout 层，用于应付过拟合问题，经过 Dropout 层会随机丢弃数据集中一定比率的激活值，同时将剩余的神经元的输出进行放大。</p>
+<h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">model = Sequential()</div><div class="line">model.add(Conv2D(<span class="number">32</span>, kernel_size=(<span class="number">3</span>, <span class="number">3</span>),</div><div class="line">                 activation=<span class="string">'relu'</span>,</div><div class="line">                 input_shape=input_shape))</div><div class="line">model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">'relu'</span>))</div><div class="line">model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</div><div class="line">model.add(Dropout(<span class="number">0.25</span>))</div><div class="line">model.add(Flatten())</div><div class="line">model.add(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))</div><div class="line">model.add(Dropout(<span class="number">0.5</span>))</div><div class="line">model.add(Dense(num_classes, activation=<span class="string">'softmax'</span>))</div></pre></td></tr></table></figure>
+<p>卷积神经网络中主角变成了 Conv2D （卷积层）和 Pooling 层（池化）。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpabg.com1.z0.glb.clouddn.com/20171025154641_H9X6yV_mm_facetoface_collect_qrcode_1508917484107.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/06/dockertf/" class="archive-article-date">
-  	<time datetime="2017-12-06T13:30:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/06/dockertf/">TensorFlow For Docker 初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TensorFlow</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://140.143.193.168/2018/01/23/aml/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/27/mpseg0/" class="archive-article-date">
-  	<time datetime="2017-11-27T13:48:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/01/23/go-websocket/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          go-websocket
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/08/buptoj/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网研机试101</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/27/mpseg0/">最大概率汉语切分算法研究-(0)-概览</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/25/mpseg4/" class="archive-article-date">
-  	<time datetime="2017-11-25T10:04:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/25/mpseg4/">最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/25/mpseg3/" class="archive-article-date">
-  	<time datetime="2017-11-25T08:51:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/25/mpseg3/">最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/25/mpseg2/" class="archive-article-date">
-  	<time datetime="2017-11-25T08:51:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/25/mpseg2/">最大概率汉语切分算法研究（二）BiGram语言模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/25/mpseg1/" class="archive-article-date">
-  	<time datetime="2017-11-25T08:51:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/25/mpseg1/">最大概率汉语切分算法研究（一）词典构建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/28/javalin2/" class="archive-article-date">
-  	<time datetime="2017-10-28T12:15:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/28/javalin2/">Javalin框架使用指南(2)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javalin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">WebSocket</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/24/javalin1/" class="archive-article-date">
-  	<time datetime="2017-10-24T06:28:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/24/javalin1/">Javalin 框架使用指南（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">REST</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">微服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/18/vscode2/" class="archive-article-date">
-  	<time datetime="2017-10-18T06:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/18/vscode2/">vscode配置 c++ 开发环境(二):调试和头文件设置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Microsoft</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IDE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/27/dotnetdocker/" class="archive-article-date">
-  	<time datetime="2017-08-27T10:46:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/27/dotnetdocker/">macOS下使用 docker 进行 CSharp 开发（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -622,8 +372,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
