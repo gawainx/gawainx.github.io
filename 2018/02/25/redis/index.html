@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://140.143.193.168">
-  <title>Tag: Communication | Gawainx&#39;Blog</title>
+  <title>redis的杂七杂八 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Gawainx'Blog">
-<meta property="og:url" content="http://140.143.193.168/tags/Communication/index.html">
+  <meta name="description" content="Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis的杂七杂八">
+<meta property="og:url" content="http://140.143.193.168/2018/02/25/redis/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
+<meta property="og:description" content="Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧">
+<meta property="og:updated_time" content="2018-02-26T09:22:27.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gawainx'Blog">
+<meta name="twitter:title" content="redis的杂七杂八">
+<meta name="twitter:description" content="Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -156,60 +160,221 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-redis" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/08/Communication/" class="archive-article-date">
-  	<time datetime="2016-03-08T14:33:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/08/Communication/">通信的基础——大学这三年到底学了啥（主线课程篇）</a>
+    <h1 class="article-title" itemprop="name">
+      redis的杂七杂八
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/02/25/redis/" class="archive-article-date">
+  	<time datetime="2018-02-25T15:09:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧<br><a id="more"></a></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Redis 是一种基于内存的数据库，这意味着在使用过程中的所有数据都是存放在内存当中的，省去硬盘读写的过程使得对数据库的操作会非常的快，很适合并发。</p>
+<p>Redis 的基本储存单位是<code>key-value</code>，比 mongodb 中的“文档”的概念有着更细的粒度。<code>key</code>部分一般是字符串类型，<code>value</code>部分可以有以下五种类型：</p>
+<ol>
+<li>string。字符串类型</li>
+<li>hash。一系列<code>k-v</code>的集合，适合用来储存对象实例或者 JSON</li>
+<li>list。简单的字符串列表，也就是说可以通过 list 数据结构在一个<code>key</code>对应的<code>value</code>字段储存多个字符串。这多个字符串是有序排列的。“序”指的是插入的顺序（可以选从头部或者尾部插入）</li>
+<li>set。String 类型的无序集合。满足唯一性。</li>
+<li>有序集合。set 的有序版本</li>
+</ol>
+<h2 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h2><h3 id="服务器（server-端）"><a href="#服务器（server-端）" class="headerlink" title="服务器（server 端）"></a>服务器（server 端）</h3><p>安装 Redis 之后，在命令行窗口输入<code>redis-server</code>即可在本机运行一个radis 的 server 端，默认的端口是6379.</p>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>Redis 服务器端和其他主流数据库一样可以很方便的放到 Docker 容器里运行。</p>
+<p>下载 Redis 镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo docker pull redis</div></pre></td></tr></table></figure>
+<p>基于 redis 镜像运行容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo docker run --name redis-server -p 6379:6379 -d redis</div></pre></td></tr></table></figure>
+<p>镜像内部已经设置了运行<code>redis-server</code>和监听6379端口，所以不需要额外的设置项，只需要在运行容器时将端口暴露出来（与宿主机的6379端口或者自己指定的端口绑定）就可以了</p>
+<h3 id="client-端"><a href="#client-端" class="headerlink" title="client 端"></a>client 端</h3><p>shell 界面下输入<code>redis-cli -h 127.0.0.1 -p 6379</code>启动 redis-client。其中，<code>-h</code>指定服务器的地址，<code>-p</code>指定服务器的端口。</p>
+<h4 id="基本操作命令"><a href="#基本操作命令" class="headerlink" title="基本操作命令"></a>基本操作命令</h4><p>注意到，命令的操作字段是不区分大小写的。</p>
+<ol>
+<li>value 为 String 类型时。<code>set key value</code>用于为 key 设置值为 value。 <code>get key</code>用于获取键为 key 的值。</li>
+<li>value 为 list类型时。<code>lpush key value1 [value2]…</code>用于将一个或者多个值。 <code>LPOP key</code>可以移出并获取列表的第一个元素。这两个操作换成<code>rpush</code>和<code>rpop</code>可以向列表尾部插入元素。<code>LLEN key</code>可以获取 key 对应的列表的长度。<code>LRANGE key start stop</code>用于获取特定key 的指定范围的元素，特别地，<code>LRANGE key 0 -1</code>可以用来遍历列表。</li>
+</ol>
+<p>更加详细的命令教程可以参考<a href="http://www.runoob.com/redis/redis-tutorial.html" target="_blank" rel="external">Redis教程-菜鸟教程</a></p>
+<h2 id="编程语言支持"><a href="#编程语言支持" class="headerlink" title="编程语言支持"></a>编程语言支持</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>在 Java 中主要通过 jedis 数据库驱动实现对 Redis 数据库的操作。</p>
+<p>安装依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="JedisPool和-JedisClient"><a href="#JedisPool和-JedisClient" class="headerlink" title="JedisPool和 JedisClient"></a>JedisPool和 JedisClient</h4><p>jedis 使用 JedisPool 作为一个Redis连接池，用于解决对Redis进行并发访问时会发生连接超时、数据转换错误、阻塞、客户端关闭连接等问题。</p>
+<p>连接池初始化代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> JedisPool <span class="title">getPool</span><span class="params">(String host, <span class="keyword">int</span> port)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(pool == <span class="keyword">null</span>)&#123;</div><div class="line">            JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</div><div class="line">            </div><div class="line">			<span class="comment">//设置最大连接数</span></div><div class="line">            config.setMaxTotal(<span class="number">100</span>);</div><div class="line"></div><div class="line">            config.setMaxIdle(<span class="number">5</span>);</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(host == <span class="keyword">null</span>)&#123;</div><div class="line">                pool = <span class="keyword">new</span> JedisPool(config, <span class="string">"127.0.0.1"</span>, port);</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                pool = <span class="keyword">new</span> JedisPool(config, host, port);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> pool;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>要使用Client 时，使用<code>pool.getResource()</code>方法获取单个JedisClient实例，在此基础上对 Redis 数据库进行操作。</p>
+<h3 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h3><p>Go 语言中用来连接 Redis 数据库的库五花八门，主要分两个派系，将对 Redis 的操作封装成方法的，开发者通过调用库的方法实现对 Redis 数据库的操作；另一派是直接将 Redis 命令作为字符串提供给库来实现各种操作的。</p>
+<p>这里以<code>&quot;github.com/garyburd/redigo/redis&quot;</code>为例。</p>
+<p>安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get github.com/garyburd/redigo/redis</div></pre></td></tr></table></figure>
+<p>获取 redis pool实例</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">redis.Pool&#123;</div><div class="line">		MaxIdle:<span class="number">10</span>,</div><div class="line">		MaxActive:<span class="number">15</span>,</div><div class="line">		IdleTimeout:<span class="number">240</span>*time.Second,</div><div class="line">		Dial: <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="params">(redis.Conn, error)</span></span> &#123;</div><div class="line">			c, err := redis.Dial(<span class="string">"tcp"</span>, redisURL)</div><div class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</div><div class="line">				<span class="keyword">return</span> <span class="literal">nil</span>, err</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> c, err</div><div class="line">		&#125;,</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>从 pool 中获取 Client 实例</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rClient := redisPool.Get()</div></pre></td></tr></table></figure>
+<p>执行操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rClient.Do(<span class="string">"LPUSH"</span>,<span class="string">"key"</span>, <span class="string">"value"</span>)</div></pre></td></tr></table></figure>
+<p>Do 方法用于执行对 Redis 数据库的操作命令。方法的第一个参数字符串命令（就是在 shell 交互时的各种命令。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpabg.com1.z0.glb.clouddn.com/20171025154641_H9X6yV_mm_facetoface_collect_qrcode_1508917484107.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Communication</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://140.143.193.168/2018/02/25/redis/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/01/23/go-websocket/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">go-websocket</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -232,9 +397,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
