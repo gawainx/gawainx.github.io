@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://140.143.193.168">
-  <title>BOJ 解题报告(1)-87-日期 | Gawainx&#39;Blog</title>
+  <title>go 语言中 JSON 数据的处理 | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
-计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
+  <meta name="description" content="Golang 中处理 JSON 格式数据主要依赖encoding/json这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BOJ 解题报告(1)-87-日期">
-<meta property="og:url" content="http://140.143.193.168/2017/03/07/87-cpp/index.html">
+<meta property="og:title" content="go 语言中 JSON 数据的处理">
+<meta property="og:url" content="http://140.143.193.168/2018/03/30/gojson/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
-<meta property="og:description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
-计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
-<meta property="og:updated_time" content="2017-03-07T12:40:03.000Z">
+<meta property="og:description" content="Golang 中处理 JSON 格式数据主要依赖encoding/json这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。">
+<meta property="og:updated_time" content="2018-03-30T08:05:14.594Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BOJ 解题报告(1)-87-日期">
-<meta name="twitter:description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
-计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
+<meta name="twitter:title" content="go 语言中 JSON 数据的处理">
+<meta name="twitter:description" content="Golang 中处理 JSON 格式数据主要依赖encoding/json这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -163,44 +160,46 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-87-cpp" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-gojson" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      BOJ 解题报告(1)-87-日期
+      go 语言中 JSON 数据的处理
     </h1>
   
 
         
-        <a href="/2017/03/07/87-cpp/" class="archive-article-date">
-  	<time datetime="2017-03-07T11:58:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-07</time>
+        <a href="/2018/03/30/gojson/" class="archive-article-date">
+  	<time datetime="2018-03-30T07:20:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。</p>
-<p>计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。</p>
-<a id="more"></a>
-<p><a href="http://code.bupt.edu.cn/problem/p/87/" target="_blank" rel="external">题目链接</a></p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这是个典型的涉及闰年的日期问题, 要求解某一年是第几天.思路很直接,从月份入手,先计算前$ Y-1$个月一共有多少天,然后在加上这个月中这一天之前有多少天,就可以得到结果.</p>
-<h1 id="输入输出处理"><a href="#输入输出处理" class="headerlink" title="输入输出处理"></a>输入输出处理</h1><p>在所有 OJ 中,输入输出都是绕不过的坎,很多时候会因为输出处理不好而导致莫名其妙的 WA, 又有很多时候可以从输入格式中获得解题的灵感.</p>
-<p>回到本题,输入格式为<code>X:Y:Z</code>的形式, X,Y,Z 都是整数, 以冒号隔开.这不由得让我们想到了可以利用 scanf 的格式字段做”手脚”, 直接将 X, Y, Z 读入到整形变量当中进行后续的处理.所以有了以下代码来处理日期的输入.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> X,Y,Z;</div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;X,&amp;Y,&amp;Z);</div></pre></td></tr></table></figure>
-<p>输出方面,只需要输出天数,是一个整形变量,没有什么特别的技巧.</p>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>这部分描述题目中的”边沿”情况, 如果忽略这些情况,就会导致 WA</p>
-<h3 id="闰年的处理"><a href="#闰年的处理" class="headerlink" title="闰年的处理"></a>闰年的处理</h3><p>题目中也给出了提示.在代码中可以利用宏来判断闰年.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ISYEAP(x) ((x%100!=0)&amp;&amp;(x%4==0))||(x%400==0)?1:0</span></div></pre></td></tr></table></figure>
-<p>使用宏的时候一定要注意, 编译器在编译的时候会将宏展开之后插到每一个调用宏的地方,为了避免由于运算符优先级问题带来奇奇怪怪的 bug, 建议前后用括号括起来,像这样<code>( ISYEA(X))</code></p>
-<h3 id="一月份"><a href="#一月份" class="headerlink" title="一月份"></a>一月份</h3><p>1月份的时候,天数即为当日的日期,直接输出 Z 字段即可.</p>
-<h3 id="二月份"><a href="#二月份" class="headerlink" title="二月份"></a>二月份</h3><p>这也是个容易踩坑的地方,大家都知道闰年要算2月29天,但有时太匆忙的时候,会糊里糊涂把闰年1月2月的日期也会莫名其妙的加上了”1天”,导致 WA. 因此要单独处理.也可以通过构造合理的<code>if</code> 语句和一月份的情况一起处理.</p>
-<h3 id="对每个月的日子进行预处理"><a href="#对每个月的日子进行预处理" class="headerlink" title="对每个月的日子进行预处理"></a>对每个月的日子进行预处理</h3><p>在程序开始之前可以定义一个数组储存每个月的天数, 计算日子时直接根据下标找到天数相加即可,可以减少代码量和运行时间.</p>
-<p>预处理的时候要注意, c 语言的数组下标从0开始, 而月份是从1月开始,所以可以构造一个13个元素的数组并且让第一个元素值为0避免不必要的麻烦.</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ISYEAP(x) ((x%100!=0)&amp;&amp;(x%4==0))||(x%400==0)?1:0</span></div><div class="line"><span class="keyword">int</span> daysOfMonth[<span class="number">13</span>] = &#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)&#123;</div><div class="line">        <span class="keyword">int</span> yy,mm,dd;</div><div class="line">        <span class="keyword">int</span> days=<span class="number">0</span>;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;yy,&amp;mm,&amp;dd);</div><div class="line">        <span class="keyword">if</span>(mm==<span class="number">1</span>)&#123;</div><div class="line">            days = dd;<span class="comment">//special situation</span></div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;mm;i++)&#123;</div><div class="line">                days+=daysOfMonth[i];</div><div class="line">            &#125;</div><div class="line">            days+=dd;</div><div class="line">            <span class="keyword">if</span>(ISYEAP(yy))&#123;</div><div class="line">                <span class="keyword">if</span>(mm&gt;<span class="number">2</span>)&#123;</div><div class="line">                    days++;</div><div class="line">                &#125;                  </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,days);</div><div class="line">        &#125;            </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Golang 中处理 JSON 格式数据主要依赖<code>encoding/json</code>这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。<br><a id="more"></a></p>
+<h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><p>说了这么多，其实并不神秘，就是来自 gin 框架源码中的一句关键定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// H is a shortcup for map[string]interface&#123;&#125;</span></div><div class="line"><span class="keyword">type</span> H <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>定义了这个数据结构之后，gin 框架就可以处理几乎所有的 JSON 数据。</p>
+<p>同理，我们在自己的代码中想不受结构体限制灵活处理 JSON 数据时，也可以在程序代码中添加类似的定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> message <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>从字符串解析 JSON 数据时，只需要</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//body is string message</span></div><div class="line"><span class="keyword">var</span> result mss</div><div class="line">json.Unmarshal([]<span class="keyword">byte</span>(body),&amp;result)</div></pre></td></tr></table></figure>
+<p>包装 JSON 也类似</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//mes is message type</span></div><div class="line">bty,err := json.Marshal(mes)</div></pre></td></tr></table></figure>
+<p>值得一说的是平时处理 JSON 数据经常出现的反斜杠双引号问题，用这种方法处理时并没有出现。</p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>背后原理分析。</p>
+<p>这一行代码之所以这么实用是因为<code>interface{}</code>这个 golang 中的“万金油”。Golang 中不存在类和对象的概念，因此空接口就成了所有变量的“超类”一样的存在，可以承载一切的变量。</p>
+<h2 id="潜在问题-and-Further-More"><a href="#潜在问题-and-Further-More" class="headerlink" title="潜在问题 and Further More"></a>潜在问题 and Further More</h2><p>处理 JSON Array 时会出现问题，就是明知它是数组却不能直接用下标进行操作（会提示<code>{}interface</code> 不支持下标，导致编译失败），实际运行时用反射包的<code>reflect.TypeOf</code>查看JSON 数组解析出来的类型明明是<code>[]interface{}</code>，是接口slice，是支持下标操作的。</p>
+<p>原因是 Golang 是静态语言，代码中所有变量的类型都是在编译期确定的，我们所定义的类型中 map 的 value 部分是<code>{}interface</code>，在 运行时接收到需要解析的 JSON 数据之前编译器和我们都不知道它“事实上”是一个 slice。</p>
+<p>这个在项目应用中实际存在的矛盾也解决我学 OOP 语言一直以来的困惑，就是反射是什么？为什么现代编程语言都选择加入反射作为基本特性（Java，C#，还有本文中的 Golang），就是因为我们有在运行时获取某个对象/变量的实际类型的需要。</p>
+<p>由于目前学习还不够深入，不能对反射机制展开深入的探讨，在这里讲一下如何利用类型断言机制解决上面说到的问题。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cs,ok := result[<span class="string">"containers"</span>].([]<span class="keyword">interface</span>&#123;&#125;)</div><div class="line">	<span class="keyword">if</span> ok&#123;</div><div class="line">		<span class="keyword">for</span> i,item := <span class="keyword">range</span> cs&#123;</div><div class="line">			<span class="comment">//do something</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><code>cs,ok := result[&quot;containers&quot;].([]interface{})</code>这一句就是解决问题的关键所在，也就是称为运行时类型断言的机制。<code>a.(Type)</code>是尝试对a进行类型转换的操作，如果转换成功则返回一个转换成 Type 类型的变量和<code>true</code>指示转换成功，失败则返回<code>false</code>。</p>
+<p>值得一提的是，断言失败不会导致编译失败（要是会导致编译失败也就不能解决上面这个问题了），所以为了代码健壮性需要对转换结果进行判断比较好。</p>
 
       
 
@@ -240,7 +239,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BOJ</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
         		</li>
       		
 		</ul>
@@ -296,7 +295,7 @@ ga('send', 'pageview');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://140.143.193.168/2017/03/07/87-cpp/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://140.143.193.168/2018/03/30/gojson/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +309,9 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/2017/03/07/89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          BOJ解题报告(2)-89-统计时间间隔
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/18/vscode/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vscode配置 c++ 开发环境(一):智能提示</div>
+    <a href="/2018/02/25/redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis的杂七杂八</div>
       <i class="icon-circle-right"></i>
     </a>
   
