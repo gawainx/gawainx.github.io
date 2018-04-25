@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://140.143.193.168">
-  <title>Tag: WebSocket | Gawainx&#39;Blog</title>
+  <title>mage 使用教程(一) | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gawainx 的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gawainx'Blog">
-<meta property="og:url" content="http://140.143.193.168/tags/WebSocket/index.html">
+  <meta name="description" content="Mage 是使用 golang 开发的类 Make的软件构建工具。借助这个工具只需要编写符合 golang 语言规范的代码就可以实现比较复杂的源代码编译。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mage 使用教程(一)">
+<meta property="og:url" content="http://140.143.193.168/2018/04/23/mage1/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
-<meta property="og:description" content="gawainx 的个人博客">
+<meta property="og:description" content="Mage 是使用 golang 开发的类 Make的软件构建工具。借助这个工具只需要编写符合 golang 语言规范的代码就可以实现比较复杂的源代码编译。">
+<meta property="og:updated_time" content="2018-04-23T03:16:46.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gawainx'Blog">
-<meta name="twitter:description" content="gawainx 的个人博客">
+<meta name="twitter:title" content="mage 使用教程(一)">
+<meta name="twitter:description" content="Mage 是使用 golang 开发的类 Make的软件构建工具。借助这个工具只需要编写符合 golang 语言规范的代码就可以实现比较复杂的源代码编译。">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -159,68 +160,195 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mage1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/28/javalin2/" class="archive-article-date">
-  	<time datetime="2017-10-28T12:15:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/28/javalin2/">Javalin框架使用指南(2)</a>
+    <h1 class="article-title" itemprop="name">
+      mage 使用教程(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/23/mage1/" class="archive-article-date">
+  	<time datetime="2018-04-23T02:24:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Mage 是使用 golang 开发的类 Make的软件构建工具。借助这个工具只需要编写符合 golang 语言规范的代码就可以实现比较复杂的源代码编译。<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装 mage 之前首先要安装 golang1.7或以上版本。安装好之后，执行以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">go get -u -d github.com/magefile/mage</div><div class="line">cd $GOPATH/src/github.com/magefile/mage</div><div class="line">go run bootstrap.go</div></pre></td></tr></table></figure>
+<p>编译完成之后，名为 mage 的可执行文件放在<code>$GOPATH/bin</code>目录下，将<code>$GOPATH/bin</code>加入到系统路径即可在终端中直接输入<code>mage</code>运行软件。</p>
+<h2 id="第一个-Magefile"><a href="#第一个-Magefile" class="headerlink" title="第一个 Magefile"></a>第一个 Magefile</h2><p>Magefile 实质是符合 golang 语法的源代码，并且加入了特定的注记，规则如下：</p>
+<ol>
+<li>在包名之前加入一行，<code>// +build mage</code></li>
+<li>包名必须为 <code>main</code></li>
+<li>每个可导出函数会变成可被 mage 执行的选项（类似 Makefile 的每一个 tag）</li>
+<li>每个可导出函数前的注释会被转换成帮助文档</li>
+<li>文件名可以但不一定必须是 Magefile.go</li>
+</ol>
+<p>在任意目录输入<code>mage -init</code>可以生成Magefile.go 模板代码。<br>可以输入以下代码实验以上规则</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// +build mage</span></div><div class="line"><span class="keyword">package</span> main</div><div class="line"><span class="keyword">import</span>(</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"log"</span></div><div class="line">)</div><div class="line"><span class="comment">//Build</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Build</span><span class="params">()</span></span>&#123;</div><div class="line">    fmt.Println(<span class="string">"Building..."</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//Install</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Install</span><span class="params">()</span></span>&#123;</div><div class="line">    log.Println(<span class="string">"Installing..."</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="预备，构建"><a href="#预备，构建" class="headerlink" title="预备，构建"></a>预备，构建</h2><p>构建只需要一行代码<code>mage build</code>，程序就会自动执行 <code>Build</code> 函数，完成整个构建过程。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpabg.com1.z0.glb.clouddn.com/20171025154641_H9X6yV_mm_facetoface_collect_qrcode_1508917484107.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javalin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">WebSocket</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aQYrDMAwF0N7/0h2Y1UAnzpeUuC08r0Lqxs8bIVl+POLx/B2vz69z/o7119ZzRgMXF3fMfS7Hmni0maP/rp/XBlxc3P3cCaIa+PKv4eLifj43+lzrV1xc3O/lTkIbLi7uN3KT4qeamiSlzo21Gi4u7oA7CTpXPW8638XFxR13JaoBZT0/D1uHq+Pi4m7hrg80q+FsvbF8AydhDhcX92buOuhUw1mv1ClsHhcXdzt3ftkib6wm6c4/K+Li4m7h5olIL3tKiPkbXFzc/dy8dOkFrLwEilS4uLi3cXvpRS8Z6vVKolYKLi7ubdzqAr3rFKN1cXFxt3AnC1cvcuUh8mQzuLi4N3N7ac28lVJ9j4uLu587aazmByvVsHjY+cHFxb2ZWz1VrTY8kmsWeTMGFxd3D/eqBmo16Wk2dHFxcTdyc8ok3am2VXBxcd/L7RUkeUnTbKlOKidcXNwBtxpQ5s+9BKi8GVxc3DE3b5pWd58fmuRHM7i4uDu5SaDpJTq98imKqbi4uB/ATbaRZ1JJ0BwFMlxc3Ddx8/l5onNyXIKLi7uRmxQ/vcQlD2dRGwYXF3cLt3dg2ru8tZ7fS5VwcXEv5f4A1ZjIL7Imv6MAAAAASUVORK5CYII=" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/04/23/mage2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用mage实现交叉编译
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/04/11/goyaml/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">golang 处理 yaml 格式数据</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -243,9 +371,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

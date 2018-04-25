@@ -185,13 +185,7 @@ ga('send', 'pageview');
         <p>本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。</p>
 <a id="more"></a>
 <h1 id="DAG"><a href="#DAG" class="headerlink" title="DAG"></a>DAG</h1><p>DAG，也就是有向无环图，可以用来记录一个句子的不同的切分状态集合，所谓的“向”就是句子从开始到结束的方向。假定句子的开始符为<code>S</code>，以“他们有意见分歧”这个句子为例，可以得到如下的有向无环图：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg" alt="有向无环图例子" title="">
-                </div>
-                <div class="image-caption">有向无环图例子</div>
-            </figure>
+<p><img src="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg" alt="有向无环图例子"></p>
 <p>在生成一个句子的有向无环图的过程中，利用 BiGram 模型计算所有的转移概率并进行储存。</p>
 <p>之后，从后往前回溯，寻找每个词的最优左近邻词，直到‘S’字符。结束。</p>
 <h2 id="从句子生成-DAG"><a href="#从句子生成-DAG" class="headerlink" title="从句子生成 DAG"></a>从句子生成 DAG</h2><p>假设开始标识符为‘S’。</p>
@@ -528,10 +522,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BOJ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Life</a>
               </li>
              
@@ -540,7 +530,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Communication</a>
+                <a href="javascript:void(0)" class="js-tag color4">BOJ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,11 +546,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Communication</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Win10</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,19 +574,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,15 +618,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">M$</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">M$</a>
               </li>
              
               <li class="article-tag-list-item">
