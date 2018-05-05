@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://140.143.193.168">
-  <title>Archives: 2017/12 | Gawainx&#39;Blog</title>
+  <title>gorequest中文文档(非官方) | Gawainx&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gawainx 的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gawainx'Blog">
-<meta property="og:url" content="http://140.143.193.168/archives/2017/12/index.html">
+  <meta name="description" content="Gorequest指南gorequest为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gorequest中文文档(非官方)">
+<meta property="og:url" content="http://140.143.193.168/2018/05/05/gorequest-doc/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
-<meta property="og:description" content="gawainx 的个人博客">
+<meta property="og:description" content="Gorequest指南gorequest为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。">
+<meta property="og:image" content="https://raw.githubusercontent.com/parnurzeal/gorequest/gh-pages/images/Gopher_GoRequest_400x300.jpg">
+<meta property="og:updated_time" content="2018-05-05T12:21:02.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gawainx'Blog">
-<meta name="twitter:description" content="gawainx 的个人博客">
+<meta name="twitter:title" content="gorequest中文文档(非官方)">
+<meta name="twitter:description" content="Gorequest指南gorequest为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/parnurzeal/gorequest/gh-pages/images/Gopher_GoRequest_400x300.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Gawainx&#39;Blog" type="application/atom+xml">
   
@@ -159,68 +162,249 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-gorequest-doc" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/06/dockertf/" class="archive-article-date">
-  	<time datetime="2017-12-06T13:30:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/06/dockertf/">TensorFlow For Docker 初体验</a>
+    <h1 class="article-title" itemprop="name">
+      gorequest中文文档(非官方)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/05/05/gorequest-doc/" class="archive-article-date">
+  	<time datetime="2018-05-05T11:19:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Gorequest指南"><a href="#Gorequest指南" class="headerlink" title="Gorequest指南"></a>Gorequest指南</h1><p><a href="https://github.com/parnurzeal/gorequest" target="_blank" rel="external">gorequest</a>为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。<br><a id="more"></a></p>
+<p><img src="https://raw.githubusercontent.com/parnurzeal/gorequest/gh-pages/images/Gopher_GoRequest_400x300.jpg" alt="GopherGoRequest"></p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li>支持发送Get/Post/Put/Head/Delete/Patch/Options 请求</li>
+<li>建议的请求头设置</li>
+<li>JSON 支持：以 JSON 格式字符串作为函数参数的方式简化传输 JSON 的步骤。</li>
+<li>分段支持：分段请求（Multipart Request）的方式发送数据或传输文件</li>
+<li>代理：支援通过代理的方式发送请求。</li>
+<li>Timeout：为请求设置时间限制</li>
+<li>TLS(传输层安全协议)相关设定。<blockquote>
+<p>TLSClientConfig - taking control over tls where at least you can disable security check for https</p>
+</blockquote>
+</li>
+<li>重定向策略</li>
+<li>Cookie：为请求添加 cookie</li>
+<li>CookieJar - automatic in-memory cookiejar</li>
+<li>基本的权限认证。</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ go get github.com/parnurzeal/gorequest</div></pre></td></tr></table></figure>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>参阅<a href="http://godoc.org/github.com/parnurzeal/gorequest" target="_blank" rel="external">Go Doc</a><br>后续我会根据自己在开发中使用经验将文档翻译过来。</p>
+<h2 id="使用-GoRequest-的一万个理由？"><a href="#使用-GoRequest-的一万个理由？" class="headerlink" title="使用 GoRequest 的一万个理由？"></a>使用 GoRequest 的一万个理由？</h2><p>通过 GoRequest 可以使工作变得更简单，使可以发起 HTTP 请求这件事更加优雅而充满乐趣。</p>
+<p>不使用本库发起简单 GET 请求：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">resp, err := http.Get(<span class="string">"http://example.com/"</span>)</div></pre></td></tr></table></figure>
+<p>使用 GoRequest</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New()</div><div class="line">resp, body, errs := request.Get(<span class="string">"http://example.com/"</span>).End()</div></pre></td></tr></table></figure>
+<p>如果你不想重用<code>request</code>，也可以写成下面这样</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">resp, body, errs := gorequest.New().Get(<span class="string">"http://example.com/"</span>).End()</div></pre></td></tr></table></figure>
+<p>如果你需要设定 HTTP 头，设定重定向策略等，使用标准库会瞬间使事情变得异常复杂，在发起仅仅一个 <strong>GET</strong> 请求的过程，你就需要一个 <code>Client</code>，通过一系列不同的命令来设定 HTTP 头（<code>HTTP Headers</code>）。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">client := &amp;http.Client&#123;</div><div class="line">  CheckRedirect: redirectPolicyFunc,</div><div class="line">&#125;</div><div class="line"></div><div class="line">req, err := http.NewRequest(<span class="string">"GET"</span>, <span class="string">"http://example.com"</span>, <span class="literal">nil</span>)</div><div class="line"></div><div class="line">req.Header.Add(<span class="string">"If-None-Match"</span>, <span class="string">`W/"wyzzy"`</span>)</div><div class="line">resp, err := client.Do(req)</div></pre></td></tr></table></figure>
+<p>现在，你有更加美妙的方式来完成这件事</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New()</div><div class="line">resp, body, errs := request.Get(<span class="string">"http://example.com"</span>).</div><div class="line">  RedirectPolicy(redirectPolicyFunc).</div><div class="line">  Set(<span class="string">"If-None-Match"</span>, <span class="string">`W/"wyzzy"`</span>).</div><div class="line">  End()</div></pre></td></tr></table></figure>
+<p>发起 <strong>DELETE</strong>, <strong>HEAD</strong>, <strong>POST</strong>, <strong>PUT</strong>, <strong>PATCH</strong> 请求的过程和发起 <strong>GET</strong> 请求类似。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New()</div><div class="line">resp, body, errs := request.Post(<span class="string">"http://example.com"</span>).End()</div><div class="line"><span class="comment">// PUT -&gt; request.Put("http://example.com").End()</span></div><div class="line"><span class="comment">// DELETE -&gt; request.Delete("http://example.com").End()</span></div><div class="line"><span class="comment">// HEAD -&gt; request.Head("http://example.com").End()</span></div><div class="line"><span class="comment">// ANYTHING -&gt; request.CustomMethod("TRACE", "http://example.com").End()</span></div></pre></td></tr></table></figure>
+<h3 id="处理-JSON"><a href="#处理-JSON" class="headerlink" title="处理 JSON"></a>处理 JSON</h3><p>用标准库发起 <strong>JSON POST</strong> ，你需要先将 <code>map</code> 或者 <code>struct</code>格式的数据包装（<strong>Marshal</strong>）成 JSON 格式的数据，将头参数设定为’application/json’（必要时还要设定其他头），然后要新建一个<code>http.CLient</code>变量。经过这一系列的步骤，你的代码变得冗长而难以维护</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">m := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"backy"</span>,</div><div class="line">  <span class="string">"species"</span>: <span class="string">"dog"</span>,</div><div class="line">&#125;</div><div class="line">mJson, _ := json.Marshal(m)</div><div class="line">contentReader := bytes.NewReader(mJson)</div><div class="line">req, _ := http.NewRequest(<span class="string">"POST"</span>, <span class="string">"http://example.com"</span>, contentReader)</div><div class="line">req.Header.Set(<span class="string">"Content-Type"</span>, <span class="string">"application/json"</span>)</div><div class="line">req.Header.Set(<span class="string">"Notes"</span>,<span class="string">"GoRequest is coming!"</span>)</div><div class="line">client := &amp;http.Client&#123;&#125;</div><div class="line">resp, _ := client.Do(req)</div></pre></td></tr></table></figure>
+<p>至于 GoRequest， JSON 支持是必须的，所以，用这个库你只需要一行代码完成所有工作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New()</div><div class="line">resp, body, errs := request.Post(<span class="string">"http://example.com"</span>).</div><div class="line">  Set(<span class="string">"Notes"</span>,<span class="string">"gorequst is coming!"</span>).</div><div class="line">  Send(<span class="string">`&#123;"name":"backy", "species":"dog"&#125;`</span>).</div><div class="line">  End()</div></pre></td></tr></table></figure>
+<p>另外，它同样支持结构体类型。所以，你可以在你的请求中发送不同的数据类型（So, you can have a fun <strong>Mix &amp; Match</strong> sending the different data types for your request）。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> BrowserVersionSupport <span class="keyword">struct</span> &#123;</div><div class="line">  Chrome <span class="keyword">string</span></div><div class="line">  Firefox <span class="keyword">string</span></div><div class="line">&#125;</div><div class="line">ver := BrowserVersionSupport&#123; Chrome: <span class="string">"37.0.2041.6"</span>, Firefox: <span class="string">"30.0"</span> &#125;</div><div class="line">request := gorequest.New()</div><div class="line">resp, body, errs := request.Post(<span class="string">"http://version.com/update"</span>).</div><div class="line">  Send(ver).</div><div class="line">  Send(<span class="string">`&#123;"Safari":"5.1.10"&#125;`</span>).</div><div class="line">  End()</div></pre></td></tr></table></figure>
+<p>Not only for <code>Send()</code> but <code>Query()</code> is also supported. Just give it a try! :)</p>
+<h2 id="回调（Callback）"><a href="#回调（Callback）" class="headerlink" title="回调（Callback）"></a>回调（Callback）</h2><p>此外，GoRequest 支持回调函数，这让你可以更加灵活的使用这个库。<br>下面是回调函数的一个例子</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">printStatus</span><span class="params">(resp gorequest.Response, body <span class="keyword">string</span>, errs []error)</span></span>&#123;</div><div class="line">  fmt.Println(resp.Status)</div><div class="line">&#125;</div><div class="line">gorequest.New().Get(<span class="string">"http://example.com"</span>).End(printStatus)</div></pre></td></tr></table></figure>
+<h2 id="Multipart-Form-Data"><a href="#Multipart-Form-Data" class="headerlink" title="Multipart/Form-Data"></a>Multipart/Form-Data</h2><p>你可以将请求的内容类型设定为<code>multipart</code>来以<code>multipart/form-data</code>的方式发送所有数据。这个特性可以帮助你发送多个文件。<br>下面是一个例子</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gorequest.New().Post(<span class="string">"http://example.com/"</span>).</div><div class="line">  Type(<span class="string">"multipart"</span>).</div><div class="line">  Send(<span class="string">`&#123;"query1":"test"&#125;`</span>).</div><div class="line">  End()</div></pre></td></tr></table></figure>
+<p>如果感兴趣可以在文档中查看<code>SendFile</code>函数部分获取更多。</p>
+<h2 id="代理（Proxy）"><a href="#代理（Proxy）" class="headerlink" title="代理（Proxy）"></a>代理（Proxy）</h2><p>需要使用代理的时候，可以用 GoRequest Proxy Func 很好的处理。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New().Proxy(<span class="string">"http://proxy:999"</span>)</div><div class="line">resp, body, errs := request.Get(<span class="string">"http://example-proxy.com"</span>).End()</div><div class="line"><span class="comment">// To reuse same client with no_proxy, use empty string:</span></div><div class="line">resp, body, errs = request.Proxy(<span class="string">""</span>).Get(<span class="string">"http://example-no-proxy.com"</span>).End()</div></pre></td></tr></table></figure>
+<h2 id="基本认证"><a href="#基本认证" class="headerlink" title="基本认证"></a>基本认证</h2><p>添加基本的认证头信息</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New().SetBasicAuth(<span class="string">"username"</span>, <span class="string">"password"</span>)</div><div class="line">resp, body, errs := request.Get(<span class="string">"http://example-proxy.com"</span>).End()</div></pre></td></tr></table></figure>
+<h2 id="超时处理（Timeout）"><a href="#超时处理（Timeout）" class="headerlink" title="超时处理（Timeout）"></a>超时处理（Timeout）</h2><p>与 <code>time</code> 库结合可以设置成任何的时间限制。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New().Timeout(<span class="number">2</span>*time.Millisecond)</div><div class="line">resp, body, errs:= request.Get(<span class="string">"http://example.com"</span>).End()</div></pre></td></tr></table></figure>
+<p><code>Timeout</code> 函数同时设定了连接和 IO 的时间限制。</p>
+<h2 id="以字节方式处理返回体（EndBytes）"><a href="#以字节方式处理返回体（EndBytes）" class="headerlink" title="以字节方式处理返回体（EndBytes）"></a>以字节方式处理返回体（EndBytes）</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">resp, bodyBytes, errs := gorequest.New().Get(<span class="string">"http://example.com/"</span>).EndBytes()</div></pre></td></tr></table></figure>
+<h2 id="以结构体的方式处理返回体"><a href="#以结构体的方式处理返回体" class="headerlink" title="以结构体的方式处理返回体"></a>以结构体的方式处理返回体</h2><p>假设 URL <strong><a href="http://example.com/" target="_blank" rel="external">http://example.com/</a></strong> 的返回体<code>{&quot;hey&quot;:&quot;you&quot;}</code>。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">heyYou <span class="keyword">struct</span> &#123;</div><div class="line">  Hey <span class="keyword">string</span> <span class="string">`json:"hey"`</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> heyYou heyYou</div><div class="line"></div><div class="line">resp, _, errs := gorequest.New().Get(<span class="string">"http://example.com/"</span>).EndStruct(&amp;heyYou)</div></pre></td></tr></table></figure>
+<h2 id="连续重复请求（Retry）"><a href="#连续重复请求（Retry）" class="headerlink" title="连续重复请求（Retry）"></a>连续重复请求（Retry）</h2><p>假设你在得到 BadRequest 或服务器内部错误（InternalServerError）时进行连续三次，间隔五秒的连接尝试</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New()</div><div class="line">resp, body, errs := request.Get(<span class="string">"http://example.com/"</span>).</div><div class="line">                    Retry(<span class="number">3</span>, <span class="number">5</span> * time.Second, http.StatusBadRequest, http.StatusInternalServerError).</div><div class="line">                    End()</div></pre></td></tr></table></figure>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><blockquote>
+<p>Redirects can be handled with RedirectPolicy which behaves similarly to net/http Client’s <a href="https://golang.org/pkg/net/http#Client" target="_blank" rel="external">CheckRedirect function</a>. Simply specify a function which takes the Request about to be made and a slice of previous Requests in order of oldest first. When this function returns an error, the Request is not made.</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">request := gorequest.New()</div><div class="line">resp, body, errs := request.Get(<span class="string">"http://example.com/"</span>).</div><div class="line">                    RedirectPolicy(<span class="function"><span class="keyword">func</span><span class="params">(req Request, via []*Request)</span> <span class="title">error</span></span> &#123;</div><div class="line">                      <span class="keyword">if</span> req.URL.Scheme != <span class="string">"https"</span> &#123;</div><div class="line">                        <span class="keyword">return</span> http.ErrUseLastResponse</div><div class="line">                      &#125;</div><div class="line">                    &#125;).</div><div class="line">                    End()</div></pre></td></tr></table></figure>
+<h2 id="Debug-模式"><a href="#Debug-模式" class="headerlink" title="Debug 模式"></a>Debug 模式</h2><blockquote>
+<p>For debugging, GoRequest leverages <code>httputil</code> to dump details of every request/response. (Thanks to @dafang).You can just use <code>SetDebug</code> or environment variable <code>GOREQUEST_DEBUG=0|1</code> to enable/disable debug mode and <code>SetLogger</code> to set your own choice of logger.Thanks to @QuentinPerez, we can see even how gorequest is compared to CURL by using <code>SetCurlCommand</code>.</p>
+</blockquote>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><code>gorequest.New()</code>函数应该一次调用，对返回的实例尽可能多次使用。</p>
+<h2 id="Credits"><a href="#Credits" class="headerlink" title="Credits"></a>Credits</h2><ul>
+<li>Renee French - the creator of Gopher mascot</li>
+<li><a href="https://www.facebook.com/puairw" target="_blank" rel="external">Wisi Mongkhonsrisawat</a> for providing an awesome GoRequest’s Gopher image :)</li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>GoRequest is MIT License.</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TensorFlow</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      <span id="busuanzi_container_page_pv">
+          |阅读量(<span id="busuanzi_value_page_pv"></span>)
+        </span>
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3ay46DMAwF0P7/TzPbkWag1zatRHKyQlWhOSxcP/J6xev4tc4+Sb7/9/rs3tcnFgYGxmMZx+XqMc62fnbXNfh6bxgYGPswkk3M78rjZP4rGBgYGKMgeBlqq9cYGBgY84CbhMsEg4GBgTEpYiett17g/kgtjoGB8UBG3nX//vVH5hsYGBiPYhzF1Wv3J6H5GCwMDIy1GZP2fW8YMB+Lnn4TAwNjUUZedvaCbx5e88T0n08wMDA2YFQPOuQBtFq4Nlt+GBgYWzJ6CVx1i9WB6OlLxMDAWJpRLVYn/fn8iFjvZWFgYOzG6G2r2ufLQ2p5wImBgbEcI2+T9QJuPhLoPQcDA2NtxqQRlqd61y+l+uQ3I0wMDIxFGUmQrZad1bRvNPjEwMBYmlENiPcey6gmnYXMFAMDYzPGpPWWN++SwcCbdBMDA2MDRv5jveMX1cBa/hvAwMBYmnFdlObNuN4xsmr6GJWyGBgYSzPytlp+hKuXPjZDOQYGxqKM3iCz1xTL2/15gw8DA2MfRrWJdlfiOB+XYmBg7MOohsU8RFafU70XAwNjbUZvDDAZJ/SGneX6GwMDYyFGdbg4b41NytRqiomBgbESo5r25c363rChGXAxMDA2YBRa8HF9PAnT1d1iYGBg5Fupht0qDAMDAyMPuL2WWa+qjp6MgYGxAeOuVn6eVvaS0RvabRgYGA9kjErH1iYmKeBoqImBgfE8xg9OvcdlT53zFQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/04/23/mage2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用mage实现交叉编译</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -255,8 +439,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
