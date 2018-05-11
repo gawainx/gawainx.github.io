@@ -31,7 +31,7 @@
     <meta name="description" content="前言上次在vscode配置 c++ 开发环境(一):智能提示文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode 用的也越来越得心应手，今天终于有机会更新这个系列的第二篇文章，讲讲如何配置includePath来避免不愉快的波浪线和怎么用 vscode 对 cpp 程序进行调试。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vscode配置 c++ 开发环境(二):调试和头文件设置">
-<meta property="og:url" content="http://140.143.193.168/2017/10/18/vscode2/index.html">
+<meta property="og:url" content="https://antarx.com/2017/10/18/vscode2/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
 <meta property="og:description" content="前言上次在vscode配置 c++ 开发环境(一):智能提示文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode 用的也越来越得心应手，今天终于有机会更新这个系列的第二篇文章，讲讲如何配置includePath来避免不愉快的波浪线和怎么用 vscode 对 cpp 程序进行调试。">
 <meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20171018165327_gOFgYN_Screenshot.jpeg">
@@ -204,8 +204,14 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次在<a href="http://antarx.com/2017/02/18/vscode/" target="_blank" rel="external">vscode配置 c++ 开发环境(一):智能提示</a>文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode 用的也越来越得心应手，今天终于有机会更新这个系列的第二篇文章，讲讲如何配置<code>includePath</code>来避免不愉快的波浪线和怎么用 vscode 对 cpp 程序进行调试。<br><a id="more"></a></p>
-<h1 id="头文件目录配置"><a href="#头文件目录配置" class="headerlink" title="头文件目录配置"></a>头文件目录配置</h1><p>在默认情况下，就算是已经将 cpp 开发相关的插件装好，用 VScode 打开一个 cpp 文件的时候，通常还会看到令人不悦的波浪线，就像下面这样：<br><img src="http://7xpabg.com1.z0.glb.clouddn.com/20171018165327_gOFgYN_Screenshot.jpeg" alt="软件找不到头文件时会有波浪线提示"></p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次在<a href="http://antarx.com/2017/02/18/vscode/">vscode配置 c++ 开发环境(一):智能提示</a>文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode 用的也越来越得心应手，今天终于有机会更新这个系列的第二篇文章，讲讲如何配置<code>includePath</code>来避免不愉快的波浪线和怎么用 vscode 对 cpp 程序进行调试。<br><a id="more"></a></p>
+<h1 id="头文件目录配置"><a href="#头文件目录配置" class="headerlink" title="头文件目录配置"></a>头文件目录配置</h1><p>在默认情况下，就算是已经将 cpp 开发相关的插件装好，用 VScode 打开一个 cpp 文件的时候，通常还会看到令人不悦的波浪线，就像下面这样：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20171018165327_gOFgYN_Screenshot.jpeg" alt="软件找不到头文件时会有波浪线提示" title="">
+                </div>
+                <div class="image-caption">软件找不到头文件时会有波浪线提示</div>
+            </figure></p>
 <p>刚开始的时候我也非常的头疼这个问题，后来在<a href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="external">vscode 官方博客</a>的文章中找到了解决方案。</p>
 <p>首先，在使用习惯上，要用 vscode 打开源代码所在的文件夹而不是打开单个文件，比如所，我有个<code>Josephus.cpp</code>源文件在<code>cppcode</code>文件夹下，那么就要在终端上输入<code>code cppcode</code> 用 vscode 打开这个文件夹，再对那个源代码文件进行编辑和处理，而避免直接<code>code Josephus.cpp</code>打开单个文件。（下面的相关配置都是基于这个使用习惯的基础之上的）</p>
 <p>然后，在文件夹下新建<code>.vscode</code>目录（如果该目录已经存在，则可以略过这一步）。</p>
@@ -223,7 +229,13 @@
 <p><code>&quot;program&quot;: &quot;${file}.out&quot;</code>字段表示调试的目标程序。</p>
 <p>两个文件都配置好之后，打开要调试的 cpp 文件，首先选择“任务”-&gt;“运行任务…”,弹出的窗口中选择<code>clang++</code>,这一步是编译程序生成.out 文件的过程。</p>
 <p>运行完毕后，选择“调试”-&gt;”启动调试“或按 F5快捷键，启动调试。如果看到下面这样的界面，表示配置没有问题，进入调试过程。</p>
-<p><img src="http://7xpabg.com1.z0.glb.clouddn.com/20171018171618_OX5c5q_Screenshot.jpeg" alt="调试Josephus.cpp"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20171018171618_OX5c5q_Screenshot.jpeg" alt="调试Josephus.cpp" title="">
+                </div>
+                <div class="image-caption">调试Josephus.cpp</div>
+            </figure>
 <h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><p><a href="http://www.jianshu.com/p/d0350f51e87a" target="_blank" rel="external">如何在VSCode内编译运行C++</a></p>
 
         </div>
@@ -238,12 +250,12 @@
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/10/18/vscode2/" target="_blank" rel="external">http://140.143.193.168/2017/10/18/vscode2/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/10/18/vscode2/" target="_blank" rel="external">https://antarx.com/2017/10/18/vscode2/</a>
         
     </div>
     
     <footer>
-        <a href="http://140.143.193.168">
+        <a href="https://antarx.com">
             <img src="/img/sicp.jpg" alt="Gawain Antarx">
             Gawain Antarx
         </a>
@@ -269,7 +281,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://140.143.193.168/2017/10/18/vscode2/&title=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&pic=http://140.143.193.168/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2017/10/18/vscode2/&title=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -279,22 +291,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://140.143.193.168/2017/10/18/vscode2/&title=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&source=前言上次在vscode配置 c++ 开发环境(一):智能提示文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2017/10/18/vscode2/&title=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&source=前言上次在vscode配置 c++ 开发环境(一):智能提示文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode ..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://140.143.193.168/2017/10/18/vscode2/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2017/10/18/vscode2/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&url=http://140.143.193.168/2017/10/18/vscode2/&via=http://140.143.193.168" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&url=https://antarx.com/2017/10/18/vscode2/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://140.143.193.168/2017/10/18/vscode2/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2017/10/18/vscode2/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -427,7 +439,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://140.143.193.168/2017/10/18/vscode2/&title=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&pic=http://140.143.193.168/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2017/10/18/vscode2/&title=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -437,22 +449,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://140.143.193.168/2017/10/18/vscode2/&title=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&source=前言上次在vscode配置 c++ 开发环境(一):智能提示文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2017/10/18/vscode2/&title=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&source=前言上次在vscode配置 c++ 开发环境(一):智能提示文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode ..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://140.143.193.168/2017/10/18/vscode2/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2017/10/18/vscode2/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&url=http://140.143.193.168/2017/10/18/vscode2/&via=http://140.143.193.168" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vscode配置 c++ 开发环境(二):调试和头文件设置》 — Gawainx'Blog&url=https://antarx.com/2017/10/18/vscode2/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://140.143.193.168/2017/10/18/vscode2/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2017/10/18/vscode2/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -463,7 +475,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aS27DMAwFwNz/0u42QBv5UbQZoxitDCWRJl4I/Oj1isfxNpKZ9/lktYsHLi5um3ssx/o775/+fk52yQ24uLjz3E8bVEHJ9us/fGLDxcV9JDdaNI5VcHFx/xN3fcztzeDi4j6N2wlB8s1GczVcXNwGtxOOXPV8S30XFxd3i3sUR7XRsldC/bg7Li7uCDc/UPKgp18KOQmhcHFxB7l3JDB7ZZFCroaLi3szN6Hv/SovrSYXNXBxce/mVkuWe+/jskYLLi7uOLeakOy1WPJm7R/r4OLijnDzYygJYqoXNDfbLbi4uIPczsGUfJrMREEVLi7uCDcvjxYCkfjP5KVYXFzcGW712Ko2QqrF1pODDBcXd4RbLVVci0jKMSfJDy4u7iA3L5h20qfNpAsXF3ec27k+Vb2qlV/mwMXF/RZ3LwSJgpJGE/dVPRFxcXHb3KM4cm5eHCmsj4uLO8KtJjydpa9KmXBxcWe4eRqzDonyNCmfL5++uLi4l3KT1ki1ONJJosq5ES4u7mO4nUJqfuTh4uI+n7sORKqhTzk1wsXFHeSWr07G9L0LoLi4uN/lVjOOPdb61eQNYFxc3Ju5P4U8w0LfiKIrAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB0UlEQVR42u3awYrDMAxF0fz/T3dgVoVONPfZskjhZlVK0h5nIawnXxe+Xr/X+2f+Dbm/+ZIrV+4291Ven9y7p+rl1U8Rg1y5cue5afEid9aLqV/H7fdy5cp9GLfeb5Cn+J1y5cr9Fi4vQPWS5MqV+y1cHmQQer2MoV5Nrly5G9y1wLT38/F8V65cuU1TCV7USITKA5Tbf5crV+4Il4QXfHzCWx0+uL1IPyRXrtwDXL6j4OPV9LhG+lLkypV7jtsbbaTf8yjkjx2ZXLlyD3N5K8KTijVi0PbIlSv3GJc0PHXrUhdB3vCkZVGuXLmnuWvtTe8kJ+jP5MqVe5ibjk/SWKTrTrly5U5y+UiDLyOto+nmSa5cuTPclJU2P7yQkY2UXLlyT3O7Ck16wIK/FLly5c5z04NZPBjl4Qs/6iFXrtwZ7s6wkxP5Ya9/XodcuXIHuTsDD3IsIy15t78jV67cQW5ayNZamnSUuzj5kStX7jY3LShrIQi/P8h35cqVe5i7FmXysLXrGIdcuXLnuTsnoNIF8KIpV67c53N545RuhkgRlCtX7vO5pJzxuIS3THLlyp3kpj9NhqNp/NEci8iVK7enLgWB6c5hCz7akStX7jj3B0UKi7LHf5hWAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

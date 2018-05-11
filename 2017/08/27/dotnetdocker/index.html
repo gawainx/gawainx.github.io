@@ -31,7 +31,7 @@
     <meta name="description" content="前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台">
 <meta property="og:type" content="article">
 <meta property="og:title" content="macOS下使用 docker 进行 CSharp 开发（一）">
-<meta property="og:url" content="http://140.143.193.168/2017/08/27/dotnetdocker/index.html">
+<meta property="og:url" content="https://antarx.com/2017/08/27/dotnetdocker/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
 <meta property="og:description" content="前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台">
 <meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg">
@@ -213,7 +213,13 @@
 <p>运行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -it -v `pwd`:/csharp -w /csharp microsoft/dotnet</div></pre></td></tr></table></figure></p>
 <p>命令中通过<code>-it</code>开启了实时交互模式，只是因为在家里没梯子，下载 dotnet core 的 SDK 贼慢，只好采取此方法。<br>实际应用的时候可以在本地 shell 先建立好项目编辑完源代码直接甩容器里跑最方便的。</p>
 <h1 id="新建项目、编辑代码、运行"><a href="#新建项目、编辑代码、运行" class="headerlink" title="新建项目、编辑代码、运行"></a>新建项目、编辑代码、运行</h1><p>运行容器之后，在容器弹出的交互界面中，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dotnet new console -o hwapp</div></pre></td></tr></table></figure></p>
-<p>命令的基本含义是以控制台为模板新建一个名为<code>hwapp</code>的项目。<br>在本机，用 vscode 打开工作目录下的 Program.cs 源文件，编辑代码，本次以输出“hello docker‘为例。<br>编辑完代码，保存之后，在容器的终端中运行<code>dotnet run</code>运行项目。<br><img src="http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg" alt="运行结果"></p>
+<p>命令的基本含义是以控制台为模板新建一个名为<code>hwapp</code>的项目。<br>在本机，用 vscode 打开工作目录下的 Program.cs 源文件，编辑代码，本次以输出“hello docker‘为例。<br>编辑完代码，保存之后，在容器的终端中运行<code>dotnet run</code>运行项目。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg" alt="运行结果" title="">
+                </div>
+                <div class="image-caption">运行结果</div>
+            </figure></p>
 <p>//忽略第一次那个白痴错误（汗</p>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>到此为止，在 macOS 下用 Docker 运行.net 程序的第一次尝试就完成了。要补充的内容还有很多，比如配置 vscode 开发环境等等工作，也只能等到回校有畅快的开发环境再慢慢补完了。</p>
 
@@ -229,12 +235,12 @@
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/27/dotnetdocker/" target="_blank" rel="external">http://140.143.193.168/2017/08/27/dotnetdocker/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/27/dotnetdocker/" target="_blank" rel="external">https://antarx.com/2017/08/27/dotnetdocker/</a>
         
     </div>
     
     <footer>
-        <a href="http://140.143.193.168">
+        <a href="https://antarx.com">
             <img src="/img/sicp.jpg" alt="Gawain Antarx">
             Gawain Antarx
         </a>
@@ -260,7 +266,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://140.143.193.168/2017/08/27/dotnetdocker/&title=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&pic=http://140.143.193.168/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2017/08/27/dotnetdocker/&title=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -270,22 +276,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://140.143.193.168/2017/08/27/dotnetdocker/&title=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&source=前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2017/08/27/dotnetdocker/&title=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&source=前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://140.143.193.168/2017/08/27/dotnetdocker/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2017/08/27/dotnetdocker/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&url=http://140.143.193.168/2017/08/27/dotnetdocker/&via=http://140.143.193.168" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&url=https://antarx.com/2017/08/27/dotnetdocker/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://140.143.193.168/2017/08/27/dotnetdocker/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2017/08/27/dotnetdocker/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -418,7 +424,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://140.143.193.168/2017/08/27/dotnetdocker/&title=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&pic=http://140.143.193.168/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2017/08/27/dotnetdocker/&title=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -428,22 +434,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://140.143.193.168/2017/08/27/dotnetdocker/&title=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&source=前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2017/08/27/dotnetdocker/&title=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&source=前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://140.143.193.168/2017/08/27/dotnetdocker/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2017/08/27/dotnetdocker/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&url=http://140.143.193.168/2017/08/27/dotnetdocker/&via=http://140.143.193.168" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《macOS下使用 docker 进行 CSharp 开发（一）》 — Gawainx'Blog&url=https://antarx.com/2017/08/27/dotnetdocker/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://140.143.193.168/2017/08/27/dotnetdocker/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2017/08/27/dotnetdocker/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -454,7 +460,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aQWrEMAwF0Nz/0um2UOJ8yZMOsZ9XJQyKXwrCknwc8Tp/rb9Prp6PI4wjH08sDAyM1zLO4boKPSYlyKv4eWQMDIzdGFcZLPlNkkzHaTT/fJfPMTAwMKaT5jhx57/HwMDASA5/UdCgDM5LZQwMDIzPFp9562389gdrcQwMjBcy8q77///9yHwDAwPjVYyzuKrjzPLxrrcrDAyMpRkzI8yZYjUvWQvFMwYGxtKM3sWv6qarTboEgIGBsQOj1+jvtb3yVlo+2sTAwNiB8aluVX6IzBv9X2i6YWBgvIpRvYRRjVYtTZuTWAwMjCUYyfEuSYXVNFodXt78BgMDY2nGTIrspekkfp6Ob4pYDAyMDRh5UZq8bH4sWhheYmBgLMfobbd67MuTbHKsxMDA2I2RX2uYGTQ+fckMAwNjVUa1QT8zDMjfXr52hoGBsQGjV4L2bkH0PsfNzjEwMDZg5GXkp9JldWx5Q8XAwFiaMQ7aGxicxTWTcDEwMHZj9JJgbyvVllz0KTEwMDZjVJtx323bYWBg7MBIWlq9g12SRmeGmoX/EgYGxmsZvYIzeVLd9NQVDQwMjKUZvTHkzEGwWipXy1oMDIxVGb0k2xtA9o6hUbMPAwNjA8ZMETs/mKwWsUc102NgYGAUW/z5k8K4AgMDAyN+/fzBsTdSxcDA2IHRO/wlSTmPU73AMVWLY2BgvIrxxN2qapx8i1NDTQwMjPcxfgAJ9f71UBy+hwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aS04DMRAFQO5/6SCxhYT32hnB2OVVhJKJK0it/n18xOfxdV6/fvap7+fZZ7+/580HAwPjtozHy/PsPa+/OKEmvORuGBgY5zCSIJt8WcJLLprfDQMDAyNJ434JhS/Da4LEwMDAaBmzVK/9UTAwMDBmRexK2tc+58JaHAMD44aMdw0Grnj9B/MNDAyMf8Z4lKcNrPmF8iD7w60wMDC2ZqwUkLNViSRZzKNrPRHFwMC4IWMY2srhwWwto/h2DAyMYxh56JyFyGS1ol2/wMDAOIHR9rJmf2+XxtpOGgYGxjmMvARt2bPRZgJrSnUMDIy7MlYGAPkiRduAq4tbDAyMAxhtsywpQVfWwupyGgMDY2vGeuC7IrxeUsRiYGDcltH24fKW2UoxnAdoDAyMExjt2la7RtamhnkQr3uHGBgYWzDylG4Gu671hoGBsTejfWgyKsgvPRuLLv0HMDAwbsiIInH59evJ3ywxxcDA2JsxS+/y4LuSJuY/GQYGxq6M9irtiDFvw81abBgYGKcx2lZXW+62BWrxTAwMjK0ZOSkvdJNQO2u6FfMNDAyMjRiP8rTT0XyNbGWZAwMDY29GftokLwfPBgMYGBinMfKW2awx1143HzxgYGCcxnhXOfqu4UEb1jEwMDDy8JcUwO1wIkpYMTAwMEYhcpZczhJNDAyMExhtETsbUrZPLkI5BgbG1oyVTY315Yk8TC8BMDAw7sr4BEOrhJo/2d8qAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

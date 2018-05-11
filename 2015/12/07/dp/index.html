@@ -31,7 +31,7 @@
     <meta name="description" content="前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用动态规划求解字符串编辑距离问题(C#实现）">
-<meta property="og:url" content="http://140.143.193.168/2015/12/07/dp/index.html">
+<meta property="og:url" content="https://antarx.com/2015/12/07/dp/index.html">
 <meta property="og:site_name" content="Gawainx'Blog">
 <meta property="og:description" content="前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg">
@@ -207,7 +207,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次提到会在后续通过实际例子更加深入的谈谈对解释四种<a href="http://antarx.com/2015/11/16/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">四种基本算法设计模式</a>的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。<br><a id="more"></a></p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次提到会在后续通过实际例子更加深入的谈谈对解释四种<a href="http://antarx.com/2015/11/16/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">四种基本算法设计模式</a>的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。<br><a id="more"></a></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><blockquote>
 <p>我们将两个字符串的相似度定义为：将一个字符串转换为另一个字符串时需要付出的代价。转换方法包括插入，删除和替换三种编辑方式。使用对字符串的编辑次数定义为转换的代价。最小的字符串编辑次数就是字符串的编辑距离。                             –《算法的乐趣》</p>
 </blockquote>
@@ -266,7 +266,13 @@ namespace EditDistance
     }
 }
 </code></pre><p>运行结果：</p>
-<p><img src="http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>求解字符串的编辑距离问题应该是动态规划的最典型案例，体现了动态规划问题的基本特点。适合用动态规划解决的问题，一般都是可以划分多多个子状态的，每个子状态之间存在状态转移关系，每个状态的解一旦确定，就会用类似“备忘录”的表储存起来。在后续求解时，将会直接使用该状态的解，而且，<strong>不会再回溯子状态的时候改变该状态的解</strong>。</p>
 <p>另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对<code>d[i,0]</code>和<code>d[0,j]</code>需要初始化为i和j），将得不到正确的解。</p>
 
@@ -282,12 +288,12 @@ namespace EditDistance
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/12/07/dp/" target="_blank" rel="external">http://140.143.193.168/2015/12/07/dp/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/12/07/dp/" target="_blank" rel="external">https://antarx.com/2015/12/07/dp/</a>
         
     </div>
     
     <footer>
-        <a href="http://140.143.193.168">
+        <a href="https://antarx.com">
             <img src="/img/sicp.jpg" alt="Gawain Antarx">
             Gawain Antarx
         </a>
@@ -313,7 +319,7 @@ namespace EditDistance
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://140.143.193.168/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&pic=http://140.143.193.168/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -323,22 +329,22 @@ namespace EditDistance
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://140.143.193.168/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&source=前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&source=前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://140.143.193.168/2015/12/07/dp/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2015/12/07/dp/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&url=http://140.143.193.168/2015/12/07/dp/&via=http://140.143.193.168" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&url=https://antarx.com/2015/12/07/dp/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://140.143.193.168/2015/12/07/dp/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2015/12/07/dp/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -471,7 +477,7 @@ namespace EditDistance
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://140.143.193.168/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&pic=http://140.143.193.168/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -481,22 +487,22 @@ namespace EditDistance
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://140.143.193.168/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&source=前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&source=前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://140.143.193.168/2015/12/07/dp/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2015/12/07/dp/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&url=http://140.143.193.168/2015/12/07/dp/&via=http://140.143.193.168" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx'Blog&url=https://antarx.com/2015/12/07/dp/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://140.143.193.168/2015/12/07/dp/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2015/12/07/dp/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -507,7 +513,7 @@ namespace EditDistance
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwUlEQVR42u3aS27DMAwFwNz/0s62QBD5UR/WLUarQImtURaESOr1isf1Y3yb+Zz//Hb87LaBi4u7zL2GY4xIWONVcgMuLm4/N1ls/FQS1MbcsQEXF/fJ3ORwk59VcHFx/we3upl8BhcX92ncbUeQ4qHnYK6Gi4u7wF05juz6fKS+i4uLO8W9imNXuWRydVxc3BZuHlDmWqp5ylRYFxcX9zA3STaSJfMGalIWuQlhuLi4h7l5mSMnrpRW8z8RFxe3h7tSxMwTpG2NFlxc3Ebu3PJ7D0zRlQ5cXNzD3HzJ/Kw0lw5FpRNcXNxGbn7dodoczQ80ycZwcXF7uFXc+OF8ybwxg4uL28/d9aL8P9gQd3FxcVu4c6C5FkseHKPkBxcX9zA3TznyhspKELwJZLi4uI3cucxp5Q2FJisuLm4jN0lRqoFsrth68xtcXNzD3Ks4qlvNS6tRSQUXF7eFW22UrpRKq1eyJpusuLi4m7hzJc6VCxbVeVxc3N/i5slPcp0iv3JRDaC4uLh/hZu3WvM33xRHcHFxH8ndtbFyaoSLi9vILV+dLDZo88JHoSeMi4t7jJsnIdVCat68KSQ/uLi4Z7lvlWEp+BAbWqQAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB1ElEQVR42u3au47DMAxEUf//TyvAVikieYYjEcLiqkoR28cuCL6eRz7j7zzm+b5qfJ3knnDhwu3hjuWZPUwHzYizf84McOHC7ecqYUgJcOsXzu8PFy7c27huIJu9Bly4cP8rd52gKAELLly493OV4kdJVpTHr8ukbbUaXLhwA26t9bn398H+Lly4cE3uKB2lpKkFrJfnwoULt4WblDH66NRtqr4EO7hw4bZwayFJyT12lUZw4cLt5LoNCHfUmi9+/Uhu4MKFewHXDUPuioYeRuHChdvDVUqRWhhSUhylKDISHbhw4W7iuhe4Y1e9vWIUP3Dhwm3kJiMQPXGJXhUuXLgtXD1BWYewPKEx1rPgwoXbwt2Fdv+p71wV6y24cOGWuO7KVLKKoac+0heFCxfuMW5t5FkboCpjEuWV4MKFe5o75JO3UfJ0By5cuD1cd2jqjmN3DW7hwoXbyR3mMQYewndS7lBMceDChRtwa50HPaFx6e7d4MKFe45bW61w26Z6KHxJjODChdvIdQctymg2SVOMaTBcuHCv4eptUCXpMYofuHDhXsbVU6IkebI3yODChXuMWyt+9FClt1demiNw4cJt4eYN09rKhfIJjvR34cKFu+J+AA5q3URwdG/pAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
