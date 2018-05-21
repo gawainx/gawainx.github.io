@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://antarx.com/"/>
-  <updated>2018-05-14T03:12:19.094Z</updated>
+  <updated>2018-05-21T03:22:30.675Z</updated>
   <id>https://antarx.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LaTeX排版学术论文工具链</title>
+    <link href="https://antarx.com/2018/05/21/latex-toolchain/"/>
+    <id>https://antarx.com/2018/05/21/latex-toolchain/</id>
+    <published>2018-05-21T02:48:35.000Z</published>
+    <updated>2018-05-21T03:22:30.675Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="LaTeX-排版工具链"><a href="#LaTeX-排版工具链" class="headerlink" title="LaTeX 排版工具链"></a>LaTeX 排版工具链</h1><p> 这里整理了 $\LaTeX$ 排版学术论文的工具链。根据自己的实践和大家的留言补充定期更新。<br><a id="more"></a></p><h2 id="操作系统，软件等"><a href="#操作系统，软件等" class="headerlink" title="操作系统，软件等"></a>操作系统，软件等</h2><p>$\LaTeX$ 可以在 Windows、Linux 和 macOS 平台上运行。Windows 上可以安装 MikTex，Linux 上有 TeX Live，考虑美观度和排版过程的愉悦度，本人使用的 LaTeX 排版环境大致如下：</p><ul><li>OS : macOS(Darwin)</li><li>编辑器：<a href="https://code.visualstudio.com" target="_blank" rel="external">Microsoft VSCode</a></li><li>插件：LaTeX Workshop</li><li>$\LaTeX$ 软件：MacTeX 工具包</li><li>PDF 阅读工具：skim</li></ul><h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p><a href="https://github.com/uefs/ieee-template-latex/blob/master/bare_jrnl.tex" target="_blank" rel="external">IEEE tran</a><br><code>bare_jrnl.tex</code>最新版本应该是 v1.7，但在网上好像找不到这个最新的版本，准备整理一个多文件编译的版本放到 GitHub 上。</p><p>欢迎留言补充其它模板。:)</p><h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><p><a href="http://mohu.org/info/symbols/symbols.htm" target="_blank" rel="external">数学符号集</a></p><h2 id="插入伪代码（算法宏包的相关使用）"><a href="#插入伪代码（算法宏包的相关使用）" class="headerlink" title="插入伪代码（算法宏包的相关使用）"></a>插入伪代码（算法宏包的相关使用）</h2><p><a href="https://www.zybuluo.com/jfruan/note/720298" target="_blank" rel="external">LaTeX算法排版</a></p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>使用<code>listings</code>宏包。<a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings" target="_blank" rel="external">LaTeX/Source Code Listings</a><br>但这个宏包没有 golang 语法高亮支持的！要使 golang 语法高亮，可添加宏包<a href="https://github.com/julienc91/listings-golang" target="_blank" rel="external">listings-golang</a></p><h2 id="图片与表格"><a href="#图片与表格" class="headerlink" title="图片与表格"></a>图片与表格</h2><p>首先要理解浮动体的概念，<a href="https://liam0205.me/2017/04/30/floats-in-LaTeX-the-positioning-algorithm/" target="_blank" rel="external">LaTeX 中的浮动体：浮动算法</a></p><h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><p><a href="http://www.latexstudio.net" target="_blank" rel="external">LaTeX 开源小屋</a><br><a href="https://github.com/luongvo209/Begin-Latex-in-minutes" target="_blank" rel="external">Begin LaTeX in minutes</a><br><a href="https://book.douban.com/subject/24703731/" target="_blank" rel="external">LaTeX 入门</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;LaTeX-排版工具链&quot;&gt;&lt;a href=&quot;#LaTeX-排版工具链&quot; class=&quot;headerlink&quot; title=&quot;LaTeX 排版工具链&quot;&gt;&lt;/a&gt;LaTeX 排版工具链&lt;/h1&gt;&lt;p&gt; 这里整理了 $\LaTeX$ 排版学术论文的工具链。根据自己的实践和大家的留言补充定期更新。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="LaTeX" scheme="https://antarx.com/tags/LaTeX/"/>
+    
+  </entry>
   
   <entry>
     <title>博客迁移腾讯云小记</title>
