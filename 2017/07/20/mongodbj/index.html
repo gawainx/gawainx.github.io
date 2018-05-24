@@ -31,7 +31,7 @@
     <meta name="description" content="前言最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Mongodb 使用指南（一）增删查改">
-<meta property="og:url" content="http://antarx.com/2017/07/20/mongodbj/index.html">
+<meta property="og:url" content="https://gawainx.github.io/2017/07/20/mongodbj/index.html">
 <meta property="og:site_name" content="Gawainx' Blog">
 <meta property="og:description" content="前言最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是">
 <meta property="og:updated_time" content="2018-05-24T08:59:19.419Z">
@@ -194,6 +194,10 @@
 
 
             
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
@@ -233,12 +237,12 @@
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/07/20/mongodbj/" target="_blank" rel="external">http://antarx.com/2017/07/20/mongodbj/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/07/20/mongodbj/" target="_blank" rel="external">https://gawainx.github.io/2017/07/20/mongodbj/</a>
         
     </div>
     
     <footer>
-        <a href="http://antarx.com">
+        <a href="https://gawainx.github.io">
             <img src="/img/sicp.jpg" alt="Gawain Antarx">
             Gawain Antarx
         </a>
@@ -264,7 +268,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://antarx.com/2017/07/20/mongodbj/&title=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&pic=http://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2017/07/20/mongodbj/&title=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -274,22 +278,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://antarx.com/2017/07/20/mongodbj/&title=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&source=前言最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2017/07/20/mongodbj/&title=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&source=前言最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://antarx.com/2017/07/20/mongodbj/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2017/07/20/mongodbj/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&url=http://antarx.com/2017/07/20/mongodbj/&via=http://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&url=https://gawainx.github.io/2017/07/20/mongodbj/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://antarx.com/2017/07/20/mongodbj/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2017/07/20/mongodbj/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -408,6 +412,15 @@
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -435,7 +448,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://antarx.com/2017/07/20/mongodbj/&title=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&pic=http://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2017/07/20/mongodbj/&title=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -445,22 +458,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://antarx.com/2017/07/20/mongodbj/&title=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&source=前言最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2017/07/20/mongodbj/&title=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&source=前言最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://antarx.com/2017/07/20/mongodbj/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2017/07/20/mongodbj/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&url=http://antarx.com/2017/07/20/mongodbj/&via=http://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java Mongodb 使用指南（一）增删查改》 — Gawainx' Blog&url=https://gawainx.github.io/2017/07/20/mongodbj/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://antarx.com/2017/07/20/mongodbj/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2017/07/20/mongodbj/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -471,7 +484,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aS5KDMAwFQO5/aeYAGcyTjE0q1V5RhJh2FqrocxzxOj/W5/2rO+PdjhULFxd3mnsO1/gF4zvJwXIDLi7ufu5VxMhZycr3v7yPi4v7ldwZxHhPXFzcX+JW06Hx3x1cXNzv4SaIalEj2WdhroaLizvBzauU666X1HdxcXFb3LO4ekGnV0D5Z2dcXNwt3Dyg9NC9IulNOxYXF3cxtxd68ud7IxrlEIaLi/sotzpIkQ9hVBHVBi0uLu467szoVRKGnm294OLi7udGDc74YNXDRz8NLi7uFm7eCs0TlaQ5mn960xPGxcV9iZu/snewapEFFxd3Jzf/K9MbwKq2WC6fx8XFfZWbFz1nmqzVogkuLu5O7jgM5de9QFZIk3Bxcbdz81ZotcDxVGMGFxd3J3dmYKJ3pGqbFhcXdz+33OyM06GjuG6+hYuLu5h7FteKoknhYLi4uFu41eCSpDpJwhONWcwERFxc3Glu3tLIWfl19ZC4uLg7udVAU22X5k2UqcEsXFzcl7h5sHsqTZoKZLi4uFu4vSyqmm81Oz+4uLiPcsujkzGrl1Dh4uK+y+2FlepAVV5YeaBZi4uL2+f+AborCwk160spAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aO3LDMAwFQN//0kqbwrIeCLowuKo8iSxylRkEH75e8XXdXP9/e3d/8sz8W60LAwPjZxnXx+vzkneM6qaTde/uwcDAOIdxt3A1pCbfSnj53jAwMDDuPkdB8Ob+zovAwMDAqDKqRWknAcXAwMDIG2r5YtVX0wruGBgYoxnfW77/+SvzDQwMjJ9iXMWrGgTXkr/yrjAwMEYz1gaQydZ3Be58IIqBgTGVkbfmq8e88oFBdSz65icYGBgHMKpHK5JRZT4YWBtnvgm4GBgYQxlrnaso39yUULYGABgYGIMYnQQxD6/JkztHQDAwMKYyqqVmv9FWZUcHOzAwMI5kdIrPPDQn5Wj0HAwMjAMY1a+ttcbysrnVNcTAwBjKqC5ZDbXJ66gWsQ9VOAYGxlDGWpBNxgCdsjYaD2BgYIxm5GlcuQVWDLI5+yHsYmBgDGX049hawreGwcDAOI2Rt7d2HRrLj38VnoaBgTGaUQ2d+WCy+iI6A1EMDIwTGHkQ3NXjWksTHzAYGBjHMNaKzDyN64TsQsDFwMAYyljbbueQRKHnl/wbwMDAGMq4iteu8UC10C38HTAwMMYxqmGuCu605KppKwYGxmzGWqnZvz9/ZRveNAYGxghGtaFf3frnJ+fbfchzMTAwMBoBsX//hsMWGBgYxzDWGm35sYnPDbiHIhYDA2M0o3O0NEkZ88I1p2JgYJzDWCsdqyFyV5rYGmpiYGD8HuMPcQ3RPy3h20IAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -531,6 +544,8 @@ MathJax.Hub.Queue(function() {
 
 
 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

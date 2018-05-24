@@ -31,7 +31,7 @@
     <meta name="description" content="前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用动态规划求解字符串编辑距离问题(C#实现）">
-<meta property="og:url" content="http://antarx.com/2015/12/07/dp/index.html">
+<meta property="og:url" content="https://gawainx.github.io/2015/12/07/dp/index.html">
 <meta property="og:site_name" content="Gawainx' Blog">
 <meta property="og:description" content="前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg">
@@ -200,6 +200,10 @@
 
 
             
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
@@ -284,12 +288,12 @@ namespace EditDistance
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/12/07/dp/" target="_blank" rel="external">http://antarx.com/2015/12/07/dp/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/12/07/dp/" target="_blank" rel="external">https://gawainx.github.io/2015/12/07/dp/</a>
         
     </div>
     
     <footer>
-        <a href="http://antarx.com">
+        <a href="https://gawainx.github.io">
             <img src="/img/sicp.jpg" alt="Gawain Antarx">
             Gawain Antarx
         </a>
@@ -315,7 +319,7 @@ namespace EditDistance
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://antarx.com/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&pic=http://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -325,22 +329,22 @@ namespace EditDistance
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://antarx.com/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&source=前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&source=前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://antarx.com/2015/12/07/dp/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2015/12/07/dp/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&url=http://antarx.com/2015/12/07/dp/&via=http://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&url=https://gawainx.github.io/2015/12/07/dp/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://antarx.com/2015/12/07/dp/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2015/12/07/dp/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -459,6 +463,15 @@ namespace EditDistance
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -486,7 +499,7 @@ namespace EditDistance
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://antarx.com/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&pic=http://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -496,22 +509,22 @@ namespace EditDistance
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://antarx.com/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&source=前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2015/12/07/dp/&title=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&source=前言上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://antarx.com/2015/12/07/dp/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2015/12/07/dp/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&url=http://antarx.com/2015/12/07/dp/&via=http://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用动态规划求解字符串编辑距离问题(C#实现）》 — Gawainx' Blog&url=https://gawainx.github.io/2015/12/07/dp/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://antarx.com/2015/12/07/dp/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2015/12/07/dp/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -522,7 +535,7 @@ namespace EditDistance
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvElEQVR42u3aQYrDMAwF0Ln/pTswq0Jp+iXZbhieVyGE9iWLjyX55ydej7/1fP185/X+9TOv14sXLi7umPu4XAnx3e/kL5wYcHFxz3Pn4ZXE07snEwMuLu49ucl+I38GFxf3P3GvcfnWBxcX9/7cpPip0qsbo8W1Gi4u7oDba5iuvd7e38XFxV00lUiap70Ga2/h4uKe4ebFSVSWtGIxSa1ylwUXF3cRd9LgqIbUst0WLi7uBm61/VEtYKoNlw8fBRcX9zh3Ek/5YKY3jsXFxT3JTaKk1zadHMj4EHa4uLibub1AmcdZs+2Ci4t7kJuPQOap2Rvb4OLinuTmsTVprVYPc0TFDy4u7jZuPupYO4jtxR8uLu4Z7rwPWd24JK8ajWNxcXG3cZMypvn2xU3P9YfAxcX9Fjc/B1Vtp07ir/CdcHFxF3GTA1XVeEqIcwMuLu4+bq9oqW5ZepGHi4v7LW6+8kHs2qMYuLi43+Lmzc19jZLCZggXF/cgtxo0eYHUWx/2Zbi4uLfhVo9NVIclUZzh4uLekrvgL1ujF1xc3PPcavGT36m2V3Bxce/AXdswzV8mL7fKdFxc3D73F6lKCwlF9IMBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aQW7DMAwEQP//0y7Qaxt7SVlMAoxOQeDKkx4IcanjiNf5u/Jvqp8fXri4uMvc83L9fSZ58StKsv+rZ3Bxcee518UrLzrXL6sWNVxc3M/n5pv2ChkuLu73ctcbIVxc3G/hJs1Pr1l6ak9cXNxJbjUw3fF5Y76Li4tb5J7LK9+nWrz+2QEXF3eE22tyksijOjhJBja4uLjz3N5gtTc4uf7mpu3BxcV9Ezd//XUDk7y+OqTBxcWd4V7/WV68ej+yegzCxcXdzV0ZV1QHq/mh5yYQwcXFHeEmZaj6yi3NDy4u7gg3vyxVLUD54akwRMHFxR3hVjdKuOtFMJoJ4+LibuOuDFCTy1XVnxFBcXFxN3Pzo0m1qPVil2bbg4uL+yg3D0DzMer6cKXwn8bFxd3ATV7QC012LFxc3Blu9XiRP5PEIvkZBhcXd5LbKyVJCcsD0ySOOXo1EhcXt8VduYaVB6a9y1vVSAUXF/dZbl68eolLHsgmUQsuLu4kN29jkmam1/BEO+Di4n4kd72ELTU/uLi4H8bNL1flg9t8NIuLizvPXblI0QtYqxc7cHFxJ7krgWmvSFVDk8fyXVxc3PvvfwAfRouyjCVxfQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -582,6 +595,8 @@ MathJax.Hub.Queue(function() {
 
 
 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
