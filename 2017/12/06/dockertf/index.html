@@ -21,25 +21,25 @@
     
     
     
-    <title>TensorFlow For Docker 初体验 | Gawainx&#39;Blog | Antarx is the heart of Scorpio</title>
+    <title>TensorFlow For Docker 初体验 | 经验介绍 | Antarx is the heart of Scorpio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="ML,TensorFlow,Docker">
+    <meta name="keywords" content="TensorFlow,Docker,ML">
     <meta name="description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。
 下面分享配置过程。
 测试环境是 G">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow For Docker 初体验">
-<meta property="og:url" content="https://antarx.com/2017/12/06/dockertf/index.html">
-<meta property="og:site_name" content="Gawainx'Blog">
+<meta property="og:url" content="http://antarx.com/2017/12/06/dockertf/index.html">
+<meta property="og:site_name" content="经验介绍">
 <meta property="og:description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。
 下面分享配置过程。
 测试环境是 G">
 <meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg">
-<meta property="og:updated_time" content="2017-12-06T14:31:45.354Z">
+<meta property="og:updated_time" content="2018-05-24T08:59:19.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow For Docker 初体验">
 <meta name="twitter:description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。
@@ -47,7 +47,7 @@
 测试环境是 G">
 <meta name="twitter:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg">
     
-        <link rel="alternate" type="application/atom+xml" title="Gawainx&#39;Blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="经验介绍" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -202,10 +202,6 @@
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
@@ -256,17 +252,17 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-06T14:31:45.354Z" itemprop="dateUpdated">2017-12-06 22:31:45</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:19.436Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/12/06/dockertf/" target="_blank" rel="external">https://antarx.com/2017/12/06/dockertf/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/12/06/dockertf/" target="_blank" rel="external">http://antarx.com/2017/12/06/dockertf/</a>
         
     </div>
     
     <footer>
-        <a href="https://antarx.com">
+        <a href="http://antarx.com">
             <img src="/img/sicp.jpg" alt="Gawain Antarx">
             Gawain Antarx
         </a>
@@ -292,7 +288,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2017/12/06/dockertf/&title=《TensorFlow For Docker 初体验》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://antarx.com/2017/12/06/dockertf/&title=《TensorFlow For Docker 初体验》 — 经验介绍&pic=http://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -302,23 +298,23 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2017/12/06/dockertf/&title=《TensorFlow For Docker 初体验》 — Gawainx'Blog&source=
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://antarx.com/2017/12/06/dockertf/&title=《TensorFlow For Docker 初体验》 — 经验介绍&source=
 TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2017/12/06/dockertf/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://antarx.com/2017/12/06/dockertf/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TensorFlow For Docker 初体验》 — Gawainx'Blog&url=https://antarx.com/2017/12/06/dockertf/&via=https://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TensorFlow For Docker 初体验》 — 经验介绍&url=http://antarx.com/2017/12/06/dockertf/&via=http://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2017/12/06/dockertf/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://antarx.com/2017/12/06/dockertf/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -341,9 +337,9 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/01/08/buptoj/" id="post-prev" class="post-nav-link">
+      <a href="/2017/12/06/linuxnv/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">网研机试101</h4>
+        <h4 class="title">linuxnv</h4>
       </a>
     </div>
   
@@ -437,15 +433,6 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
             
@@ -457,8 +444,6 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
     <div class="bottom">
         <p><span>Gawain Antarx &copy; 2015 - 2018</span>
             <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
@@ -475,7 +460,7 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2017/12/06/dockertf/&title=《TensorFlow For Docker 初体验》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://antarx.com/2017/12/06/dockertf/&title=《TensorFlow For Docker 初体验》 — 经验介绍&pic=http://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -485,23 +470,23 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2017/12/06/dockertf/&title=《TensorFlow For Docker 初体验》 — Gawainx'Blog&source=
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://antarx.com/2017/12/06/dockertf/&title=《TensorFlow For Docker 初体验》 — 经验介绍&source=
 TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2017/12/06/dockertf/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://antarx.com/2017/12/06/dockertf/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TensorFlow For Docker 初体验》 — Gawainx'Blog&url=https://antarx.com/2017/12/06/dockertf/&via=https://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TensorFlow For Docker 初体验》 — 经验介绍&url=http://antarx.com/2017/12/06/dockertf/&via=http://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2017/12/06/dockertf/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://antarx.com/2017/12/06/dockertf/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -512,7 +497,7 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3a0QrCMAwFUP//pxV8EmTdTbPWCadPYwx74kNIkz4e8Xq+1+fz5zr65vv7ozcXL1xc3Db3OVzf2ycBjH8neX8YEi4u7kZunrzGySh/M/47Dt/j4uLejJsUQNVSCRcX99+5eckyTlu4uLj/ws0PLXliygNYclbDxcVtcK8qTTrPy/u7uLi4F00lquVLtWQp746Li7uFm7c4+6VJPow5SXO4uLiLudXR6ZiYD13mkiMuLu5ObrUBOtcQuSAJ4uLi/oibb5C3NjoHnpNEhouLu4ybU6rJqFpCneyIi4v7I26nGdof1ZyUVri4uBu5+QgkCW8uLeLi4t6HmySRTsO02l6JQsXFxd3CHX+aD2LnDkL5MQkXF3cPN98yjzgZsVSPVbi4uDu5/cZokgSTwiW/zIGLi7uamyeXzuWJahMWFxf3Dty8QJlrjCZpLgkPFxd3Jzdf1aZnNRWWJ7G4uLgLuNWEMjdKyUMq93dxcXGXcautzPwINBcYLi7ufbh58rp2NFveFxcX92bcuatX+S9HbRRcXNwbc6tNkLzZehIMLi7uRm71oDK+fjEX6sVnNVxc3Aa3WpT0r1t1Lmfg4uIu5r4A+LJi6ZvyuboAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwUlEQVR42u3aSYoDMRAEQP//0z3XAeMmU5sbEzoZI1qhS1GLXq94Xf/W+//ve953Jl9btnBxcae51+1qKcllkqt+PAsXF/cgNzns0/77A/IgeG/AxcV9MveemCQ3uLi4v8dtC5v8H1xc3Kdxk+Jnvv1xtFbDxcWd4I41ONb+3tLfxcXFHeJe5WqD1NqFi4t7hpsHlHbc0gbEYhyLi4t7nNs2LPIAl1+sGLLi4uJu40ZtyttwNla/tHUNLi7ut7j3jyRmHmfsGLTg4uLu444lH2NXbZ9n1cUPLi7uNDcPOu3OvDlStE5wcXEPcseOiWLkUOH0MbDi4uIe4ebj0pmWaFJ71cUPLi7uNu6qcWkeqvInGlHcxcXF3cCdaXfOpCn5ACaaCePi4m7mtqPQ9siZkgkXF/db3LZoWdX+SIorXFzc73Lb1Kd9ulGnNe27D1xc3AnuVa48ACXD2jphwsXFPcJtg0sLzcPc2FMwXFzcfdw2eI3tT76zINHBxcVdym2LovYCbWOl6O/i4uI+jJu3UWbKpGWBDBcXdxs3CWftBYrTcXFxD3Lbp5N5EtMWVLi4uE/gjg0+W3q+P9mJi4u7jfsHQ1ALCZD7TEIAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -551,8 +536,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

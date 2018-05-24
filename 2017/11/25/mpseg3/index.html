@@ -21,7 +21,7 @@
     
     
     
-    <title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词 | Gawainx&#39;Blog | Antarx is the heart of Scorpio</title>
+    <title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词 | 经验介绍 | Antarx is the heart of Scorpio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -31,17 +31,17 @@
     <meta name="description" content="本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词">
-<meta property="og:url" content="https://antarx.com/2017/11/25/mpseg3/index.html">
-<meta property="og:site_name" content="Gawainx'Blog">
+<meta property="og:url" content="http://antarx.com/2017/11/25/mpseg3/index.html">
+<meta property="og:site_name" content="经验介绍">
 <meta property="og:description" content="本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。">
 <meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg">
-<meta property="og:updated_time" content="2017-11-27T13:46:50.307Z">
+<meta property="og:updated_time" content="2018-05-24T08:59:19.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词">
 <meta name="twitter:description" content="本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。">
 <meta name="twitter:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg">
     
-        <link rel="alternate" type="application/atom+xml" title="Gawainx&#39;Blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="经验介绍" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -196,10 +196,6 @@
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
@@ -270,17 +266,17 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-11-27T13:46:50.307Z" itemprop="dateUpdated">2017-11-27 21:46:50</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:19.414Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/11/25/mpseg3/" target="_blank" rel="external">https://antarx.com/2017/11/25/mpseg3/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/11/25/mpseg3/" target="_blank" rel="external">http://antarx.com/2017/11/25/mpseg3/</a>
         
     </div>
     
     <footer>
-        <a href="https://antarx.com">
+        <a href="http://antarx.com">
             <img src="/img/sicp.jpg" alt="Gawain Antarx">
             Gawain Antarx
         </a>
@@ -306,7 +302,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2017/11/25/mpseg3/&title=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://antarx.com/2017/11/25/mpseg3/&title=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — 经验介绍&pic=http://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -316,22 +312,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2017/11/25/mpseg3/&title=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — Gawainx'Blog&source=本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://antarx.com/2017/11/25/mpseg3/&title=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — 经验介绍&source=本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2017/11/25/mpseg3/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://antarx.com/2017/11/25/mpseg3/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — Gawainx'Blog&url=https://antarx.com/2017/11/25/mpseg3/&via=https://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — 经验介绍&url=http://antarx.com/2017/11/25/mpseg3/&via=http://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2017/11/25/mpseg3/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://antarx.com/2017/11/25/mpseg3/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -450,15 +446,6 @@
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
             
@@ -470,8 +457,6 @@
     <div class="bottom">
         <p><span>Gawain Antarx &copy; 2015 - 2018</span>
             <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
@@ -488,7 +473,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2017/11/25/mpseg3/&title=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — Gawainx'Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://antarx.com/2017/11/25/mpseg3/&title=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — 经验介绍&pic=http://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -498,22 +483,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2017/11/25/mpseg3/&title=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — Gawainx'Blog&source=本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://antarx.com/2017/11/25/mpseg3/&title=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — 经验介绍&source=本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2017/11/25/mpseg3/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://antarx.com/2017/11/25/mpseg3/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — Gawainx'Blog&url=https://antarx.com/2017/11/25/mpseg3/&via=https://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词》 — 经验介绍&url=http://antarx.com/2017/11/25/mpseg3/&via=http://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2017/11/25/mpseg3/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://antarx.com/2017/11/25/mpseg3/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -524,7 +509,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3aQW4CMRAEQP7/aSLlGli6PdgQqXxCgNYFh5Gnx7dbvO6/K/n0frn+fue2Y+Hi4o65+QbXuOt3nu2VG3Bxcc9z2/I0KYLXP+mFDRcX98u4yffbwxAuLu5/57YNzHX5w8XF/X5uG2TkTU5S8rb0ari4uANu28DseL0x38XFxS2593LN/5W8eD3YHRcX9wj3OtBsR61JSNo2V4uPxsXFHXCT2CL5NB+gtq3RgxKGi4u7mbtWyNYam0kUMjri4OLiLnHbx7W4ScPz4lyGi4u7jfuu4CN5Tv53PD0M4eLibuYuth8b5jlFrcXFxT3IzYmTxqa99oGLi/tZbj7eeC8i//G4uLhnuC0ieZ0PTtZ2xMXF3c2dBJr51au8wL0odri4uEe4eZDRjkbaq1dFEcTFxd3MnQ8/1i5StNc4cHFxz3Pz6xRtqJG0QMXgFhcX9yC3bXjWWqCk/NWTWFxc3A3ctqCsFaw6wZ1f6cDFxR1zJ1HmuwpifqjCxcU9yZ0cU5J4tA1n63wXFxf3Q9x8xNKC8uuhuLi438mdDFTaNgkXF/ez3LZRmY9mF8soLi7uEe5aYJpvmR+A1kIZXFzct3J/AFXU/DMfzbsrAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aQY7CMAwFUO5/aUaaLdPwHTcWjF5WqBT6urHi7zwe8Xr+rvWV1+vre66+vWHh4uK2uc/lWnOT66+fr+5ZG3Bxcee5SUmqvkBCzw24uLifyU3KX1LmcHFx/xM339as/xkXF/dbuNXClNCTlzzYq+Hi4ja41cD0xOeD+S4uLm6R+yyuTghSLV5/PB0XF3eEuzdArcYlVfqbMoeLizvOrTYz1RYoOX5RGLLi4uIe4CbHIPLS0zmWERVWXFzccW61vbkrVC38FhcXd5CbNDnVVidvq/INFi4u7gx3L7DI79n7hzfjVVxc3MPcauuSv2ryAuWxKy4u7gi3c+Yhf9jBsQouLu4gNy9w1QClOqbFxcWd5+Ztyd4GpR+54uLiznP32o9Ou9Ivkbi4uKe51SNWVe5eybssbbi4uIPcfty5d8CiGsrg4uJOcvNVjVb3rpezW1xc3Fu5/aalU7b2whdcXNwZbnXgkQ9W8+FrocDh4uIOcveanOpmZS+Qvcx3cXFxP4C7NxTZO7pxacPFxf1gbh6s7LVMN2xxcHFx29z8yFSnVK0LVlTOcHFxR7j9wLQ/WM3puLi4h7k/Ak4GHCNDZ/QAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -563,8 +548,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
