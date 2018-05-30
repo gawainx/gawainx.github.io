@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gawainx.github.io/"/>
-  <updated>2018-05-24T08:59:19.408Z</updated>
+  <updated>2018-05-29T03:05:47.798Z</updated>
   <id>https://gawainx.github.io/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>go-docker-03</title>
+    <link href="https://gawainx.github.io/2018/05/29/go-docker-03/"/>
+    <id>https://gawainx.github.io/2018/05/29/go-docker-03/</id>
+    <published>2018-05-29T03:05:47.000Z</published>
+    <updated>2018-05-29T03:05:47.798Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>go-docker-02</title>
+    <link href="https://gawainx.github.io/2018/05/29/go-docker-02/"/>
+    <id>https://gawainx.github.io/2018/05/29/go-docker-02/</id>
+    <published>2018-05-29T03:05:44.000Z</published>
+    <updated>2018-05-29T03:05:44.328Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>go docker client 使用教程（一）</title>
+    <link href="https://gawainx.github.io/2018/05/29/go-docker-01/"/>
+    <id>https://gawainx.github.io/2018/05/29/go-docker-01/</id>
+    <published>2018-05-29T03:05:41.000Z</published>
+    <updated>2018-05-29T03:39:03.829Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker-client-for-golang-使用教程（一）"><a href="#Docker-client-for-golang-使用教程（一）" class="headerlink" title="Docker client for golang 使用教程（一）"></a>Docker client for golang 使用教程（一）</h1><p>Docker 官方提供了适用于 golang 的 <a href="https://github.com/moby/moby/tree/master/client" target="_blank" rel="external">client</a>，可惜的是网上几乎没有完整可用的使用教程或者例子。在开发<a href="https://github.com/gawainx/gxd-cli" target="_blank" rel="external">gxd-cli</a>的过程中，需要大量使用到这个 SDK，所以便有了这个系列。</p><p>本篇涉及通过代码运行第一个容器，以及如何挂载卷。<br><a id="more"></a></p><h2 id="运行第一个容器"><a href="#运行第一个容器" class="headerlink" title="运行第一个容器"></a>运行第一个容器</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> *Gawain Open Source Project</div><div class="line"> *Author: Gawain Antarx</div><div class="line"> *Create Date: 2018-May-29</div><div class="line"> *</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line"><span class="string">"github.com/docker/docker/client"</span></div><div class="line"><span class="string">"github.com/docker/docker/api/types"</span></div><div class="line"><span class="string">"github.com/docker/docker/api/types/container"</span></div><div class="line"><span class="string">"io"</span></div><div class="line"><span class="string">"os"</span></div><div class="line"><span class="string">"context"</span></div><div class="line"><span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">ctx := context.Background()</div><div class="line">cli, err := client.NewClientWithOpts(client.WithVersion(<span class="string">"1.37"</span>))</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line"><span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line"></div><div class="line">resp, err := cli.ContainerCreate(ctx, &amp;container.Config&#123;</div><div class="line">Image: <span class="string">"alpine:latest"</span>,</div><div class="line">Cmd:   []<span class="keyword">string</span>&#123;<span class="string">"echo"</span>,<span class="string">"hello"</span>&#125;,</div><div class="line">&#125;, <span class="literal">nil</span>, <span class="literal">nil</span>, <span class="string">""</span>)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line"><span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> err := cli.ContainerStart(ctx, resp.ID, types.ContainerStartOptions&#123;&#125;); err != <span class="literal">nil</span> &#123;</div><div class="line"><span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line"></div><div class="line">statusCh, errCh := cli.ContainerWait(ctx, resp.ID, container.WaitConditionNotRunning)</div><div class="line"><span class="keyword">select</span> &#123;</div><div class="line"><span class="keyword">case</span> err := &lt;-errCh:</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line"><span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line"><span class="keyword">case</span> &lt;-statusCh:</div><div class="line">&#125;</div><div class="line"></div><div class="line">out, err := cli.ContainerLogs(ctx, resp.ID, types.ContainerLogsOptions&#123;ShowStdout: <span class="literal">true</span>&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line"><span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line"></div><div class="line">io.Copy(os.Stdout, out)</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>官方使用<code>client.NewEnvClient()</code>来初始化<code>client</code>，在 IDE 中提示这个接口已经过时，推荐使用<code>client.NewClientWithOpts()</code>。要注意的是，直接调用的时候一般会提示 API 版本不匹配，需要加<code>client.WithVersion(&quot;1.37&quot;)</code>作为参数传入。<code>1.37</code>部分可以根据它的错误提示自行修改。</p><h2 id="绑定卷"><a href="#绑定卷" class="headerlink" title="绑定卷"></a>绑定卷</h2><p>将自己代码放入容器中运行时最基本的操作，在命令行中通过<code>-v {host vol}:{container vol}</code>实现，在 golang sdk 中，开发者却没有提供这部分的重要说明。通过查阅<a href="https://github.com/fsouza/go-dockerclient/issues/155" target="_blank" rel="external">issue155</a>以及<a href="https://github.com/fsouza/go-dockerclient/issues/132" target="_blank" rel="external">issue1</a>，得到的解决方案如下。</p><p>卷绑定通过<code>client.ContainerStart()</code>里面的参数<code>client.HostConfig</code>结构的<code>Binds</code>传入，传入的类型是<code>[]string</code>，这个字符串序列的中每个字符串的格式<code>{host_vol}:{com_col}</code>，也就是和命令行的一致。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Docker-client-for-golang-使用教程（一）&quot;&gt;&lt;a href=&quot;#Docker-client-for-golang-使用教程（一）&quot; class=&quot;headerlink&quot; title=&quot;Docker client for golang 使用教程（一）&quot;&gt;&lt;/a&gt;Docker client for golang 使用教程（一）&lt;/h1&gt;&lt;p&gt;Docker 官方提供了适用于 golang 的 &lt;a href=&quot;https://github.com/moby/moby/tree/master/client&quot;&gt;client&lt;/a&gt;，可惜的是网上几乎没有完整可用的使用教程或者例子。在开发&lt;a href=&quot;https://github.com/gawainx/gxd-cli&quot;&gt;gxd-cli&lt;/a&gt;的过程中，需要大量使用到这个 SDK，所以便有了这个系列。&lt;/p&gt;
+&lt;p&gt;本篇涉及通过代码运行第一个容器，以及如何挂载卷。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://gawainx.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>LaTeX排版学术论文工具链</title>
@@ -33,6 +82,26 @@
     
     
       <category term="LaTeX" scheme="https://gawainx.github.io/tags/LaTeX/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客迁移腾讯云小记</title>
+    <link href="https://gawainx.github.io/2018/05/11/hexossl/"/>
+    <id>https://gawainx.github.io/2018/05/11/hexossl/</id>
+    <published>2018-05-11T09:30:58.000Z</published>
+    <updated>2018-05-14T03:12:19.094Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="博客迁移腾讯云实战记录"><a href="#博客迁移腾讯云实战记录" class="headerlink" title="博客迁移腾讯云实战记录"></a>博客迁移腾讯云实战记录</h1><p>源于年初的一次突发奇想，将博客站点迁移到了腾讯云，五月份终于完成了备案，然后添加了 HTTPS 支援，并完成容器化。在这里把折腾的过程记录下来。</p><a id="more"></a><h2 id="转移腾讯云"><a href="#转移腾讯云" class="headerlink" title="转移腾讯云"></a>转移腾讯云</h2><p>原来的博客是放到 github page 上面，访问 <strong>antarx.com</strong> 是通过 CNAME 文件解析到 gawainx.github.io，只需要在<code>config.yaml</code>配置好，写完直接<code>hexo d -g</code>完事。</p><p>迁移到腾讯云之后，还想每次部署都这么方便，就免不了完成一些相关工作。</p><h3 id="资源准备"><a href="#资源准备" class="headerlink" title="资源准备"></a>资源准备</h3><p>这里准备的资源主要就是服务器的购入，可以根据自己博客的规模需要选择合适的套餐。如果是学生党记得使用学生优惠。<br>买完服务器就是装系统的事，根据自己的使用习惯自行选择，我用的是 ubuntu16.04.<br>如果想容器化的话需要安装 Docker。</p><h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure><h3 id="新建-git-裸仓库"><a href="#新建-git-裸仓库" class="headerlink" title="新建 git 裸仓库"></a>新建 git 裸仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /var/repo/</div><div class="line">sudo chown -R $USER:$USER /var/repo/</div><div class="line">sudo chmod -R 755 /var/repo/</div><div class="line"></div><div class="line">cd /var/repo/</div><div class="line">git init --bare hexo_static.git</div></pre></td></tr></table></figure><h3 id="创建存放-hexo-生成的网页的文件夹"><a href="#创建存放-hexo-生成的网页的文件夹" class="headerlink" title="创建存放 hexo 生成的网页的文件夹"></a>创建存放 hexo 生成的网页的文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo mkdir -p /var/www/hexo</div><div class="line">sudo chown -R $USER:$USER /var/www/hexo</div><div class="line">sudo chmod -R 755 /var/www/hexo</div></pre></td></tr></table></figure><p>这两步要注意的是文件夹的 owner 问题，要实现自动部署的话一般新建一个 git 账户然后全权接管部署网页的相关工作，那么上面创建的两个文件夹在后期的 owner 记得要变更为 git 用户。</p><h3 id="创建-git-钩子"><a href="#创建-git-钩子" class="headerlink" title="创建 git 钩子"></a>创建 git 钩子</h3><p>在<code>hexo_static.git</code>文件夹的 hooks 目录下面新建钩子文件并写入如下代码，然后将文件变更成可执行文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">vim /var/repo/hexo_static.git/hooks/post-receive</div><div class="line"></div><div class="line"># post-receive file content</div><div class="line"></div><div class="line">#!/bin/bash</div><div class="line">git --work-tree=/var/www/hexo --git-dir=/var/repo/hexo_static.git checkout -f</div><div class="line"></div><div class="line">chmod +x /var/repo/hexo_static.git/hooks/post-receive</div></pre></td></tr></table></figure><h3 id="自动部署"><a href="#自动部署" class="headerlink" title="自动部署"></a>自动部署</h3><p>所谓自动部署，就是在每次部署的时候不需要键入密码。<br>在自己电脑上，创建公钥，复制到剪贴板</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;xx@xx.com&quot;</div><div class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure><p>服务器上，切换到 git 用户（没有的话请新建），输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">su git</div><div class="line">cd ~</div><div class="line">mkdir .ssh</div><div class="line">vim .ssh/authorized_keys</div><div class="line">#粘贴自己电脑的 公钥，然后保存</div><div class="line">chmod 600 ~/.ssh/authorized_keys</div><div class="line">chmod 700 ~/.ssh</div></pre></td></tr></table></figure><h3 id="本地-hexo-git-配置"><a href="#本地-hexo-git-配置" class="headerlink" title="本地 hexo-git 配置"></a>本地 hexo-git 配置</h3><p>在<code>config.yaml</code>键入</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">    type:</span> git</div><div class="line"><span class="attr">    repo:</span> git@CVM 云服务器的IP地址:/var/repo/hexo_static</div><div class="line"><span class="attr">    branch:</span> master</div></pre></td></tr></table></figure><h2 id="添加-SSL-证书并容器化-Nginx"><a href="#添加-SSL-证书并容器化-Nginx" class="headerlink" title="添加 SSL 证书并容器化 Nginx"></a>添加 SSL 证书并容器化 Nginx</h2><p>Linux 配置软件向来复杂，所以毫不犹豫选用 docker 容器进行 Nginx 部署。<br>输入<code>docker pull nginx</code>拉取 Nginx 镜像。</p><p>首先基于镜像运行一个 nginx 容器，然后将容器里面的<code>/etc/nginx/</code>目录拷贝出来。可以看到文件内容如下图<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://antarx.cn/20180514104132_CkMTT5_Screenshot.jpeg" alt="Nginx 配置目录" title="">                </div>                <div class="image-caption">Nginx 配置目录</div>            </figure>。<br>这里顺带一提 Nginx 的两个配置文件，<code>nginx.conf</code>和<code>deafult.conf</code>，一般而言修改<code>nginx.conf</code>然后把<code>deafult</code>里面的内容注释掉会比较妥当。</p><h3 id="添加-SSL-证书"><a href="#添加-SSL-证书" class="headerlink" title="添加 SSL 证书"></a>添加 SSL 证书</h3><p>在拷贝出来的<code>nginx.conf</code>文件，在<code>http</code>的选型里面，加入以下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen 443;</div><div class="line">        server_name 你的站点名称; #填写绑定证书的域名</div><div class="line">        ssl on;</div><div class="line">        ssl_certificate /cert/你的证书.crt;</div><div class="line">        ssl_certificate_key /cert/你的私钥.key;</div><div class="line">        ssl_session_timeout 5m;</div><div class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</div><div class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置</div><div class="line">        ssl_prefer_server_ciphers on;</div><div class="line">        location / &#123;</div><div class="line">            root   /blog; #站点目录</div><div class="line">            index  index.html index.htm;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure><p>如果强制使用 HTTPS，还要加上以下配置，将80端口的流量重定向到443端口。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen 80;</div><div class="line">        server_name antarx.com;</div><div class="line">        rewrite ^(.*)$ https://$&#123;server_name&#125;$1 permanent;</div><div class="line">    &#125;</div></pre></td></tr></table></figure><p>这两个 server 是独立的，都加到<code>http</code>的配置里面。<br>顺带一提 Nginx 要求的证书是 PEM 格式。</p><p>运行博客容器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -p 443:443 -p 80:80 -v `pwd`:/etc/nginx -v /var/www/hexo:/hexo -v &quot;$PWD/cert&quot;:/cert --name ng nginx</div></pre></td></tr></table></figure><p>这里注意到的是三个挂载卷，分别是配置文件，博客网页文件和证书文件。</p><p>容器运行之后，在腾讯云的域名管理里面添加 DNS 记录，OK，大功告成。</p><h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://cloud.tencent.com/developer/article/1004587" target="_blank" rel="external">在 Ubuntu 14.04 服务器上部署 Hexo 博客</a><br><a href="https://cloud.tencent.com/developer/article/1004839" target="_blank" rel="external">Hello Hexo之静态博客搭建+自动部署</a><br><a href="https://cloud.tencent.com/document/product/400/4143" target="_blank" rel="external">证书安装指引</a><br><a href="http://www.ruanyifeng.com/blog/2018/02/nginx-docker.html" target="_blank" rel="external">Nginx 容器教程（可能无法访问）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;博客迁移腾讯云实战记录&quot;&gt;&lt;a href=&quot;#博客迁移腾讯云实战记录&quot; class=&quot;headerlink&quot; title=&quot;博客迁移腾讯云实战记录&quot;&gt;&lt;/a&gt;博客迁移腾讯云实战记录&lt;/h1&gt;&lt;p&gt;源于年初的一次突发奇想，将博客站点迁移到了腾讯云，五月份终于完成了备案，然后添加了 HTTPS 支援，并完成容器化。在这里把折腾的过程记录下来。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://gawainx.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -270,7 +339,7 @@
     <published>2017-11-27T13:48:13.000Z</published>
     <updated>2018-05-24T08:59:19.437Z</updated>
     
-    <content type="html"><![CDATA[<p>最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多五光十色奇形怪状让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。</p><p>在这篇给出这系列文章的导航帖汇总。<br><a id="more"></a></p><p>至于代码嘛，等交完实验报告再说嗯。。</p><p><a href="http://antarx.com/2017/11/25/mpseg1/">最大概率汉语切分算法研究（一）词典构建</a></p><p><a href="http://antarx.com/2017/11/25/mpseg2/">最大概率汉语切分算法研究（二）BiGram语言模型</a></p><p><a href="http://antarx.com/2017/11/25/mpseg3/">最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</a></p><p><a href="http://antarx.com/2017/11/25/mpseg4/">最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</a></p>]]></content>
+    <content type="html"><![CDATA[<p>最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多五光十色奇形怪状让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。</p><p>在这篇给出这系列文章的导航帖汇总。<br><a id="more"></a></p><p>至于代码嘛，等交完实验报告再说嗯。。</p><p><a href="http://antarx.com/2017/11/25/mpseg1/" target="_blank" rel="external">最大概率汉语切分算法研究（一）词典构建</a></p><p><a href="http://antarx.com/2017/11/25/mpseg2/" target="_blank" rel="external">最大概率汉语切分算法研究（二）BiGram语言模型</a></p><p><a href="http://antarx.com/2017/11/25/mpseg3/" target="_blank" rel="external">最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</a></p><p><a href="http://antarx.com/2017/11/25/mpseg4/" target="_blank" rel="external">最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</a></p>]]></content>
     
     <summary type="html">
     
@@ -343,107 +412,6 @@
     
     
       <category term="NLP" scheme="https://gawainx.github.io/tags/NLP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最大概率汉语切分算法研究（一）词典构建</title>
-    <link href="https://gawainx.github.io/2017/11/25/mpseg1/"/>
-    <id>https://gawainx.github.io/2017/11/25/mpseg1/</id>
-    <published>2017-11-25T08:51:02.000Z</published>
-    <updated>2018-05-24T08:59:19.431Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。</p><a id="more"></a><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>基于最大概率的汉语切分工具的开发，是要利用计算语言学课上学到的知识，选用合适的模型开发一个汉语分词的工具并且进行代码测试与评估。</p><h1 id="阶段划分"><a href="#阶段划分" class="headerlink" title="阶段划分"></a>阶段划分</h1><p>一个完整的分词工具的开发包括以下几个步骤：</p><ol><li>选择合适的语料库</li><li>根据语料库构建词典</li><li>选择合适的分词模型和平滑技术</li><li>语料库切分：训练集和测试集</li><li>模型训练</li><li>模型测试，包括分词技术调整等，增强代码健壮性</li></ol><p>在本项目中选用的语料库是人民日报199801的语料库，分词模型选择2-gram 模型，平滑技术选用了最简单易行的加一平滑，分词技术包括了左近邻词，FMM 和 BMM 等，具体在接下来涉及到了再具体谈。</p><p>本文主要讨论的是从语料库构建词典的问题。</p><h1 id="TrieTree与词典"><a href="#TrieTree与词典" class="headerlink" title="TrieTree与词典"></a>TrieTree与词典</h1><p><a href="https://baike.baidu.com/item/Trie/140945?fr=aladdin" target="_blank" rel="external">TrieTree</a>，又名前缀词典树，是一个专门用于构建词典的数据结构，在这个数据结构上实现词语的添加和查找都可以获得非常高的效率。</p><h2 id="TrieTree-的-python-实现"><a href="#TrieTree-的-python-实现" class="headerlink" title="TrieTree 的 python 实现"></a>TrieTree 的 python 实现</h2><p>在<a href="https://www.zhihu.com/question/21610353" target="_blank" rel="external">知乎的一个回答</a>有非常简短的代码可以实现 TrieTree 的添加和查找功能，不过在这里要用 Trie 树构建词典的话还需要小小的修改，将该回答中叶子节点的’Exist’字段替换成’count’，用于统计每个词在语料库中出现的次数，每次添加一个词的时候，为后面的概率计算作铺垫。</p><h2 id="语料库分析"><a href="#语料库分析" class="headerlink" title="语料库分析"></a>语料库分析</h2><p>人民日报199801的语料库中，对于每一个词都是像<code>泽民/nr</code>这种形式，以<code>/</code>分割，前半部分为词，后半部分为该词的词性，词之间用两个空格进行分割。构建词典的时候，便可以读取语料库文件的每一行，用<code>split()</code>方法分割得到词列表，在每个词中再次执行分割获取每个词，添加到 Trie 树中，每次添加的时候首先进行判断，如果该词已经在树上，那么将该词的’ count’字段计数加一，否则，将词加入到词典树中，并将计数字段设为1。</p><h2 id="词典写入到文件"><a href="#词典写入到文件" class="headerlink" title="词典写入到文件"></a>词典写入到文件</h2><p>将词典写入到文件，其实就是遍历 Trie 树，每个包含‘count’键的节点对应于一个词，将这些词写入到文件中的过程。具体代码参考如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foreachTree</span><span class="params">(TTree,string,file)</span>:</span></div><div class="line">    <span class="keyword">if</span> <span class="string">'freq'</span> <span class="keyword">in</span> TTree :</div><div class="line">        <span class="keyword">if</span> len(TTree) == <span class="number">1</span>:</div><div class="line">            print(string+<span class="string">' '</span>+str(TTree[<span class="string">'freq'</span>]),file=file)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            print(string+<span class="string">' '</span>+str(TTree[<span class="string">'freq'</span>]),file=file)</div><div class="line">            <span class="keyword">for</span> kk <span class="keyword">in</span> TTree:</div><div class="line">                <span class="keyword">if</span> kk == <span class="string">'freq'</span>:</div><div class="line">                    <span class="keyword">pass</span></div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                  foreachTree(TTree[kk],string+kk,file)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">for</span> kk <span class="keyword">in</span> TTree:</div><div class="line">            foreachTree(TTree[kk],string+kk,file)</div></pre></td></tr></table></figure><p>对于树这种递归定义的数据结构，解决问题的最方便的方法自然也是递归，由于汉语词汇挂在“树”上的时候，每个节点都是单个“字”，因此需要一个 String 变量作为函数参数，记录前面的遍历状态。</p><p>要注意的地方是判断是否是完整词语的条件是‘count’或者‘freq’是否在该节点对应的字典中，而不是是否为‘叶子节点’。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://gawainx.github.io/tags/Python/"/>
-    
-      <category term="NLP" scheme="https://gawainx.github.io/tags/NLP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>macOS 配置 libsvm for Python</title>
-    <link href="https://gawainx.github.io/2017/11/22/macsvm/"/>
-    <id>https://gawainx.github.io/2017/11/22/macsvm/</id>
-    <published>2017-11-22T07:18:29.000Z</published>
-    <updated>2018-05-24T08:59:19.415Z</updated>
-    
-    <content type="html"><![CDATA[<p>libsvm是一个高性能的 svm（支持向量机）实现，与 TensorFlow 这些非常热门的机器学习框架不同的地方在于它提供的是可执行文件、类库和针对不同编程语言的接口， 在 macOS 上配置这套接口的时候经常会出现一些奇奇怪怪的问题。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;libsvm是一个高性能的 svm（支持向量机）实现，与 TensorFlow 这些非常热门的机器学习框架不同的地方在于它提供的是可执行文件、类库和针对不同编程语言的接口， 在 macOS 上配置这套接口的时候经常会出现一些奇奇怪怪的问题。&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="ML" scheme="https://gawainx.github.io/tags/ML/"/>
-    
-      <category term="macOS" scheme="https://gawainx.github.io/tags/macOS/"/>
-    
-      <category term="libsvm" scheme="https://gawainx.github.io/tags/libsvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javalin框架使用指南(2)</title>
-    <link href="https://gawainx.github.io/2017/10/28/javalin2/"/>
-    <id>https://gawainx.github.io/2017/10/28/javalin2/</id>
-    <published>2017-10-28T12:15:17.000Z</published>
-    <updated>2018-05-24T08:59:19.438Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。</p></blockquote><p>最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。<br><a id="more"></a></p><h1 id="依赖关系配置（基于-Maven）"><a href="#依赖关系配置（基于-Maven）" class="headerlink" title="依赖关系配置（基于 Maven）"></a>依赖关系配置（基于 Maven）</h1><p>和前面一样，使用 Maven 作为项目的包管理工具。要使 Javalin 框架的应用程序完整支持 WebSocket，需要额外添加以下的依赖关系包：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-servlet<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure><p>为了避免一些千奇百怪的类、方法错误，建议加入的 jetty 依赖包的版本尽量保持严格一直（然而在目前的开发中还是遇到了奇奇怪怪的方法缺失错误，虽然不影响正常的运行不过看着还是蛮闹心的Orz）</p><h1 id="四个基本方法"><a href="#四个基本方法" class="headerlink" title="四个基本方法"></a>四个基本方法</h1><p>和前面介绍的一样，Javalin 主要还是通过 lamada 表达式的方式来实现对特定路径的 WebSocket响应，基本的代码架构如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">app.ws(<span class="string">"/path"</span>,ws -&gt;&#123;</div><div class="line">  ws.onConnect(session -&gt; &#123;</div><div class="line">        <span class="comment">//do something</span></div><div class="line">    &#125;);</div><div class="line">  ws.onMessage((session,message) -&gt; &#123;</div><div class="line">      </div><div class="line">  &#125;);</div><div class="line">  ws.onClose(<span class="comment">/*insert you lamada expr*/</span>);</div><div class="line">  ws.onError(<span class="comment">/*insert you lamada expr*/</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure><p>四个以<code>on</code>开头的方法是实现 WebSocket 基本功能的方法，每个方法的基本含义如下：</p><ul><li><code>onConnect( session)</code>用于处理客户端与服务器端的连接事件，用<code>session</code>来指代服务器端与具体某个客户端的连接本身。<code>session</code>中有个<code>getRemoteEndpoint()</code>的方法可以获取表征客户端的“端点”一类的东西，通过这个“端点”，可以随时“主动”的向客户端发送数据。这也是 WebSocket 的优势和魅力所在（一旦建立连接之后，服务器端可以根据具体情况随时主动的向客户端推送信息）。</li><li><code>onMessage(session,message)</code>用于处理收到客户端信息时候的响应，session 的基本含义同上，message 表示来自客户端的信息。</li><li><code>onClose()</code>用于处理连接关闭时的事件。</li><li><code>onError()</code>用于发生错误时的响应。</li></ul><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>Javalin 当中对于 WebSocket 的实现，主要是建基于 jetty 对 WebSocket 的支持的基础上进行了二次封装，所以，Javalin目前不支持的一些方法、操作等都可以单独引用 jetty 提供的方法进行实现，只是这时候更加要注意依赖关系等问题了。</p><p>除了绑定 lamada 表达式之外，<code>app.ws()</code>方法也可以将特定路径和实现了 WebSocket 响应的具体的类进行绑定，不过这个我还没有尝试过，理论上来说用起来会更加灵活，以后如果用到了也会写后续文章跟大家分享使用经验。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://gawainx.github.io/tags/Java/"/>
-    
-      <category term="Javalin" scheme="https://gawainx.github.io/tags/Javalin/"/>
-    
-      <category term="WebSocket" scheme="https://gawainx.github.io/tags/WebSocket/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javalin 框架使用指南（一）</title>
-    <link href="https://gawainx.github.io/2017/10/24/javalin1/"/>
-    <id>https://gawainx.github.io/2017/10/24/javalin1/</id>
-    <published>2017-10-24T06:28:20.000Z</published>
-    <updated>2018-05-24T08:59:19.416Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://javalin.io/" target="_blank" rel="external">Javalin</a>是一款建基于 jetty 的轻量级 RESTful 框架，支援 Java 和 Kotlin 编程语言，非常适合用来部署REST 风格的微服务程序，因为里面对 lamada 表达式的应用可以说是到了出神入化的地步，所以一直都是我最喜欢用的框架。这系列的文章主要是介绍如何在微服务开发中应用这套框架来进行开发。<br><a id="more"></a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Javalin 支持几乎所有常见的项目管理工具，出于一般性，文章中以 Maven 为例进行说明。</p><p>安装框架本体</p><p>在项目的 pom.xml文件中的<code>&lt;dependencies&gt;&lt;/dependencies&gt;</code>标签下粘贴以下代码。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.javalin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javalin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.5.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure><p>这是官网中介绍的安装方法，要注意到，仅仅粘贴了以上代码段的话，会遇到两个问题：</p><ol><li><p>maven 默认的 JVM 环境是 JDK1.6，是不支持 Lamada 表达式这种尤物的，我们需要在项目中添加 Java8支持。</p><p>在<code>pom.xml</code>中粘贴以下代码：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure><p>要注意到这段代码和<code>&lt;dependencies&gt;&lt;/dependencies&gt;</code>标签段是并行而不是包含关系的。</p></li><li><p>在运行过程中可能会遇到以下错误提示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.SLF4J: Defaulting to no-operation (NOP) logger implementationSLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.</div></pre></td></tr></table></figure><p>​</p><p>​</p></li></ol><p>虽然这个错误提示不会影响程序的正常运行，但强迫症总是让人不爽，解决方法是添加这个依赖关系</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-simple<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.25<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure><p>经过以上配置之后，就可以跑起第一段程序了</p><h1 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h1><p><code>HelloWorld</code> 是开发者学习新的编程语言、框架所绕不过去的坎，用 Javalin 开发一个 GET 方法访问根路径返回“helloworld”的 REST 服务器非常的简单。示例代码如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> io.javalin.Javalin;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Javalin app = Javalin.start(<span class="number">7000</span>);</div><div class="line">        app.get(<span class="string">"/"</span>, ctx -&gt; ctx.result(<span class="string">"Hello World"</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>从代码中可以看出，通过一个 lamada 表达式就可以完成指定路径到具体响应方法的绑定操作，还有什么比这个更让 RESTful 微服务开发者拍手称快的呢。</p><p>简单说明一下，框架中用 Javalin 类型的一个对象实例来完成整个 RESTful 风格的服务器的全部操作。上述代码中，首先是实例化了一个名为<code>app</code>的 Javalin类型实体，然后调用了<code>get(String path, lamada expression)</code>，以 lamada 表达式的表示一个具体的响应操作，以字符串的形式表示具体的路径，将两者绑定到一体。方法名称<code>get</code>表示响应 REST 规范中的 GET 请求。</p><p>此外，<code>ctx</code>参数指代的是连接上下文，调用<code>result()</code>方法可以将字符串塞进响应体中进行返回。</p><h1 id="MORE"><a href="#MORE" class="headerlink" title="MORE"></a>MORE</h1><p>Javalin 框架的安装和第一个服务器程序都可以非常简便的就完成了，但这只是一个开始，通过 Javalin 框架可以完成非常复杂的响应逻辑，而且最近的更新版本中还加入了对 WebSocket 服务器的支持。接下来的文章将会介绍如何进行进一步的开发和遇到的常见问题等。</p><p><strong>1024</strong>节日快乐:halloween:</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://javalin.io/&quot;&gt;Javalin&lt;/a&gt;是一款建基于 jetty 的轻量级 RESTful 框架，支援 Java 和 Kotlin 编程语言，非常适合用来部署REST 风格的微服务程序，因为里面对 lamada 表达式的应用可以说是到了出神入化的地步，所以一直都是我最喜欢用的框架。这系列的文章主要是介绍如何在微服务开发中应用这套框架来进行开发。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://gawainx.github.io/tags/Java/"/>
-    
-      <category term="REST" scheme="https://gawainx.github.io/tags/REST/"/>
-    
-      <category term="微服务" scheme="https://gawainx.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
