@@ -21,23 +21,28 @@
     
     
     
-    <title>go-docker-03 | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
+    <title>go docker client 使用教程（二） | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="gawainx 的个人博客">
+    <meta name="keywords" content="docker,go,golang">
+    <meta name="description" content="Docker client for golang 使用教程（二）：网络端口绑定将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的-p 8080:80解决问题。但在 golang client 中，问题却变得复杂起来。
+首先来看创建容器的函数签名func (cli *Client) ContainerCreate(ctx conte">
 <meta property="og:type" content="article">
-<meta property="og:title" content="go-docker-03">
-<meta property="og:url" content="https://gawainx.github.io/2018/05/29/go-docker-03/index.html">
+<meta property="og:title" content="go docker client 使用教程（二）">
+<meta property="og:url" content="https://gawainx.github.io/2018/06/01/go-docker-02/index.html">
 <meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content="gawainx 的个人博客">
-<meta property="og:updated_time" content="2018-05-29T03:05:47.798Z">
+<meta property="og:description" content="Docker client for golang 使用教程（二）：网络端口绑定将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的-p 8080:80解决问题。但在 golang client 中，问题却变得复杂起来。
+首先来看创建容器的函数签名func (cli *Client) ContainerCreate(ctx conte">
+<meta property="og:image" content="https://antarx.cn/20180601160556_bNP72x_8DD0D6668316EECC0F8DCE8B1E8EEA76.jpeg">
+<meta property="og:updated_time" content="2018-06-01T08:12:29.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="go-docker-03">
-<meta name="twitter:description" content="gawainx 的个人博客">
+<meta name="twitter:title" content="go docker client 使用教程（二）">
+<meta name="twitter:description" content="Docker client for golang 使用教程（二）：网络端口绑定将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的-p 8080:80解决问题。但在 golang client 中，问题却变得复杂起来。
+首先来看创建容器的函数签名func (cli *Client) ContainerCreate(ctx conte">
+<meta name="twitter:image" content="https://antarx.cn/20180601160556_bNP72x_8DD0D6668316EECC0F8DCE8B1E8EEA76.jpeg">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
     
@@ -132,7 +137,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">go-docker-03</div>
+        <div class="flex-col header-title ellipsis">go docker client 使用教程（二）</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -154,11 +159,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">go-docker-03</h1>
+        <h1 class="title">go docker client 使用教程（二）</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-05-29T03:05:47.000Z" itemprop="datePublished" class="page-time">
-  2018-05-29
+                <time datetime="2018-06-01T03:05:44.000Z" itemprop="datePublished" class="page-time">
+  2018-06-01
 </time>
 
 
@@ -174,14 +179,21 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Docker-client-for-golang-使用教程（二）：网络"><span class="post-toc-number">1.</span> <span class="post-toc-text">Docker client for golang 使用教程（二）：网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#端口绑定"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">端口绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关链接"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">相关链接</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-go-docker-03"
+
+<article id="post-go-docker-02"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">go-docker-03</h1>
+        <h1 class="post-card-title">go docker client 使用教程（二）</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-05-29 11:05:47" datetime="2018-05-29T03:05:47.000Z"  itemprop="datePublished">2018-05-29</time>
+            <time class="post-time" title="2018-06-01 11:05:44" datetime="2018-06-01T03:05:44.000Z"  itemprop="datePublished">2018-06-01</time>
 
             
 
@@ -194,7 +206,25 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h1 id="Docker-client-for-golang-使用教程（二）：网络"><a href="#Docker-client-for-golang-使用教程（二）：网络" class="headerlink" title="Docker client for golang 使用教程（二）：网络"></a>Docker client for golang 使用教程（二）：网络</h1><h2 id="端口绑定"><a href="#端口绑定" class="headerlink" title="端口绑定"></a>端口绑定</h2><p>将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的<code>-p 8080:80</code>解决问题。但在 golang client 中，问题却变得复杂起来。</p>
+<p>首先来看创建容器的函数签名<code>func (cli *Client) ContainerCreate(ctx context.Context, config *container.Config, hostConfig *container.HostConfig, networkingConfig *network.NetworkingConfig, containerName string) (container.ContainerCreateCreatedBody, error)</code>,client 把运行配置拆分成了<code>container.Config</code> 和 <code>container.HostConfig</code> ，也就是容器内部设置和宿主机设置两项。</p>
+<p>要实现端口绑定，首先要在容器设置中设定暴露的端口（exposed ports）。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">exports := <span class="built_in">make</span>(nat.PortSet, <span class="number">10</span>)</div><div class="line">port, _ := nat.NewPort(<span class="string">"tcp"</span>, <span class="string">"80"</span>)</div><div class="line">exports[port] = <span class="keyword">struct</span>&#123;&#125;&#123;&#125;</div><div class="line"><span class="comment">// in config:</span></div><div class="line">cli.ContainerCreate(ctx, &amp;container.Config&#123;</div><div class="line">        ExposedPorts:exports,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后，在 host.config 中，设置Host 端口与容器暴露出来的端口的绑定。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ports := <span class="built_in">make</span>(nat.PortMap)</div><div class="line">pb := <span class="built_in">make</span>([]nat.PortBinding,<span class="number">0</span>)</div><div class="line">pb = <span class="built_in">append</span>(pb,nat.PortBinding&#123;</div><div class="line">    HostPort:<span class="string">"8080"</span>,</div><div class="line">&#125;)</div><div class="line">ports[port] = pb</div><div class="line"></div><div class="line"><span class="comment">//in Host.config</span></div><div class="line">&amp;container.HostConfig&#123;</div><div class="line">    PortBindings:ports,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>至此，在代码中就实现了端口绑定的操作。然而，如果只执行到这一步，编译器一般会报非常诡异的<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://antarx.cn/20180601160556_bNP72x_8DD0D6668316EECC0F8DCE8B1E8EEA76.jpeg" alt="类型不匹配错误" title="">
+                </div>
+                <div class="image-caption">类型不匹配错误</div>
+            </figure></p>
+<p>参考<a href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="external">go操作docker - 简书</a>的解决方法，删除gopath里面pkg下面docker的vendor里面相应的connections包，然后运行<code>go get github.com/docker/go-connections/nat</code> ，问题解决。</p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><a href="https://godoc.org/github.com/docker/docker/client#Client.ContainerCreate" target="_blank" rel="external">client - GoDoc</a></li>
+<li><a href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="external">go操作docker - 简书</a></li>
+</ul>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -202,12 +232,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-29T03:05:47.798Z" itemprop="dateUpdated">2018-05-29 11:05:47</time>
+    最后更新时间：<time datetime="2018-06-01T08:12:29.733Z" itemprop="dateUpdated">2018-06-01 16:12:29</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/05/29/go-docker-03/" target="_blank" rel="external">https://gawainx.github.io/2018/05/29/go-docker-03/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/01/go-docker-02/" target="_blank" rel="external">https://gawainx.github.io/2018/06/01/go-docker-02/</a>
         
     </div>
     
@@ -228,6 +258,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -236,7 +268,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/05/29/go-docker-03/&title=《go-docker-03》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/01/go-docker-02/&title=《go docker client 使用教程（二）》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -246,22 +278,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/05/29/go-docker-03/&title=《go-docker-03》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/01/go-docker-02/&title=《go docker client 使用教程（二）》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/05/29/go-docker-03/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/01/go-docker-02/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《go-docker-03》 — Gawainx' Blog&url=https://gawainx.github.io/2018/05/29/go-docker-03/&via=https://gawainx.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《go docker client 使用教程（二）》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/01/go-docker-02/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/05/29/go-docker-03/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/01/go-docker-02/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -286,9 +318,9 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/05/29/go-docker-02/" id="post-next" class="post-nav-link">
+      <a href="/2018/05/29/go-docker-01/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">go-docker-02</h4>
+        <h4 class="title">go docker client 使用教程（一）</h4>
       </a>
     </div>
   
@@ -411,7 +443,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/05/29/go-docker-03/&title=《go-docker-03》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/01/go-docker-02/&title=《go docker client 使用教程（二）》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -421,22 +453,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/05/29/go-docker-03/&title=《go-docker-03》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/01/go-docker-02/&title=《go docker client 使用教程（二）》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/05/29/go-docker-03/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/01/go-docker-02/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《go-docker-03》 — Gawainx' Blog&url=https://gawainx.github.io/2018/05/29/go-docker-03/&via=https://gawainx.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《go docker client 使用教程（二）》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/01/go-docker-02/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/05/29/go-docker-03/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/01/go-docker-02/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -447,7 +479,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3aQY7DMAgF0N7/0p1tN2k+4I4U+3lVVZHjlwUCw+sVr/fHWvv85zPVt5QXBgbGYxnvr+vqmauj9GD5ey/3wcDAOICRhMKr53tP9na4/B8DAwOjGCjzYDp5LwYGBsY8yPZSTAwMDIxJEft9o+SyLAH/vBbHwMB4ICO/df//3z/pb2BgYDyK8S6uJNTmqWG+282pMDAwtmasbUAmuzUL1OQ8GBgYmzLmwbFaDPc+1s0/GBgYBzCq6dqqfxJw1HLAwMA4gJEEzWrLs9py6KWJGBgYJzB6KVoSQPN9JjAMDIwTGPl2vyhQVzUSMDAwTmAk8bgXZPPRit5F22VjAAMD4wBGXrLm6WOvEI3SRwwMjK0Z+XBDPjyRX/FPLvVuEkQMDIztGNUDrSpxq9dzi78rBgbGQxhJOVoYehiH4zyJvJkZwcDA2I4xudDvNS/zg0anwsDAOIZRPdZ8tGJexGJgYJzAqBa3k9mGXoKYpK0YGBgnMPKSMk8Tq+wFI2IYGBjHMPKQl4fm6pVcL7hjYGCcxqgesdokmAx5XH4aDAyMTRnv4qqOea0N0zejYBgYGJsyemGuGjR7V3KTIQ8MDIz9GPnwRJ5vVpujy5qUGBgYWzPyQJmPZVTHLyanxcDAwOiRqvf2k+s8DAwMjN7IVz4qMXkXBgbGOYzqIXrjGpOG6LLrNgwMjAcyqqXjpP+QJ5HJaBoGBsYBjD90MvoIyyULlwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aMW7DMAwF0N7/0u6aoY4/yaSA6aepKGRZzwNDivr5icfxMj47/3VO9S3lgYGBcVvG8XaczTnbSg+Wv/d0HQwMjAcwklB4Nr83s7fC6f8xMDAwekEwCKb5ezEwMDCqyyVpYi/FxMDAwJgUse8XSg7L8iD+xVocAwPjhoz81P3///5KfwMDA+NWjKM4klCbp4b5ahe7wsDAWM2YNyDzsnN0lJbsBwMDYzVjEhyrxfDkY0VUDAyMdYzJFqttgDztqx7PYWBg7GaUp7bCYlISV9PEi04sBgbGOkbvgsVki5+CXeS5GBgYKxjJA3l6Vy1QP9VIwMDAeAIjD7XvedVyN18tCrgYGBgPY/Sal/OmZi/oY2Bg7GZULzfkyV81ZOe91otrFhgYGOsYvXStWuJOytpRGwADA2MFo1d2Vo/4q6Vv/tH/CLsYGBjrGL2QOmlDVjcaBWsMDIzVjPyALD9Wm1/RqIZ4DAyMpzGqgOrFiGqCmCSdGBgYz2H0DtGq6WD+bPlnAAMD4wGMyaFbL7z2rqMVfjcwMDDWMZLSsVfE5oVxMi6KWAwMjHWMoziSpC05SpsUyZEMAwNjEWMerZOley2HatGLgYGxm5EH2Ul7YL5y+UtjYGCsY+SBsnfBIj/g6+0WAwMDY5519hLKwlMYGBgYcdDMr2vk7cmkLYGBgfEERrUZMGltzp/CwMB4GqNaOuYBenJR7H2wbjY1MTAw7sf4BdatQc+yxO7SAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
