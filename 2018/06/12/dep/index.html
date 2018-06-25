@@ -21,50 +21,25 @@
     
     
     
-    <title>404 Not Found | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
+    <title>golang/dep 包管理（一）原理 | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="undefined">
-    <meta name="description" content=".article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .art">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found">
-<meta property="og:url" content="https://gawainx.github.io/404.html">
+    <meta name="keywords" content="go,golang">
+    <meta name="description" content="Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了vendor机制，1.8之后终于有了官方的包管理工具，golang/dep。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang/dep 包管理（一）原理">
+<meta property="og:url" content="https://gawainx.github.io/2018/06/12/dep/index.html">
 <meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content=".article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .art">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.442Z">
+<meta property="og:description" content="Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了vendor机制，1.8之后终于有了官方的包管理工具，golang/dep。">
+<meta property="og:image" content="https://golang.github.io/dep/docs/assets/four-states.png">
+<meta property="og:updated_time" content="2018-06-25T03:14:28.573Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404 Not Found">
-<meta name="twitter:description" content=".article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .art">
+<meta name="twitter:title" content="golang/dep 包管理（一）原理">
+<meta name="twitter:description" content="Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了vendor机制，1.8之后终于有了官方的包管理工具，golang/dep。">
+<meta name="twitter:image" content="https://golang.github.io/dep/docs/assets/four-states.png">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
     
@@ -159,7 +134,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">404 Not Found</div>
+        <div class="flex-col header-title ellipsis">golang/dep 包管理（一）原理</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -178,11 +153,17 @@
         
     </div>
 </header>
-<header class="content-header page-header">
+<header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">404 Not Found</h1>
+        <h1 class="title">golang/dep 包管理（一）原理</h1>
         <h5 class="subtitle">
+            
+                <time datetime="2018-06-12T13:17:51.000Z" itemprop="datePublished" class="page-time">
+  2018-06-12
+</time>
+
+
             
         </h5>
     </div>
@@ -194,75 +175,79 @@
 
 
 <div class="container body-wrap">
-    <article class="page-article fade" itemprop="blogPage">
-        <div class="post-content page-content" id="page-content" itemprop="pageContent">
-            <style type="text/css">
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .article-title {
-        font-size: 2.1em;
-    }
-    strong a {
-        color: #747474;
-    }
-    .article-meta {
-        display: none;
-    }
-    .share {
-        display: none;
-    }
-    .ds-meta {
-        display: none;
-    }
-    .player {
-        margin-left: -10px;
-    }
-    .sign {
-        text-align: right;
-        font-style: italic;
-    }
-      #page-visit {
-        display: none;
-    }
-    .center {
-        text-align: center;
-        height: 2.5em;
-        font-weight: bold;
-    }
-    .article-entry hr {
-        margin: 0;
-    }
-    .pic {
-        text-align: center;
-        margin: 0;
-    }
-    .pic br {
-          display: none;
-      }
-    #container .article-info-post.article-info {
-      display: none;
-      }
-    #container .article .article-title {
-    padding: 0;
-    }
-</style>
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Golang-包依赖管理工具"><span class="post-toc-number">1.</span> <span class="post-toc-text">Golang 包依赖管理工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关链接"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">相关链接</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-dep"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">golang/dep 包管理（一）原理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-12 21:17:51" datetime="2018-06-12T13:17:51.000Z"  itemprop="datePublished">2018-06-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Golang-包依赖管理工具"><a href="#Golang-包依赖管理工具" class="headerlink" title="Golang 包依赖管理工具"></a>Golang 包依赖管理工具</h1><p>golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了<code>vendor</code>机制，1.8之后终于有了官方的包管理工具，<code>golang/dep</code>。<br><a id="more"></a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://golang.github.io/dep/docs/assets/four-states.png" alt="四元组架构" title="">
+                </div>
+                <div class="image-caption">四元组架构</div>
+            </figure>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://supereagle.github.io/2017/10/05/golang-dep/" target="_blank" rel="external">Golang依赖管理工具：Dep - 乐金明的博客 | Robin Blog</a><br><a href="https://golang.github.io/dep/docs/ensure-mechanics.html" target="_blank" rel="external">Models and Mechanisms · dep</a><br><a href="https://github.com/golang/dep" target="_blank" rel="external">golang/dep: Go dependency management tool</a></p>
+
         </div>
 
+        <blockquote class="post-copyright">
+    
+    <div class="content">
         
-        <div class="card page-about-me flex-row">
-            <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/sicp.jpg"></a>
-            <div class="content flex-col">
-                <p><strong>Gawain Antarx</strong></p>
-                <p><em>Antarx is the heart of Scorpio</em></p>
-                <p>RF|Coder|钢笔彩墨|手账</p>
-            </div>
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-25T03:14:28.573Z" itemprop="dateUpdated">2018-06-25 11:14:28</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/12/dep/" target="_blank" rel="external">https://gawainx.github.io/2018/06/12/dep/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://gawainx.github.io">
+            <img src="/img/sicp.jpg" alt="Gawain Antarx">
+            Gawain Antarx
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -271,7 +256,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/404.html&title=《404 Not Found》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -281,22 +266,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/404.html&title=《404 Not Found》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&source=Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Pyt..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/404.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/12/dep/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《404 Not Found》 — Gawainx' Blog&url=https://gawainx.github.io/404.html&via=https://gawainx.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《golang/dep 包管理（一）原理》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/12/dep/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/404.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/12/dep/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -313,16 +298,25 @@
 
 
         </div>
-        
+    </div>
 
-        
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/11/ted-categories/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">TED 200 资源整理</h4>
+      </a>
+    </div>
+  
+</nav>
 
 
 
-        
+    
 
 
 
@@ -364,8 +358,8 @@
 
 
 
-    </article>
-    
+</article>
+
 <div id="reward" class="page-modal reward-lay">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
@@ -391,6 +385,7 @@
         
     </div>
 </div>
+
 
 
 </div>
@@ -436,7 +431,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/404.html&title=《404 Not Found》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -446,22 +441,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/404.html&title=《404 Not Found》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&source=Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Pyt..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/404.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/12/dep/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《404 Not Found》 — Gawainx' Blog&url=https://gawainx.github.io/404.html&via=https://gawainx.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《golang/dep 包管理（一）原理》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/12/dep/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/404.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/12/dep/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -472,7 +467,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aQW7DMAwEwPz/0+0DWitLUnIcYHwKAlia5EBoSb1e8fNTfP6+u/68+cHFxR1zk42r21yh1+snPx4XF/dO7nrLdXlav7Wm56vh4uJ+Izc56FSLIy4u7vO5yZZ5pMHFxX0+dx5O8m+Sv2NDVsPFxR1wJ0Vn1+cj/V1cXNwWdzIgWQebJBSVd8fFxb2FOx+lJNtXf9KbCISLi3uYm49C8yhSLXx5KxYXF/ce7jwC5fWyd2Da3BzBxcUNuOuSkReaZJhaPfrg4uJ+ipsPUKsXKXoN0+bkBxcX9zA3P6b0Yk9+7eNyHVxc3MPcdSmppqjJu5EHFxf3dm4eV/LGR298e3kMwsXFfQA3WmJQqpK4VShkuLi4m7jlmxox/UQowsXFvZObL1EdoiQ/Mhml4OLi3s+dLJQ0R/KAFB2VcHFxP8rtXbB4jZ/oRIaLi3uM22tr7rpOkTRQ/uni4OLiHuZOwk/1sNIroLi4uJ/izjdOQk5yYonexcXFvZE7uVoxD1TlCISLi/tIbnWIUo1GlzZcXNwv4eYBqVfaLkcpuLi4h7m90emub9Yt1w1ZDRcXt8jtRZFmUyNAbBjf4uLi9rm/zHIp+HCfaToAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aSY6EMBAEwP7/p5nzqAfIKi90j8InhFgCDqly2a9XPI638X7++sqzp71WDFxc3GHucTlyxNmTr9+SG3Bxcfdzk5cloZZ83vW9NzZcXNyP514/IYlLXFzc/8HtgXrPx8XFfZY7EjRJE6RaNk2Yq+Hi4g5wew2OucdL+ru4uLgt7lEc423WPLz+uAsXF3cLtzex6cXQeDMFFxf3E7j5ZoteW6S61QMXF3cPt9rOyBdXeg2Um8/GxcXdyJ3Vsuw1Q68nV7+OcXFxH+KOlCPJ+eqvuQkyXFzcxdwzdLUoye9qTn5wcXEXc5Mwys+MN02in4WLi7uYm3zNyBJptSFy89m4uLhbuLP2c+WTqDz4htaEcXFxF3PnbrfKF3dPr8HFxd3ITZoa1YWWnJiHHS4u7lPcZNqThE6+tatQ+uDi4m7k5sSRaKtOpQo5h4uLO4l7FEfSAF3XSMXFxd3D7W2JmBVM1aDExcXdyc1DJ58a9cqjqGzCxcXdyM2Dplq+jDRMJ+QiLi7uFm5vCbYaZ7i4uN/FHdl6lcfZ6fW4uLgbub2SpVcMJZszojVhXFzcZdxqlIy0QmZFIS4u7jLuD/Oze4rtCCgzAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
