@@ -21,25 +21,41 @@
     
     
     
-    <title>golang/dep 包管理（一）原理 | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
+    <title>gxd-cli is gawainx&#39; docker client | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="go,golang">
-    <meta name="description" content="Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了vendor机制，1.8之后终于有了官方的包管理工具，golang/dep。">
+    <meta name="keywords" content="docker,go">
+    <meta name="description" content="gxd-cli : 一种快速创建多容器工具通过 docker run 命令行启动容器的时候，配置网络、挂载卷是一件非常麻烦的事，gxd-cli将这些麻烦的工作简化成修改配置文件TOML达成在不需要记忆繁琐的 docker 命令行参数就能快速启动多容器。
+功能列表
+创建多容器，创建每个容器过程可以配置一下选项
+挂载卷（支持以pwd指代当前路径）
+指定容器的网络
+自定义容器名
+设定容器暴露的端口">
 <meta property="og:type" content="article">
-<meta property="og:title" content="golang/dep 包管理（一）原理">
-<meta property="og:url" content="https://gawainx.github.io/2018/06/12/dep/index.html">
+<meta property="og:title" content="gxd-cli is gawainx' docker client">
+<meta property="og:url" content="https://gawainx.github.io/2018/06/27/gxd-cli/index.html">
 <meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content="Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了vendor机制，1.8之后终于有了官方的包管理工具，golang/dep。">
-<meta property="og:image" content="https://golang.github.io/dep/docs/assets/four-states.png">
-<meta property="og:updated_time" content="2018-06-25T03:14:28.573Z">
+<meta property="og:description" content="gxd-cli : 一种快速创建多容器工具通过 docker run 命令行启动容器的时候，配置网络、挂载卷是一件非常麻烦的事，gxd-cli将这些麻烦的工作简化成修改配置文件TOML达成在不需要记忆繁琐的 docker 命令行参数就能快速启动多容器。
+功能列表
+创建多容器，创建每个容器过程可以配置一下选项
+挂载卷（支持以pwd指代当前路径）
+指定容器的网络
+自定义容器名
+设定容器暴露的端口">
+<meta property="og:updated_time" content="2018-06-27T09:23:44.582Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="golang/dep 包管理（一）原理">
-<meta name="twitter:description" content="Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了vendor机制，1.8之后终于有了官方的包管理工具，golang/dep。">
-<meta name="twitter:image" content="https://golang.github.io/dep/docs/assets/four-states.png">
+<meta name="twitter:title" content="gxd-cli is gawainx' docker client">
+<meta name="twitter:description" content="gxd-cli : 一种快速创建多容器工具通过 docker run 命令行启动容器的时候，配置网络、挂载卷是一件非常麻烦的事，gxd-cli将这些麻烦的工作简化成修改配置文件TOML达成在不需要记忆繁琐的 docker 命令行参数就能快速启动多容器。
+功能列表
+创建多容器，创建每个容器过程可以配置一下选项
+挂载卷（支持以pwd指代当前路径）
+指定容器的网络
+自定义容器名
+设定容器暴露的端口">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
     
@@ -134,7 +150,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">golang/dep 包管理（一）原理</div>
+        <div class="flex-col header-title ellipsis">gxd-cli is gawainx&#39; docker client</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -156,11 +172,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">golang/dep 包管理（一）原理</h1>
+        <h1 class="title">gxd-cli is gawainx&#39; docker client</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-06-12T13:17:51.000Z" itemprop="datePublished" class="page-time">
-  2018-06-12
+                <time datetime="2018-06-27T08:42:27.000Z" itemprop="datePublished" class="page-time">
+  2018-06-27
 </time>
 
 
@@ -179,18 +195,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Golang-包依赖管理工具"><span class="post-toc-number">1.</span> <span class="post-toc-text">Golang 包依赖管理工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关链接"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">相关链接</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gxd-cli-一种快速创建多容器工具"><span class="post-toc-number">1.</span> <span class="post-toc-text">gxd-cli : 一种快速创建多容器工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#功能列表"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">功能列表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#项目地址"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">项目地址</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-dep"
+<article id="post-gxd-cli"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">golang/dep 包管理（一）原理</h1>
+        <h1 class="post-card-title">gxd-cli is gawainx' docker client</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-06-12 21:17:51" datetime="2018-06-12T13:17:51.000Z"  itemprop="datePublished">2018-06-12</time>
+            <time class="post-time" title="2018-06-27 16:42:27" datetime="2018-06-27T08:42:27.000Z"  itemprop="datePublished">2018-06-27</time>
 
             
 
@@ -203,15 +219,22 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Golang-包依赖管理工具"><a href="#Golang-包依赖管理工具" class="headerlink" title="Golang 包依赖管理工具"></a>Golang 包依赖管理工具</h1><p>golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了<code>vendor</code>机制，1.8之后终于有了官方的包管理工具，<code>golang/dep</code>。<br><a id="more"></a></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://golang.github.io/dep/docs/assets/four-states.png" alt="四元组架构" title="">
-                </div>
-                <div class="image-caption">四元组架构</div>
-            </figure>
-<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://supereagle.github.io/2017/10/05/golang-dep/" target="_blank" rel="external">Golang依赖管理工具：Dep - 乐金明的博客 | Robin Blog</a><br><a href="https://golang.github.io/dep/docs/ensure-mechanics.html" target="_blank" rel="external">Models and Mechanisms · dep</a><br><a href="https://github.com/golang/dep" target="_blank" rel="external">golang/dep: Go dependency management tool</a></p>
+            <h1 id="gxd-cli-一种快速创建多容器工具"><a href="#gxd-cli-一种快速创建多容器工具" class="headerlink" title="gxd-cli : 一种快速创建多容器工具"></a>gxd-cli : 一种快速创建多容器工具</h1><p>通过 <code>docker run</code> 命令行启动容器的时候，配置网络、挂载卷是一件非常麻烦的事，<code>gxd-cli</code>将这些麻烦的工作简化成修改配置文件<code>TOML</code>达成在不需要记忆繁琐的 docker 命令行参数就能快速启动多容器。</p>
+<h2 id="功能列表"><a href="#功能列表" class="headerlink" title="功能列表"></a>功能列表</h2><ul>
+<li>创建多容器，创建每个容器过程可以配置一下选项<ul>
+<li>挂载卷（支持以<code>pwd</code>指代当前路径）</li>
+<li>指定容器的网络</li>
+<li>自定义容器名</li>
+<li>设定容器暴露的端口</li>
+</ul>
+</li>
+<li>创建网络</li>
+<li>快速生成模板文件</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>支持从源码构建，构建之前首先保证系统已经安装<code>golang</code>和<code>dep</code><br>步骤如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:gawainx/gxd-cli.git</div><div class="line">dep ensure -update</div><div class="line">go install</div></pre></td></tr></table></figure>
+<p>安装完毕后在命令行通过<code>gxd-cli</code>调用。</p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/gawainx/gxd-cli" target="_blank" rel="external">gawainx/gxd-cli</a></p>
 
         </div>
 
@@ -220,12 +243,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-06-25T03:14:28.573Z" itemprop="dateUpdated">2018-06-25 11:14:28</time>
+    最后更新时间：<time datetime="2018-06-27T09:23:44.582Z" itemprop="dateUpdated">2018-06-27 17:23:44</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/12/dep/" target="_blank" rel="external">https://gawainx.github.io/2018/06/12/dep/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/27/gxd-cli/" target="_blank" rel="external">https://gawainx.github.io/2018/06/27/gxd-cli/</a>
         
     </div>
     
@@ -246,7 +269,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li></ul>
 
 
             
@@ -256,7 +279,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/27/gxd-cli/&title=《gxd-cli is gawainx' docker client》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -266,22 +289,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&source=Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Pyt..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/27/gxd-cli/&title=《gxd-cli is gawainx' docker client》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/12/dep/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/27/gxd-cli/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《golang/dep 包管理（一）原理》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/12/dep/&via=https://gawainx.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gxd-cli is gawainx' docker client》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/27/gxd-cli/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/12/dep/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/27/gxd-cli/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -301,21 +324,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/06/27/gxd-cli/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">gxd-cli is gawainx&#39; docker client</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/06/11/ted-categories/" id="post-next" class="post-nav-link">
+      <a href="/2018/06/12/dep/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">TED 200 资源整理</h4>
+        <h4 class="title">golang/dep 包管理（一）原理</h4>
       </a>
     </div>
   
@@ -438,7 +454,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/27/gxd-cli/&title=《gxd-cli is gawainx' docker client》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -448,22 +464,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&source=Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Pyt..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/27/gxd-cli/&title=《gxd-cli is gawainx' docker client》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/12/dep/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/27/gxd-cli/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《golang/dep 包管理（一）原理》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/12/dep/&via=https://gawainx.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gxd-cli is gawainx' docker client》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/27/gxd-cli/&via=https://gawainx.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/12/dep/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/27/gxd-cli/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -474,7 +490,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aSY6EMBAEwP7/p5nzqAfIKi90j8InhFgCDqly2a9XPI638X7++sqzp71WDFxc3GHucTlyxNmTr9+SG3Bxcfdzk5cloZZ83vW9NzZcXNyP514/IYlLXFzc/8HtgXrPx8XFfZY7EjRJE6RaNk2Yq+Hi4g5wew2OucdL+ru4uLgt7lEc423WPLz+uAsXF3cLtzex6cXQeDMFFxf3E7j5ZoteW6S61QMXF3cPt9rOyBdXeg2Um8/GxcXdyJ3Vsuw1Q68nV7+OcXFxH+KOlCPJ+eqvuQkyXFzcxdwzdLUoye9qTn5wcXEXc5Mwys+MN02in4WLi7uYm3zNyBJptSFy89m4uLhbuLP2c+WTqDz4htaEcXFxF3PnbrfKF3dPr8HFxd3ITZoa1YWWnJiHHS4u7lPcZNqThE6+tatQ+uDi4m7k5sSRaKtOpQo5h4uLO4l7FEfSAF3XSMXFxd3D7W2JmBVM1aDExcXdyc1DJ58a9cqjqGzCxcXdyM2Dplq+jDRMJ+QiLi7uFm5vCbYaZ7i4uN/FHdl6lcfZ6fW4uLgbub2SpVcMJZszojVhXFzcZdxqlIy0QmZFIS4u7jLuD/Oze4rtCCgzAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3ay27bMBAFUP//T7tAt62VezlqGpGHK8OQJR0GmHAer1e83r/Xp8/X3/x5n+tfffrtDQsDA+OxjPflahnX119/k/A+UjEwMA5g5EE2Caz5lfmWffHOGBgYGMHD8gA92T4MDAyMNnFNjn3JIe8//N/AwMB4ICO5dZJ85ilrW7y7LRfHwMB4IGPeGPh3n7+1v4GBgfEjGe+l1T64DaD1+2BgYGzNaEv8eQMyb22uNQzq/gMGBsbDGfOBrfYwlxfyciQGBsYJjLUgO3mtteLdKF/HwMB4OCMf/JoPXiRJb35PDAyMvRltOMtfIh/RyBPdLwptGBgYmzLaUn6b1iYPW2twRvfHwMDYlLEWgvND4SRMY2BgnMnIE85JmawNo22BDwMD4wRGGxDbkYhJczTaLAwMjK0ZbTn+hl5oXFZrYykGBsbejPmR7nXTSsZeMTAwTmOslfhbcB7Kb/47YGBgbMqYFOgnLzcZkMXAwNibkRfa5uWwdrPycTEMDIxzGJNj4hr+rtCMgYFxDqMNo5Mi3b0zEhgYGCcw2tJb/oB2CyZHTwwMjF0Zaw+bF/onY2R/uQ8GBsbWjHYMYsJISJPDJQYGxt6Me1PT+fBEfnDEwMA4jZEE2bxwNimu5c1UDAwMjDbg5p/zVLZonWJgYGAEA1vtKNhaE6IetsDAwNiIkTcDJtfn21QnwBgYGFsz1hoDxRxHWVDLw/oN/Q0MDIyfzvgFsZmTYW1XEgYAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
