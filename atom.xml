@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gawainx.github.io/"/>
-  <updated>2018-06-27T09:23:44.582Z</updated>
+  <updated>2018-07-17T13:57:50.827Z</updated>
   <id>https://gawainx.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>豆瓣电影海报下载-Workflow</title>
+    <link href="https://gawainx.github.io/2018/07/17/dbmv/"/>
+    <id>https://gawainx.github.io/2018/07/17/dbmv/</id>
+    <published>2018-07-17T13:03:53.000Z</published>
+    <updated>2018-07-17T13:57:50.827Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>最近实验室里买了打印机，手账 er 多年以来的为电影手账贴上海报缩略图的心愿终于有机会打成了。</p><p>那么问题来了，去哪找电影海报可以更快更方便呢？每次都是打开网页-&gt;搜索-&gt;图片另存为，太麻烦。于是我盯上了 Alfred，于是就有了这个工具。</p><a id="more"></a><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>首先配置好文件储存的路径，如下图<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://antarx.cn/20180717215527_QpCKV5_Screenshot.jpeg" alt="配置文件" title="">                </div>                <div class="image-caption">配置文件</div>            </figure></p><p>在 Alfred 中输入 <code>dbmv</code>，选择 setting，在配置文件中的<code>img_path</code>输入想要保存图片的目录。</p><p>然后就可以愉快的使用了。</p><ol><li>⌘ + Space 唤醒 Alfred 窗口，输入 <code>dbmv</code> 启动 Workflow。</li><li>选择 Movie</li><li>输入想要搜索的电影名字</li><li>在搜索结果中选择要下载的电影海报，</li><li>回车确认，然后在目标路径就会看到下载好的海报了。</li></ol><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://antarx.cn/20180717214323_XEYh8z_dbmv.gif" alt="使用 dbmv" title="">                </div>                <div class="image-caption">使用 dbmv</div>            </figure><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://github.com/gawainx/dbmv/releases" target="_blank" rel="external">Releases · gawainx/dbmv</a></p><h2 id="特别鸣谢"><a href="#特别鸣谢" class="headerlink" title="特别鸣谢"></a>特别鸣谢</h2><p>本 Workflow 系基于<a href="http://stonebythesea.org/posts/douban-search-workflow-for-alfred/" target="_blank" rel="external">做了一个豆瓣搜索的 Workflow for Alfred - 海边的石头</a>作品的改写。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Preface&quot;&gt;&lt;a href=&quot;#Preface&quot; class=&quot;headerlink&quot; title=&quot;Preface&quot;&gt;&lt;/a&gt;Preface&lt;/h1&gt;&lt;p&gt;最近实验室里买了打印机，手账 er 多年以来的为电影手账贴上海报缩略图的心愿终于有机会打成了。&lt;/p&gt;
+&lt;p&gt;那么问题来了，去哪找电影海报可以更快更方便呢？每次都是打开网页-&amp;gt;搜索-&amp;gt;图片另存为，太麻烦。于是我盯上了 Alfred，于是就有了这个工具。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="https://gawainx.github.io/tags/Mac/"/>
+    
+      <category term="Alfred" scheme="https://gawainx.github.io/tags/Alfred/"/>
+    
+  </entry>
   
   <entry>
     <title>gxd-cli is gawainx&#39; docker client</title>
@@ -424,28 +447,6 @@
     
     </summary>
     
-    
-      <category term="NLP" scheme="https://gawainx.github.io/tags/NLP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title>
-    <link href="https://gawainx.github.io/2017/11/25/mpseg3/"/>
-    <id>https://gawainx.github.io/2017/11/25/mpseg3/</id>
-    <published>2017-11-25T08:51:09.000Z</published>
-    <updated>2018-05-24T08:59:19.414Z</updated>
-    
-    <content type="html"><![CDATA[<p>本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。</p><a id="more"></a><h1 id="DAG"><a href="#DAG" class="headerlink" title="DAG"></a>DAG</h1><p>DAG，也就是有向无环图，可以用来记录一个句子的不同的切分状态集合，所谓的“向”就是句子从开始到结束的方向。假定句子的开始符为<code>S</code>，以“他们有意见分歧”这个句子为例，可以得到如下的有向无环图：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg" alt="有向无环图例子" title="">                </div>                <div class="image-caption">有向无环图例子</div>            </figure><p>在生成一个句子的有向无环图的过程中，利用 BiGram 模型计算所有的转移概率并进行储存。</p><p>之后，从后往前回溯，寻找每个词的最优左近邻词，直到‘S’字符。结束。</p><h2 id="从句子生成-DAG"><a href="#从句子生成-DAG" class="headerlink" title="从句子生成 DAG"></a>从句子生成 DAG</h2><p>假设开始标识符为‘S’。</p><p>对于特定的一条输入句子<strong>sentence</strong>，原始问题可以理解成：由<code>sentence</code>和其前一个词‘S’构建有向无环图。</p><p>对 <strong>sentence</strong>进行分词操作，假设找到的第一个词为<strong>firstWord</strong>，输入句子 <strong>sentence</strong>便可切分为 <strong>firstWord</strong> + <strong>subsentence</strong>两部分，其中<strong>firstWord</strong>作为 <strong>subsentence</strong>的“前一个词”。原始问题便可归约为由<strong>firstWord</strong> 和 <strong>subsentence</strong>构建有向无环图（构建结果作为最终 DAG 的子图）。</p><p>根据上面的分析，构建完整DAG 的过程是一个递归求解的过程，完整的算法步骤描述如下（简记为 <code>Alg-1</code>)：</p><ol><li>输入句子 <strong>sentence</strong></li><li>以开始标记符“S”和 <strong>sentence</strong> 开始构建 DAG。（“S”作为整个图的开始结点，“源”点）</li><li>对 <strong>sentence</strong>从前往后找“第一个词”（<strong>firstWord</strong>），找到第一个词后，将 <strong>sentence</strong>划分为 <strong>firstWord</strong> 和 <strong>subsentence</strong>两部分。<strong>firstWord</strong>即可作为最终 DAG 的一个结点。</li><li>对 <strong>subsentence</strong>重复第三步的切分操作（寻找第一个词和子句），找到的“第一个词”作为最终 DAG 的结点，对子句继续切分（递归）。</li><li>递归结束条件：子句为空。</li><li>结束时，将所有最后一个词放入 endSet（结束词集合）里。</li></ol><p>在 <strong>Alg-1</strong>的步骤3中要寻找“第一个词”，要注意的是，这个寻找过程不是一次性的，因为“第一个词”可能有多种情况，譬如，“有意见分歧”这句话中，对于第一个词，存在着 有/意见分歧 和 有意/见分歧 这两种潜在可能的划分，需要一并进行考虑。因此，寻找词的过程是一个循环的过程，设定上限值为15（汉语中基本不存在长度超过15的词），从第一个字开始向前寻找（切片）：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">15</span>):</div><div class="line">    word = sentence[:k]</div></pre></td></tr></table></figure><p>如果“切”出来的 <strong>word</strong>在词典中，则作为一个子问题，这样才能保证最后生成的 DAG 是考虑了所有可能情况的（考虑了所有的歧义）。</p><p>不过，这个“粗暴”的切分方式也存在着可见的缺陷。它会大幅度增大了有向无环图的规模（最坏情况下，所有的单字都作为图的一个结点）。对于长句子来说会极大的增大了生成时间，而且，这里用递归来生成子图，因此甚至存在递归过深导致堆栈溢出等问题，即使不是这样，也会显著的增加了程序运行时间。</p><h2 id="减少无用递归"><a href="#减少无用递归" class="headerlink" title="减少无用递归"></a>减少无用递归</h2><p>经过多次痛苦的测试过程，摸索出减少无用递归的方法可以短暂缓解上面提到的缺陷。</p><p>考虑如下句子：</p><blockquote><p>因为他们有意见分歧，会议的时间未能确定下来。</p></blockquote><p>虽然在中文语义上，可以以逗号为分隔直接划分成两个子问题再进行切分生成 DAG，但在计算机中还是视为一个句子进行处理。</p><p>在“有意见分歧，”这里，存在至少两种切分：</p><p>有/意见分歧 和 有意/见分歧</p><p>无论这个子句如何切分，切分之后的两个子句</p><blockquote><p>意见分歧，···</p><p>见分歧，···</p></blockquote><p>除了第一个词之外都是重叠的，生成的子图也是一样的，无需重复的递归进行处理。</p><p>基于这种分析，在考虑生成 DAG 函数的关键参数：<code>firstWord</code>和 <code>subsentence</code>，将这两个参数构成一个元组（tuple），用一个集合记录下已经进行了“子图生成”的元组，每次要执行递归前，首先判断关键参数组合是否在集合中，如果在集合中则直接跳过，否则再执行递归过程，执行完毕后将关键参数组合添加到集合中。</p><h1 id="最优左近邻词（bLAW）"><a href="#最优左近邻词（bLAW）" class="headerlink" title="最优左近邻词（bLAW）"></a>最优左近邻词（bLAW）</h1><p>考虑词序列</p><p>$$w_1,w_2,w<em>3,…,w</em>{i-1},w_i,…,w_n$$</p><p>$w_{i-1}$即为$w_i$的左近邻词。</p><p>用输入句子生成 DAG 之后，对结束词集合中的每一个词，从后往前回溯，寻找每一个词的最优左近邻词，直到“S”结束，得到潜在的切分序列。如果切分序列不止一个的时候，则计算每个切分句子的概率，取概率较大者作为切分结果序列。</p><h3 id="如何寻找最优左近邻词？"><a href="#如何寻找最优左近邻词？" class="headerlink" title="如何寻找最优左近邻词？"></a>如何寻找最优左近邻词？</h3><p>考虑累计概率计算公式：</p><p>$$P_a(w_i)=P<em>a (w</em>{i-1})*P(w<em>i/w</em>{i-1})$$</p><p>对每一个左近邻词（在 DAG 中表示为一个结点的所有前向相邻结点），计算累积概率，取概率较大者作为最优左近邻词。</p><h1 id="潜在问题"><a href="#潜在问题" class="headerlink" title="潜在问题"></a>潜在问题</h1><p>以下潜在问题的讨论仅限于本文讨论的 DAG 和寻找左近邻词的算法，并不一定 LAW 这个概念本身可能存在的问题。</p><ol><li>“最优”只考虑了局部的情况，在语料库生成的搭配词典规模受到限制的场合，基于语料库训练出来的 BiGram 模型计算出来的累积概率与实际应用场景中“本该有”的概率存在较大差异，这种差异将直接反映在切分结果上。</li><li>生成 DAG 的过程以词本身而不是词在句子中的下标序号作为图的结点，对于一个存在重复词的句子，从后往前找左近邻词时可能进入死循环中。解决办法是每次寻找词的时候将这个词与它“本该”出现在句子中的位置进行比较再决定是不是 LAW</li></ol><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol><li><a href="http://www.voidcn.com/article/p-gnpklsla-sp.html" target="_blank" rel="external">jieba中文分词源码分析（三）</a></li><li>王小捷老师计算语言学课程相关课件资料</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="https://gawainx.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="NLP" scheme="https://gawainx.github.io/tags/NLP/"/>
     
