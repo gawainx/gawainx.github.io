@@ -31,7 +31,7 @@
     <meta name="description" content="Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了vendor机制，1.8之后终于有了官方的包管理工具，golang/dep。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="golang/dep 包管理（一）原理">
-<meta property="og:url" content="https://gawainx.github.io/2018/06/12/dep/index.html">
+<meta property="og:url" content="https://antarx.com/2018/06/12/dep/index.html">
 <meta property="og:site_name" content="Gawainx' Blog">
 <meta property="og:description" content="Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了vendor机制，1.8之后终于有了官方的包管理工具，golang/dep。">
 <meta property="og:image" content="https://golang.github.io/dep/docs/assets/four-states.png">
@@ -225,12 +225,12 @@
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/12/dep/" target="_blank" rel="external">https://gawainx.github.io/2018/06/12/dep/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/12/dep/" target="_blank" rel="external">https://antarx.com/2018/06/12/dep/</a>
         
     </div>
     
     <footer>
-        <a href="https://gawainx.github.io">
+        <a href="https://antarx.com">
             <img src="/img/sicp.jpg" alt="Gawain Antarx">
             Gawain Antarx
         </a>
@@ -256,7 +256,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -266,22 +266,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&source=Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Pyt..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&source=Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Pyt..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/12/dep/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2018/06/12/dep/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《golang/dep 包管理（一）原理》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/12/dep/&via=https://gawainx.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《golang/dep 包管理（一）原理》 — Gawainx' Blog&url=https://antarx.com/2018/06/12/dep/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/12/dep/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2018/06/12/dep/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -438,7 +438,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&pic=https://gawainx.github.io/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -448,22 +448,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gawainx.github.io/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&source=Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Pyt..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2018/06/12/dep/&title=《golang/dep 包管理（一）原理》 — Gawainx' Blog&source=Golang 包依赖管理工具golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Pyt..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gawainx.github.io/2018/06/12/dep/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2018/06/12/dep/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《golang/dep 包管理（一）原理》 — Gawainx' Blog&url=https://gawainx.github.io/2018/06/12/dep/&via=https://gawainx.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《golang/dep 包管理（一）原理》 — Gawainx' Blog&url=https://antarx.com/2018/06/12/dep/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gawainx.github.io/2018/06/12/dep/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2018/06/12/dep/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -474,7 +474,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aSY6EMBAEwP7/p5nzqAfIKi90j8InhFgCDqly2a9XPI638X7++sqzp71WDFxc3GHucTlyxNmTr9+SG3Bxcfdzk5cloZZ83vW9NzZcXNyP514/IYlLXFzc/8HtgXrPx8XFfZY7EjRJE6RaNk2Yq+Hi4g5wew2OucdL+ru4uLgt7lEc423WPLz+uAsXF3cLtzex6cXQeDMFFxf3E7j5ZoteW6S61QMXF3cPt9rOyBdXeg2Um8/GxcXdyJ3Vsuw1Q68nV7+OcXFxH+KOlCPJ+eqvuQkyXFzcxdwzdLUoye9qTn5wcXEXc5Mwys+MN02in4WLi7uYm3zNyBJptSFy89m4uLhbuLP2c+WTqDz4htaEcXFxF3PnbrfKF3dPr8HFxd3ITZoa1YWWnJiHHS4u7lPcZNqThE6+tatQ+uDi4m7k5sSRaKtOpQo5h4uLO4l7FEfSAF3XSMXFxd3D7W2JmBVM1aDExcXdyc1DJ58a9cqjqGzCxcXdyM2Dplq+jDRMJ+QiLi7uFm5vCbYaZ7i4uN/FHdl6lcfZ6fW4uLgbub2SpVcMJZszojVhXFzcZdxqlIy0QmZFIS4u7jLuD/Oze4rtCCgzAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aQRKCQAxEUe5/ady6YfydMBHLPysLhXm4SJEOx4HX+bbej5Czrj6TKxSXXLly29xzua5+wzdeo7lBrly581y+DbmBdfnjZVGuXLm/yF2XM3KWXLly/4HLmyK5cuU+n0uaH7Ilb5+292py5cptcHlKue/zlnxXrly5Je4ZLnKFNAwNdpcrV+4INx2X1hC8oSL7ypUrdzeXXLrWGnVGsx9KmFy5cjdzedxJYhHeOKXj2+A/litXbptLtiSj03RMUhzHypUrd4TLt+GvW/EXMnizJFeu3Odw06FI2iwVmx+5cuWOcPmFOq9bpc0VynflypW7gcujUn7pNDohZ8mVK3eeS1oRvnEtQkV0uXLljnCLJ+DHnf63qPmRK1fuZi4PN/n2aWv0oYDKlSt3kHsXLm2lyC/lypX7LW78qIEfj2rBa/y1XLlyb+Ke4eKPI53jB69zcuXK3cDtDFD7MSsvlPHNyJUrt83lxYuEJp1bRf+oXLlyB7mdUSiJRNNo9fKIXLlyf4qblrl16bwtxZErV+4INyg6t6YccuXKnefWAg4yiK099KCZsFy5crdxO4PPTlRKbqmV78qVK7fCfQHTCFyb/OxTDgAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
