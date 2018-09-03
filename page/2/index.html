@@ -171,6 +171,51 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-mage2"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-23 11:17:36" datetime="2018-04-23T03:17:36.000Z"  itemprop="datePublished">2018-04-23</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/23/mage2/">使用mage实现交叉编译</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 golang 为数不多的缺点之一）。最近一直在思考有没有类似 Makefile 的方式来解决这件事（如果只想交叉编译的话直接用 go build或者借助 gox 等工具也不是不可以，可还是，不够方便）。直到之前 ing 大神给我推荐了 Hugo 这个静态博客框架，虽然目前因为找不到合适的博客主题没有从 hexo 迁移过去，但看源代码的时候有了一个重要的收获，就是mage关于 mage 的基本安装和使用详见mage 使用教程(一)
+    
+
+        <a href="/2018/04/23/mage2/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-mage1"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -564,51 +609,6 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
     
 
         <a href="/2017/11/27/mpseg0/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-mpseg4"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-25 18:04:43" datetime="2017-11-25T10:04:43.000Z"  itemprop="datePublished">2017-11-25</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/25/mpseg4/">最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。
-    
-
-        <a href="/2017/11/25/mpseg4/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
