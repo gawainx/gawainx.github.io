@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://antarx.com/"/>
-  <updated>2018-09-03T12:22:42.118Z</updated>
+  <updated>2018-11-02T03:22:40.162Z</updated>
   <id>https://antarx.com/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://antarx.com/2018/11/02/configs/sorts/"/>
+    <id>https://antarx.com/2018/11/02/configs/sorts/</id>
+    <published>2018-11-02T03:22:40.162Z</published>
+    <updated>2018-11-02T03:22:40.162Z</updated>
+    
+    <content type="html"><![CDATA[{"":[],"__positions":{},"__raw_positions":{}}]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        {&quot;&quot;:[],&quot;__positions&quot;:{},&quot;__raw_positions&quot;:{}}
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>新款 Mac mini 购买可行性分析</title>
+    <link href="https://antarx.com/2018/11/02/macmini/"/>
+    <id>https://antarx.com/2018/11/02/macmini/</id>
+    <published>2018-11-02T03:20:29.000Z</published>
+    <updated>2018-11-03T08:17:20.210Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="新款-Mac-mini-购买可行性分析（持续更新）"><a href="#新款-Mac-mini-购买可行性分析（持续更新）" class="headerlink" title="新款 Mac mini 购买可行性分析（持续更新）"></a>新款 Mac mini 购买可行性分析（持续更新）</h1><p>10 月 30 号苹果的新品发布会，我望眼欲穿的Mac mini 终于在时隔四年之后迎来了“大更新”，正如之前很多 KOL 所“预言”的一样，是一次面向专业人士的一次更新，最高支援了 i7 六核处理器和 64GB 内存和 2TB 固态，还有万兆以太网接口可选。昨天也同步更新了大陆的价格信息。网络上对于这款产品的评价也是褒贬不一，到底这款产品是不是值得购买呢。<br><a id="more"></a></p><h2 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h2><p>这里只关注 i5 和 i7 版本。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://antarx.cn/20181102112846_2NouDo_Screenshot.jpeg" alt="官网处理器规格表" title="">                </div>                <div class="image-caption">官网处理器规格表</div>            </figure><br>Apple 一般都会和英特尔有定制处理器，根据<a href="https://ark.intel.com/zh-cn#@PanelLabel122139" target="_blank" rel="external">英特尔® 产品规格</a>，查找 i5 处理器的规格表<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://antarx.cn/20181102113138_9aUiT7_Screenshot.jpeg" alt="第八代 i5 处理器" title="">                </div>                <div class="image-caption">第八代 i5 处理器</div>            </figure><br>从基准频率，睿频频率和 L3 缓存规格，基本可以确认，Mac mini 使用的 i5 处理器就是这款 8500B，是基于桌面版的 8500 的修改款。<br>同样可以找到<a href="https://ark.intel.com/zh-cn/products/series/122593/-i7-" target="_blank" rel="external">第八代智能英特尔® 酷睿™ i7 处理器 产品规格</a>，可以基本确认 Mac mini 的 i7 处理器是 8700B，是桌面版 8700（不带 k）的修改版（为了适配 Mac mini 的体积而进行散热性能的更改）。<br>可以看到，对比上一代的 Mac mini 使用的低压移动平台处理器，这次的升级可以说是一脚踩爆了牙膏管。<br>要注意的是，第八代 i5 和 i7 处理器（上面说的这两款），最大的区别是超线程支持上，也就是说只有 i7 8700B 这款处理器支持超线程，为 6C12T（6 Core 12 Thread）规格。</p><h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>内存其实没啥好说的，横跨 8GB 到 64GB。<br>比较有意思的是，这一代重新采用了 SO-DIMM 的可插拔内存，理论上可以买 8GB 版本回来自己扩充到 32G 内存，还能省 2000 元。具体的内存更换教程和内存条兼容性报告，等发售和测试之后再更新。</p><h3 id="一点吐槽和一点疑问"><a href="#一点吐槽和一点疑问" class="headerlink" title="一点吐槽和一点疑问"></a>一点吐槽和一点疑问</h3><p>官网的自定义配置上，从 8GB 内存升格到 32GB 内存居然要加四千多。问题是现在内存价格已经回落了啊！！！<br>官网的宣传图片和规格上说是可插拔内存插槽，是不是意味着可以买低内存版本回来自己加爆到 32*2=64G 内存呢？具体情况关注 ifixit 的拆解情况再作判断。</p><h2 id="显卡-GPU"><a href="#显卡-GPU" class="headerlink" title="显卡/GPU"></a>显卡/GPU</h2><p>应该是这次“面向专业人士的升级”中最值得吐槽的地方。<br>之前微博上一直有说法，这次的 Mac mini 会选配 GTX 1050 图形处理器。<br>然而，然而，最后的结果是，全系列，Intel UHD630 集成图形处理器。<br>这个 GPU 是什么概念呢，在显卡天梯图上，这款产品的规格甚至比 2015 mid 的MacBook Pro 15 吋低配的 4770HQ 处理器内置的 Iris 5200 还要低。（能不能顺利带动我的 P2415Q 是很让我困惑的一件事，虽然官网规格说支援同时带两个 4k 显示器）</p><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>之前一直很担心 Mac mini 更新会不会只给 Thunderbolt 3 接口，甚至连以太网接口会不会砍掉，幸好最后库克证明是我多虑了。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://antarx.cn/20181102120058_gkxv7d_Screenshot.jpeg" alt="Apple官网接口规格" title="">                </div>                <div class="image-caption">Apple官网接口规格</div>            </figure><br>四个 Thunderbolt 3 接口，两个 USB3.0 接口，还有 HDMI2.0 和千兆以太网接口（可选万兆），覆盖了日常使用的所有接口类型，总而言之，管够！</p><h2 id="外接设备的可能性探讨"><a href="#外接设备的可能性探讨" class="headerlink" title="外接设备的可能性探讨"></a>外接设备的可能性探讨</h2><p>最重要的外接设备形式，就是自 macOS High Sierra 10.13.4 开始支援的 eGPU 了。关于 Mac 对 eGPU 原理的讨论，大别<a href="https://weibo.com/ibuick?profile_ftype=1&amp;is_article=1#_0" target="_blank" rel="external">ibuick的微博</a>上面有篇文章讨论的非常详细，我这里就不班门弄斧。有需要的可以自行参阅研究。<br>总的来说，外接 eGPU 可以满足视频渲染、照片处理等重型任务的需求，对于程序员（包括我）最关心的科学计算、深度学习任务可不可以使用 eGPU 进行加速的问题，目前调查到的情况有这几点：</p><ol><li><p>显卡硬件方面。</p><ul><li>NVIDIA Pascal 及以上架构的显卡（GTX10 开始）在 macOS Mojave 10.14 系统上还没发布驱动包（据说是还没通过苹果的审核）。</li><li>AMD 显卡，有<a href="https://rocm.github.io/index.html" target="_blank" rel="external">ROCm, a New Era in GPU Computing</a>方案实现 TensorFlow 调用 AMD GPU 资源进行计算加速。问题是 ROCm 到目前为止不支持 macOS。</li></ul></li><li><p>软件兼容性层。NVIDIA 有发布 CUDA 以及 CuDNN for macOS。</p><ul><li>同样的，这两个软件依然没有支持 macOS Mojave</li><li>TensorFlow for macOS 可以通过自编译的方式实现 GPU 支持。</li><li>就算以后打通了 NVIDIA eGPU + CUDA + CuDNN + TensorFlow for macOS 的完整流程，由于 Docker for macOS 是一种虚拟机实现方案，所以也许永远不会有 Nvidia-Docker for macOS 来实现更简单的开发环境部署和 Python 环境隔离。</li></ul></li><li>对于 macOS High Sierra 系统和 Pascal 以下的显卡，已经有非常详细的教程<a href="https://medium.com/@jianshi_94445/training-your-neural-net-with-egpu-acceleration-on-mac-with-tensorflow-1-5-b2b729f4e408" target="_blank" rel="external">Training Your Neural Net with eGPU Acceleration on Mac with Tensorflow 1.5</a>实现 2.3 所说的完整流程。</li></ol><h2 id="其他外接设备"><a href="#其他外接设备" class="headerlink" title="其他外接设备"></a>其他外接设备</h2><h3 id="显示器"><a href="#显示器" class="headerlink" title="显示器"></a>显示器</h3><ul><li>预算有限的，可以选 dell P2415Q，目前非 Ultrafine 荧幕里面 PPi 最接近视网膜的。接一般的 4k 荧幕（泛指所有尺寸在 27 寸及以上的 4k 荧幕），同样可以实现 HiDPI 缩放，具体判断是接入显示器之后，设置连接模式为扩展，然后打开显示器选项，选择缩放，看到的是下面这样的截图<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://antarx.cn/images/20181103161045_fOD6Fx_Screenshot.jpeg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>而不是让你选择物理分辨率。HiDPI 技术对显示效果的影响，具体来说就是两种显示器（支持 HiDPI 和普通显示器），macOS 在渲染输出的时候会采用不同的色彩空间（对于后者，在系统中会被识别成“电视”，使用 YUV），看起来会觉得后者的字体锯齿甚至比 Windows10 外接高分屏荧幕更加严重。2k 显示器可以通过软件修改的方式实现 HiDPI，缺点是每次系统升级都可能导致不能用。</li><li>预算充足的，直接 LG Ultrafine 系列。<h3 id="机械键盘"><a href="#机械键盘" class="headerlink" title="机械键盘"></a>机械键盘</h3>ikbc G104 和阿米洛的 Mac 系列都是原生 Mac 键位支持。也可以买 Windows 键盘回来自己改键位和键帽，全凭个人喜好了。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;新款-Mac-mini-购买可行性分析（持续更新）&quot;&gt;&lt;a href=&quot;#新款-Mac-mini-购买可行性分析（持续更新）&quot; class=&quot;headerlink&quot; title=&quot;新款 Mac mini 购买可行性分析（持续更新）&quot;&gt;&lt;/a&gt;新款 Mac mini 购买可行性分析（持续更新）&lt;/h1&gt;&lt;p&gt;10 月 30 号苹果的新品发布会，我望眼欲穿的Mac mini 终于在时隔四年之后迎来了“大更新”，正如之前很多 KOL 所“预言”的一样，是一次面向专业人士的一次更新，最高支援了 i7 六核处理器和 64GB 内存和 2TB 固态，还有万兆以太网接口可选。昨天也同步更新了大陆的价格信息。网络上对于这款产品的评价也是褒贬不一，到底这款产品是不是值得购买呢。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="macOS" scheme="https://antarx.com/tags/macOS/"/>
+    
+  </entry>
   
   <entry>
     <title>go模块入门</title>
@@ -403,55 +444,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>TensorFlow For Docker 初体验</title>
-    <link href="https://antarx.com/2017/12/06/dockertf/"/>
-    <id>https://antarx.com/2017/12/06/dockertf/</id>
-    <published>2017-12-06T13:30:22.000Z</published>
-    <updated>2018-05-24T08:59:19.436Z</updated>
-    
-    <content type="html"><![CDATA[<hr><p>TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。</p><p>下面分享配置过程。</p><p>测试环境是 GTX850M+Ubuntu16.04.3+CUDA9.0+GeForce 384.00</p><p>驱动及 CUDA 安装过程参考即将到来的另一篇文章。</p><a id="more"></a><h1 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h1><p>可以用<code>curl -sSL https://get.daocloud.io/docker | sh</code>这条命令快速安装 Docker，不过，这个安装脚本默认会安装最新版本的 Docker（当前是17.11.0 docker-ce），而 NVIDIA Docker 并不支持这个新版本（跪</p><p>所以要进行一下卸载再降级操作…</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># uninstall docker</div><div class="line">sudo apt-get purge docker-ce</div><div class="line"># 查看软件库中可用的历史版本</div><div class="line">sudo apt-cache policy docker-ce</div><div class="line"># install docker-ce 17.09</div><div class="line">sudo apt-get install -y docker-ce=17.09.0~ce-0~ubuntu</div></pre></td></tr></table></figure><p>值得一提的是17年的某个版本开始，docker 的软件包统一到 docker-ce（社区）和 docker-ee（付费企业版）上面来了，开发使用的主要以 docker-ce 为主，网上很多教程（尤其是2016年、2016年的）说到安装 docker 的软件包名叫例如 lxc-docker docker.io 等的都是老旧版本的。</p><h1 id="安装-NVIDIA-docker"><a href="#安装-NVIDIA-docker" class="headerlink" title="安装 NVIDIA-docker"></a>安装 NVIDIA-docker</h1><p><a href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="external">Nvidia-Docker</a>是老黄提供的一套在 Docker 上制造跑核弹的工具（。</p><p>简单来说，这套工具提供了一个运行时，用来连接 Docker 容器和物理设备的 GPU 资源，使得 Docker 容器可以直接访问、调用物理机的 GPU 资源进行密集型计算操作。</p><p>安装步骤如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># Add the package repositories 添加软件仓库</div><div class="line">curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \</div><div class="line">  sudo apt-key add -</div><div class="line">curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | \</div><div class="line">  sudo tee /etc/apt/sources.list.d/nvidia-docker.list</div><div class="line">sudo apt-get update</div><div class="line"></div><div class="line"># Install nvidia-docker2 and reload the Docker daemon configuration</div><div class="line">sudo apt-get install -y nvidia-docker2</div><div class="line">sudo pkill -SIGHUP dockerd</div><div class="line"></div><div class="line"># Test nvidia-smi with the latest official CUDA image</div><div class="line">docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi</div></pre></td></tr></table></figure><p>在 Ubuntu16.04测试通过。</p><h1 id="安装-TensorFlow-的-Docker-镜像"><a href="#安装-TensorFlow-的-Docker-镜像" class="headerlink" title="安装 TensorFlow 的 Docker 镜像"></a>安装 TensorFlow 的 Docker 镜像</h1><p>TensorFlow 官方提供了 for Docker 的镜像，里面集成了完整的依赖关系，免去了用<code>pip</code>安装各种包的烦恼。</p><p>镜像包含很多 tag，常用的有下面几个：</p><ul><li>tensorflow/tensorflow:latest，运行环境是 python2.7，仅支持 CPU</li><li>tensorflow/tensorflow:latest-gpu，运行环境是 python2.7，支持 GPU 计算</li><li>tensorflow/tensorflow:latest-py3，运行环境是 python3.5，仅支持 CPU</li><li>tensorflow/tensorflow:latest-gpu-py3，运行环境是 python2.7，支持 调用GPU</li></ul><p>我自己用的是最后一个。</p><p>首先下载镜像下来。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull tensorflow/tensorflow:latest-gpu-py3</div></pre></td></tr></table></figure><p>然后跑个 python3交互环境试试水</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --runtime=nvidia --rm -it tensorflow/tensorflow:latest-gpu-py3 python3</div></pre></td></tr></table></figure><p>在交互环境下输入<code>import tensorflow as tf</code>，如果没提示依赖库错误则说明安装成功。</p><p>上面的<code>—runtime=nvidia</code>为调用 nvidia-docker 工具包（运行时）而不是标准运行时来运行镜像，只有加了这个选项才能调用 GPU。</p><p>最后跑一下多重感知机训练手写数字识别，效果图</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg" alt="多重感知机训练手写数字识别模型" title="">                </div>                <div class="image-caption">多重感知机训练手写数字识别模型</div>            </figure><p>输出显示调用 GPU:0进行计算，说明配置一路顺风了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。&lt;/p&gt;
-&lt;p&gt;下面分享配置过程。&lt;/p&gt;
-&lt;p&gt;测试环境是 GTX850M+Ubuntu16.04.3+CUDA9.0+GeForce 384.00&lt;/p&gt;
-&lt;p&gt;驱动及 CUDA 安装过程参考即将到来的另一篇文章。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="TensorFlow" scheme="https://antarx.com/tags/TensorFlow/"/>
-    
-      <category term="Docker" scheme="https://antarx.com/tags/Docker/"/>
-    
-      <category term="ML" scheme="https://antarx.com/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最大概率汉语切分算法研究-(0)-概览</title>
-    <link href="https://antarx.com/2017/11/27/mpseg0/"/>
-    <id>https://antarx.com/2017/11/27/mpseg0/</id>
-    <published>2017-11-27T13:48:13.000Z</published>
-    <updated>2018-05-24T08:59:19.437Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多五光十色奇形怪状让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。</p><p>在这篇给出这系列文章的导航帖汇总。<br><a id="more"></a></p><p>至于代码嘛，等交完实验报告再说嗯。。</p><p><a href="http://antarx.com/2017/11/25/mpseg1/">最大概率汉语切分算法研究（一）词典构建</a></p><p><a href="http://antarx.com/2017/11/25/mpseg2/">最大概率汉语切分算法研究（二）BiGram语言模型</a></p><p><a href="http://antarx.com/2017/11/25/mpseg3/">最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</a></p><p><a href="http://antarx.com/2017/11/25/mpseg4/">最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多五光十色奇形怪状让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
-&lt;p&gt;在这篇给出这系列文章的导航帖汇总。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="NLP" scheme="https://antarx.com/tags/NLP/"/>
     
   </entry>
   
