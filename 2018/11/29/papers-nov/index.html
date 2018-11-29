@@ -21,23 +21,23 @@
     
     
     
-    <title>papers=nov | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
+    <title>11月论文阅读总结 | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="gawainx 的个人博客">
+    <meta name="keywords" content="科研">
+    <meta name="description" content="转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="papers=nov">
+<meta property="og:title" content="11月论文阅读总结">
 <meta property="og:url" content="https://antarx.com/2018/11/29/papers-nov/index.html">
 <meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content="gawainx 的个人博客">
-<meta property="og:updated_time" content="2018-11-29T08:48:39.501Z">
+<meta property="og:description" content="转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。">
+<meta property="og:updated_time" content="2018-11-29T12:56:10.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="papers=nov">
-<meta name="twitter:description" content="gawainx 的个人博客">
+<meta name="twitter:title" content="11月论文阅读总结">
+<meta name="twitter:description" content="转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
     
@@ -132,7 +132,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">papers=nov</div>
+        <div class="flex-col header-title ellipsis">11月论文阅读总结</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -154,7 +154,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">papers=nov</h1>
+        <h1 class="title">11月论文阅读总结</h1>
         <h5 class="subtitle">
             
                 <time datetime="2018-11-29T08:48:39.000Z" itemprop="datePublished" class="page-time">
@@ -174,12 +174,19 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是Translation？"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是Translation？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Translation-Embedding（TransE）"><span class="post-toc-number">2.</span> <span class="post-toc-text">Translation Embedding（TransE）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Translation-Hyperplane"><span class="post-toc-number">3.</span> <span class="post-toc-text">Translation Hyperplane</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OpenKE-Toolkit"><span class="post-toc-number">4.</span> <span class="post-toc-text">OpenKE Toolkit</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-papers-nov"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">papers=nov</h1>
+        <h1 class="post-card-title">11月论文阅读总结</h1>
         <div class="post-meta">
             <time class="post-time" title="2018-11-29 16:48:39" datetime="2018-11-29T08:48:39.000Z"  itemprop="datePublished">2018-11-29</time>
 
@@ -194,7 +201,37 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <p>转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。</p>
+<a id="more"></a>
+<h2 id="什么是Translation？"><a href="#什么是Translation？" class="headerlink" title="什么是Translation？"></a>什么是Translation？</h2><p>知识图谱是一种偏向于人类认知的“数据结构”，将实体之间用关系的方式进行链接，比如说“中国的首都是北京“这句话，用知识图谱进行建模的方式就是，“中国”（实体）的首都是（“关系表示”）“北京”（另一个实体）。</p>
+<p>这样，一条知识就可以用图这个数据结构的一条边（edge）来表示。参考图的关系描述方式，知识图谱中可以使用 $<h,r,t>$ 三元组来表示一条“知识”，$h$是head，头部知识，知识的端点，在上面的例子中，为“中国”，$r$是relation，表示关系的意思，$t$是tail，在上面的例子中，为“北京”。</h,r,t></p>
+<p>知识终究是要喂给计算机进行处理的，计算机只能处理数据信息。知识图谱上面的东西都是离散的，符合人类认知逻辑的，和计算机处理的数据没有半毛钱的关系。因此，就有了知识表示的说法。怎么把图结构表示成计算机可以处理的数据的形式。</p>
+<p>Translation，是对知识表示的一种“形容”，目标是将三元组映射到计算机可以处理的连续数值向量空间中，当然了，最好这个空间的维度可以低一些。</p>
+<h2 id="Translation-Embedding（TransE）"><a href="#Translation-Embedding（TransE）" class="headerlink" title="Translation Embedding（TransE）"></a>Translation Embedding（TransE）</h2><p>TransE，是最早的研究用嵌入（embed）方法来进行知识表示的一篇论文。基本思想就是最直观的将实体关系数据嵌入到低维度向量空间中。</p>
+<p>关于TransE，网路上有很多讨论的文章（毕竟出来最早），讨论的内容都大同小异，可以参考<a href="http://yaoleo.github.io/2017/10/27/TransE%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3/" target="_blank" rel="external">TransE算法的理解 | Yaoleo</a></p>
+<p>TransE所完成的，是最基本的知识嵌入，忽略了知识中普遍存在的一对多、多对一、自反关系的问题，自反关系中，$r$会被建模成$0$向量；多对一的关系中，因为它的Scoring Function设定为 $\Vert h-r+t \Vert$， 假设$h_0,…,h_m$ 均与$t$形成关系$r$，那么$h_0,…,h_m$的向量表示是相等的。一对多的关系同理。</p>
+<p>因此，有了TransH。</p>
+<h2 id="Translation-Hyperplane"><a href="#Translation-Hyperplane" class="headerlink" title="Translation Hyperplane"></a>Translation Hyperplane</h2><p>这个方法是紧跟随TransE提出来的。主要有两个改进的地方（对比TransE）</p>
+<ol>
+<li><p>引入entity的分布式表示。将Relation的表示放在了与entity的不同空间当中（也是Hyperplane的由来）。两个空间（relation和entity之间）的向量表示是一个投影关系（projection）</p>
+</li>
+<li><p>将现有知识图谱的“未完成”问题考虑进来，负样本的构造过程不再像以往模型那样随机选择，而是基于伯努利分布的一个选择过程。而且对与多对一和一对多时候的“污染源”也是有区别的。</p>
+</li>
+</ol>
+<p>此外Scoring Function和Loss Function也有改进。</p>
+<h2 id="OpenKE-Toolkit"><a href="#OpenKE-Toolkit" class="headerlink" title="OpenKE Toolkit"></a>OpenKE Toolkit</h2><p>第三篇论文是2018年清华大学发布的，是一个工具包的简介。基于Trans的模型有不下五六种，模型的训练和测试成为了一个难题。而且每提出一个新的算法都要对前面的东西进行重复验证。所以这篇论文中将这几种常见模型的算法集中到了一起，提供统一的接口和数据库，并且保证了向后兼容性。提供了TF和PyTorch的接口，实现GPU训练和CPU多线程并行训练。</p>
+<p>在这篇论文中作者还指出，前面的各种Translation算法，本质上最大的区别就是Scoring Function和Loss Function的区别。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><p><a href="https://www.jiqizhixin.com/articles/2017-11-04-2" target="_blank" rel="external">清华大学开源OpenKE：知识表示学习平台 | 机器之心</a> 里面有上面提到的所有论文的链接。</p>
+</li>
+<li><p>Zhen Wang, J. Z. J. F. Z. C. (2014). Knowledge Graph Embedding by Translating on Hyperplanes, 1–8.</p>
+</li>
+<li><p>OpenKE: An Open Toolkit for Knowledge Embedding. (2018). OpenKE: An Open Toolkit for Knowledge Embedding, 1–6.</p>
+</li>
+<li><p>Translating Embeddings for Modeling Multi-relational Data. (2013). Translating Embeddings for Modeling Multi-relational Data, 1–9.</p>
+</li>
+</ol>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -202,7 +239,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-29T08:48:39.501Z" itemprop="dateUpdated">2018-11-29 16:48:39</time>
+    最后更新时间：<time datetime="2018-11-29T12:56:10.343Z" itemprop="dateUpdated">2018-11-29 20:56:10</time>
 </span><br>
 
 
@@ -228,6 +265,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科研/">科研</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -236,7 +275,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2018/11/29/papers-nov/&title=《papers=nov》 — Gawainx' Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2018/11/29/papers-nov/&title=《11月论文阅读总结》 — Gawainx' Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -246,7 +285,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2018/11/29/papers-nov/&title=《papers=nov》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2018/11/29/papers-nov/&title=《11月论文阅读总结》 — Gawainx' Blog&source=转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -256,7 +295,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《papers=nov》 — Gawainx' Blog&url=https://antarx.com/2018/11/29/papers-nov/&via=https://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《11月论文阅读总结》 — Gawainx' Blog&url=https://antarx.com/2018/11/29/papers-nov/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -411,7 +450,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2018/11/29/papers-nov/&title=《papers=nov》 — Gawainx' Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2018/11/29/papers-nov/&title=《11月论文阅读总结》 — Gawainx' Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -421,7 +460,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2018/11/29/papers-nov/&title=《papers=nov》 — Gawainx' Blog&source=gawainx 的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2018/11/29/papers-nov/&title=《11月论文阅读总结》 — Gawainx' Blog&source=转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -431,7 +470,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《papers=nov》 — Gawainx' Blog&url=https://antarx.com/2018/11/29/papers-nov/&via=https://antarx.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《11月论文阅读总结》 — Gawainx' Blog&url=https://antarx.com/2018/11/29/papers-nov/&via=https://antarx.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
