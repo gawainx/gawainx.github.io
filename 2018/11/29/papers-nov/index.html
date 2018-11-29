@@ -34,7 +34,7 @@
 <meta property="og:url" content="https://antarx.com/2018/11/29/papers-nov/index.html">
 <meta property="og:site_name" content="Gawainx' Blog">
 <meta property="og:description" content="转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。">
-<meta property="og:updated_time" content="2018-11-29T12:56:10.343Z">
+<meta property="og:updated_time" content="2018-11-29T12:58:05.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="11月论文阅读总结">
 <meta name="twitter:description" content="转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。">
@@ -204,7 +204,7 @@
             <p>转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。</p>
 <a id="more"></a>
 <h2 id="什么是Translation？"><a href="#什么是Translation？" class="headerlink" title="什么是Translation？"></a>什么是Translation？</h2><p>知识图谱是一种偏向于人类认知的“数据结构”，将实体之间用关系的方式进行链接，比如说“中国的首都是北京“这句话，用知识图谱进行建模的方式就是，“中国”（实体）的首都是（“关系表示”）“北京”（另一个实体）。</p>
-<p>这样，一条知识就可以用图这个数据结构的一条边（edge）来表示。参考图的关系描述方式，知识图谱中可以使用 $<h,r,t>$ 三元组来表示一条“知识”，$h$是head，头部知识，知识的端点，在上面的例子中，为“中国”，$r$是relation，表示关系的意思，$t$是tail，在上面的例子中，为“北京”。</h,r,t></p>
+<p>这样，一条知识就可以用图这个数据结构的一条边（edge）来表示。参考图的关系描述方式，知识图谱中可以使用 $h,r,t$ 三元组来表示一条“知识”，$h$ 是head，头部知识，知识的端点，在上面的例子中，为“中国”，$r$是relation，表示关系的意思，$t$是tail，在上面的例子中，为“北京”。</p>
 <p>知识终究是要喂给计算机进行处理的，计算机只能处理数据信息。知识图谱上面的东西都是离散的，符合人类认知逻辑的，和计算机处理的数据没有半毛钱的关系。因此，就有了知识表示的说法。怎么把图结构表示成计算机可以处理的数据的形式。</p>
 <p>Translation，是对知识表示的一种“形容”，目标是将三元组映射到计算机可以处理的连续数值向量空间中，当然了，最好这个空间的维度可以低一些。</p>
 <h2 id="Translation-Embedding（TransE）"><a href="#Translation-Embedding（TransE）" class="headerlink" title="Translation Embedding（TransE）"></a>Translation Embedding（TransE）</h2><p>TransE，是最早的研究用嵌入（embed）方法来进行知识表示的一篇论文。基本思想就是最直观的将实体关系数据嵌入到低维度向量空间中。</p>
@@ -239,7 +239,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-29T12:56:10.343Z" itemprop="dateUpdated">2018-11-29 20:56:10</time>
+    最后更新时间：<time datetime="2018-11-29T12:58:05.101Z" itemprop="dateUpdated">2018-11-29 20:58:05</time>
 </span><br>
 
 
