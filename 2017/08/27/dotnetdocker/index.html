@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,13 +29,15 @@
     
     <meta name="keywords" content="docker">
     <meta name="description" content="前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="macOS下使用 docker 进行 CSharp 开发（一）">
 <meta property="og:url" content="https://antarx.com/2017/08/27/dotnetdocker/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.439Z">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="macOS下使用 docker 进行 CSharp 开发（一）">
 <meta name="twitter:description" content="前言过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台">
@@ -55,7 +57,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -75,49 +77,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -184,19 +186,18 @@
     </aside>
 
 
-<article id="post-dotnetdocker"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-dotnetdocker" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">macOS下使用 docker 进行 CSharp 开发（一）</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-08-27 18:46:52" datetime="2017-08-27T10:46:52.000Z"  itemprop="datePublished">2017-08-27</time>
+            <time class="post-time" title="2017-08-27 18:46:52" datetime="2017-08-27T10:46:52.000Z" itemprop="datePublished">2017-08-27</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -206,17 +207,17 @@
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台大业添砖加瓦了。</p>
 <p>这篇算是一个起点，探讨在 macOS 环境下进行开发的相关配置。<br><a id="more"></a></p>
 <h1 id="安装-Docker-环境"><a href="#安装-Docker-环境" class="headerlink" title="安装 Docker 环境"></a>安装 Docker 环境</h1><p>现在在 macOS 上安装 docker 已经没有以前那么复杂了。基本上就是下载 dmg 文件回来拖拖鼠标的事儿。在毕设那段时间的体验中，甚至觉得在 macOS 上安装 Docker 是最为简便快捷，很难出什么幺蛾子的。：）</p>
-<p>下载地址：<a href="https://www.docker.com/get-docker" target="_blank" rel="external">Docker 官网</a><br>经测试现在不用翻墙就可以访问啦。<br>要下载镜像的话还是配置加速器会比较快一些，我自己是配了阿里云提供的一个加速器地址。注册阿里云账号之后会免费提供。</p>
-<h1 id="下载-dotnet-镜像"><a href="#下载-dotnet-镜像" class="headerlink" title="下载 dotnet 镜像"></a>下载 dotnet 镜像</h1><p>运行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull microsoft/dotnet</div></pre></td></tr></table></figure></p>
+<p>下载地址：<a href="https://www.docker.com/get-docker" target="_blank" rel="noopener">Docker 官网</a><br>经测试现在不用翻墙就可以访问啦。<br>要下载镜像的话还是配置加速器会比较快一些，我自己是配了阿里云提供的一个加速器地址。注册阿里云账号之后会免费提供。</p>
+<h1 id="下载-dotnet-镜像"><a href="#下载-dotnet-镜像" class="headerlink" title="下载 dotnet 镜像"></a>下载 dotnet 镜像</h1><p>运行命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull microsoft/dotnet</span><br></pre></td></tr></table></figure></p>
 <p>默认下载的是 latest 版本。</p>
 <h1 id="基于镜像运行容器"><a href="#基于镜像运行容器" class="headerlink" title="基于镜像运行容器"></a>基于镜像运行容器</h1><p>在开发中我的习惯是将源代码放到本地的文件夹中，然后将这个文件夹挂载到 Docker 容器里面，这样在本地就可以用自己熟悉的环境对源代码各种修改，容器那边只需要重启一下就会自动运行新版本的代码，十分方便。</p>
-<p>运行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -it -v `pwd`:/csharp -w /csharp microsoft/dotnet</div></pre></td></tr></table></figure></p>
+<p>运行以下命令：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v `pwd`:/csharp -w /csharp microsoft/dotnet</span><br></pre></td></tr></table></figure></p>
 <p>命令中通过<code>-it</code>开启了实时交互模式，只是因为在家里没梯子，下载 dotnet core 的 SDK 贼慢，只好采取此方法。<br>实际应用的时候可以在本地 shell 先建立好项目编辑完源代码直接甩容器里跑最方便的。</p>
-<h1 id="新建项目、编辑代码、运行"><a href="#新建项目、编辑代码、运行" class="headerlink" title="新建项目、编辑代码、运行"></a>新建项目、编辑代码、运行</h1><p>运行容器之后，在容器弹出的交互界面中，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dotnet new console -o hwapp</div></pre></td></tr></table></figure></p>
+<h1 id="新建项目、编辑代码、运行"><a href="#新建项目、编辑代码、运行" class="headerlink" title="新建项目、编辑代码、运行"></a>新建项目、编辑代码、运行</h1><p>运行容器之后，在容器弹出的交互界面中，输入<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet new console -o hwapp</span><br></pre></td></tr></table></figure></p>
 <p>命令的基本含义是以控制台为模板新建一个名为<code>hwapp</code>的项目。<br>在本机，用 vscode 打开工作目录下的 Program.cs 源文件，编辑代码，本次以输出“hello docker‘为例。<br>编辑完代码，保存之后，在容器的终端中运行<code>dotnet run</code>运行项目。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg" alt="运行结果" title="">
+                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg" alt="运行结果" title>
                 </div>
                 <div class="image-caption">运行结果</div>
             </figure></p>
@@ -230,7 +231,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.439Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -391,8 +392,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -411,10 +411,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -428,7 +428,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -540,7 +540,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

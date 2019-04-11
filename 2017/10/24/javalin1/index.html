@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,12 +29,14 @@
     
     <meta name="keywords" content="Java,REST,微服务">
     <meta name="description" content="Javalin是一款建基于 jetty 的轻量级 RESTful 框架，支援 Java 和 Kotlin 编程语言，非常适合用来部署REST 风格的微服务程序，因为里面对 lamada 表达式的应用可以说是到了出神入化的地步，所以一直都是我最喜欢用的框架。这系列的文章主要是介绍如何在微服务开发中应用这套框架来进行开发。">
+<meta name="keywords" content="Java,REST,微服务">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javalin 框架使用指南（一）">
 <meta property="og:url" content="https://antarx.com/2017/10/24/javalin1/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="Javalin是一款建基于 jetty 的轻量级 RESTful 框架，支援 Java 和 Kotlin 编程语言，非常适合用来部署REST 风格的微服务程序，因为里面对 lamada 表达式的应用可以说是到了出神入化的地步，所以一直都是我最喜欢用的框架。这系列的文章主要是介绍如何在微服务开发中应用这套框架来进行开发。">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.416Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javalin 框架使用指南（一）">
 <meta name="twitter:description" content="Javalin是一款建基于 jetty 的轻量级 RESTful 框架，支援 Java 和 Kotlin 编程语言，非常适合用来部署REST 风格的微服务程序，因为里面对 lamada 表达式的应用可以说是到了出神入化的地步，所以一直都是我最喜欢用的框架。这系列的文章主要是介绍如何在微服务开发中应用这套框架来进行开发。">
@@ -53,7 +55,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -73,49 +75,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -182,48 +184,47 @@
     </aside>
 
 
-<article id="post-javalin1"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-javalin1" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">Javalin 框架使用指南（一）</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-10-24 14:28:20" datetime="2017-10-24T06:28:20.000Z"  itemprop="datePublished">2017-10-24</time>
+            <time class="post-time" title="2017-10-24 14:28:20" datetime="2017-10-24T06:28:20.000Z" itemprop="datePublished">2017-10-24</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p><a href="https://javalin.io/" target="_blank" rel="external">Javalin</a>是一款建基于 jetty 的轻量级 RESTful 框架，支援 Java 和 Kotlin 编程语言，非常适合用来部署REST 风格的微服务程序，因为里面对 lamada 表达式的应用可以说是到了出神入化的地步，所以一直都是我最喜欢用的框架。这系列的文章主要是介绍如何在微服务开发中应用这套框架来进行开发。<br><a id="more"></a></p>
+            <p><a href="https://javalin.io/" target="_blank" rel="noopener">Javalin</a>是一款建基于 jetty 的轻量级 RESTful 框架，支援 Java 和 Kotlin 编程语言，非常适合用来部署REST 风格的微服务程序，因为里面对 lamada 表达式的应用可以说是到了出神入化的地步，所以一直都是我最喜欢用的框架。这系列的文章主要是介绍如何在微服务开发中应用这套框架来进行开发。<br><a id="more"></a></p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Javalin 支持几乎所有常见的项目管理工具，出于一般性，文章中以 Maven 为例进行说明。</p>
 <p>安装框架本体</p>
 <p>在项目的 pom.xml文件中的<code>&lt;dependencies&gt;&lt;/dependencies&gt;</code>标签下粘贴以下代码。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.javalin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javalin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.5.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.javalin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javalin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.5.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这是官网中介绍的安装方法，要注意到，仅仅粘贴了以上代码段的话，会遇到两个问题：</p>
 <ol>
 <li><p>maven 默认的 JVM 环境是 JDK1.6，是不支持 Lamada 表达式这种尤物的，我们需要在项目中添加 Java8支持。</p>
 <p>在<code>pom.xml</code>中粘贴以下代码：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>要注意到这段代码和<code>&lt;dependencies&gt;&lt;/dependencies&gt;</code>标签段是并行而不是包含关系的。</p>
 </li>
 <li><p>在运行过程中可能会遇到以下错误提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.SLF4J: Defaulting to no-operation (NOP) logger implementationSLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.SLF4J: Defaulting to no-operation (NOP) logger implementationSLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.</span><br></pre></td></tr></table></figure>
 <p>​</p>
 <p>​</p>
 </li>
 </ol>
 <p>虽然这个错误提示不会影响程序的正常运行，但强迫症总是让人不爽，解决方法是添加这个依赖关系</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-simple<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.25<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-simple<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.25<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>经过以上配置之后，就可以跑起第一段程序了</p>
 <h1 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h1><p><code>HelloWorld</code> 是开发者学习新的编程语言、框架所绕不过去的坎，用 Javalin 开发一个 GET 方法访问根路径返回“helloworld”的 REST 服务器非常的简单。示例代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> io.javalin.Javalin;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Javalin app = Javalin.start(<span class="number">7000</span>);</div><div class="line">        app.get(<span class="string">"/"</span>, ctx -&gt; ctx.result(<span class="string">"Hello World"</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.javalin.Javalin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Javalin app = Javalin.start(<span class="number">7000</span>);</span><br><span class="line">        app.get(<span class="string">"/"</span>, ctx -&gt; ctx.result(<span class="string">"Hello World"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从代码中可以看出，通过一个 lamada 表达式就可以完成指定路径到具体响应方法的绑定操作，还有什么比这个更让 RESTful 微服务开发者拍手称快的呢。</p>
 <p>简单说明一下，框架中用 Javalin 类型的一个对象实例来完成整个 RESTful 风格的服务器的全部操作。上述代码中，首先是实例化了一个名为<code>app</code>的 Javalin类型实体，然后调用了<code>get(String path, lamada expression)</code>，以 lamada 表达式的表示一个具体的响应操作，以字符串的形式表示具体的路径，将两者绑定到一体。方法名称<code>get</code>表示响应 REST 规范中的 GET 请求。</p>
 <p>此外，<code>ctx</code>参数指代的是连接上下文，调用<code>result()</code>方法可以将字符串塞进响应体中进行返回。</p>
@@ -237,7 +238,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.416Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -398,8 +399,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -418,10 +418,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -435,7 +435,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -547,7 +547,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

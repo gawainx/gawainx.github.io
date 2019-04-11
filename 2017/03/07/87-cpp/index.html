@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -28,19 +28,18 @@
     
     
     <meta name="keywords" content="BOJ">
-    <meta name="description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
-计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
+    <meta name="description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。 计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
+<meta name="keywords" content="BOJ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BOJ 解题报告(1)-87-日期">
 <meta property="og:url" content="https://antarx.com/2017/03/07/87-cpp/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
-计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.437Z">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
+<meta property="og:description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。 计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BOJ 解题报告(1)-87-日期">
-<meta name="twitter:description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。
-计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
+<meta name="twitter:description" content="题目描述请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。 计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
     
@@ -56,7 +55,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -76,49 +75,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -180,24 +179,23 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#思路"><span class="post-toc-number">2.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#输入输出处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">输入输出处理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注意事项"><span class="post-toc-number">4.</span> <span class="post-toc-text">注意事项</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#闰年的处理"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">闰年的处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一月份"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">一月份</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二月份"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">二月份</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对每个月的日子进行预处理"><span class="post-toc-number">4.0.4.</span> <span class="post-toc-text">对每个月的日子进行预处理</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">5.</span> <span class="post-toc-text">代码</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#思路"><span class="post-toc-number">2.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#输入输出处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">输入输出处理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注意事项"><span class="post-toc-number">4.</span> <span class="post-toc-text">注意事项</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#闰年的处理"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">闰年的处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一月份"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">一月份</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二月份"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">二月份</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对每个月的日子进行预处理"><span class="post-toc-number">4.0.4.</span> <span class="post-toc-text">对每个月的日子进行预处理</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">5.</span> <span class="post-toc-text">代码</span></a></li>
         </nav>
     </aside>
 
 
-<article id="post-87-cpp"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-87-cpp" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">BOJ 解题报告(1)-87-日期</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-03-07 19:58:57" datetime="2017-03-07T11:58:57.000Z"  itemprop="datePublished">2017-03-07</time>
+            <time class="post-time" title="2017-03-07 19:58:57" datetime="2017-03-07T11:58:57.000Z" itemprop="datePublished">2017-03-07</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -207,21 +205,21 @@
             <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。</p>
 <p>计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。</p>
 <a id="more"></a>
-<p><a href="http://code.bupt.edu.cn/problem/p/87/" target="_blank" rel="external">题目链接</a></p>
+<p><a href="http://code.bupt.edu.cn/problem/p/87/" target="_blank" rel="noopener">题目链接</a></p>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这是个典型的涉及闰年的日期问题, 要求解某一年是第几天.思路很直接,从月份入手,先计算前$ Y-1$个月一共有多少天,然后在加上这个月中这一天之前有多少天,就可以得到结果.</p>
 <h1 id="输入输出处理"><a href="#输入输出处理" class="headerlink" title="输入输出处理"></a>输入输出处理</h1><p>在所有 OJ 中,输入输出都是绕不过的坎,很多时候会因为输出处理不好而导致莫名其妙的 WA, 又有很多时候可以从输入格式中获得解题的灵感.</p>
 <p>回到本题,输入格式为<code>X:Y:Z</code>的形式, X,Y,Z 都是整数, 以冒号隔开.这不由得让我们想到了可以利用 scanf 的格式字段做”手脚”, 直接将 X, Y, Z 读入到整形变量当中进行后续的处理.所以有了以下代码来处理日期的输入.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> X,Y,Z;</div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;X,&amp;Y,&amp;Z);</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> X,Y,Z;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;X,&amp;Y,&amp;Z);</span><br></pre></td></tr></table></figure>
 <p>输出方面,只需要输出天数,是一个整形变量,没有什么特别的技巧.</p>
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>这部分描述题目中的”边沿”情况, 如果忽略这些情况,就会导致 WA</p>
 <h3 id="闰年的处理"><a href="#闰年的处理" class="headerlink" title="闰年的处理"></a>闰年的处理</h3><p>题目中也给出了提示.在代码中可以利用宏来判断闰年.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ISYEAP(x) ((x%100!=0)&amp;&amp;(x%4==0))||(x%400==0)?1:0</span></div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ISYEAP(x) ((x%100!=0)&amp;&amp;(x%4==0))||(x%400==0)?1:0</span></span><br></pre></td></tr></table></figure>
 <p>使用宏的时候一定要注意, 编译器在编译的时候会将宏展开之后插到每一个调用宏的地方,为了避免由于运算符优先级问题带来奇奇怪怪的 bug, 建议前后用括号括起来,像这样<code>( ISYEA(X))</code></p>
 <h3 id="一月份"><a href="#一月份" class="headerlink" title="一月份"></a>一月份</h3><p>1月份的时候,天数即为当日的日期,直接输出 Z 字段即可.</p>
 <h3 id="二月份"><a href="#二月份" class="headerlink" title="二月份"></a>二月份</h3><p>这也是个容易踩坑的地方,大家都知道闰年要算2月29天,但有时太匆忙的时候,会糊里糊涂把闰年1月2月的日期也会莫名其妙的加上了”1天”,导致 WA. 因此要单独处理.也可以通过构造合理的<code>if</code> 语句和一月份的情况一起处理.</p>
 <h3 id="对每个月的日子进行预处理"><a href="#对每个月的日子进行预处理" class="headerlink" title="对每个月的日子进行预处理"></a>对每个月的日子进行预处理</h3><p>在程序开始之前可以定义一个数组储存每个月的天数, 计算日子时直接根据下标找到天数相加即可,可以减少代码量和运行时间.</p>
 <p>预处理的时候要注意, c 语言的数组下标从0开始, 而月份是从1月开始,所以可以构造一个13个元素的数组并且让第一个元素值为0避免不必要的麻烦.</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ISYEAP(x) ((x%100!=0)&amp;&amp;(x%4==0))||(x%400==0)?1:0</span></div><div class="line"><span class="keyword">int</span> daysOfMonth[<span class="number">13</span>] = &#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)&#123;</div><div class="line">        <span class="keyword">int</span> yy,mm,dd;</div><div class="line">        <span class="keyword">int</span> days=<span class="number">0</span>;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;yy,&amp;mm,&amp;dd);</div><div class="line">        <span class="keyword">if</span>(mm==<span class="number">1</span>)&#123;</div><div class="line">            days = dd;<span class="comment">//special situation</span></div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;mm;i++)&#123;</div><div class="line">                days+=daysOfMonth[i];</div><div class="line">            &#125;</div><div class="line">            days+=dd;</div><div class="line">            <span class="keyword">if</span>(ISYEAP(yy))&#123;</div><div class="line">                <span class="keyword">if</span>(mm&gt;<span class="number">2</span>)&#123;</div><div class="line">                    days++;</div><div class="line">                &#125;                  </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,days);</div><div class="line">        &#125;            </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ISYEAP(x) ((x%100!=0)&amp;&amp;(x%4==0))||(x%400==0)?1:0</span></span><br><span class="line"><span class="keyword">int</span> daysOfMonth[<span class="number">13</span>] = &#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">int</span> yy,mm,dd;</span><br><span class="line">        <span class="keyword">int</span> days=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;yy,&amp;mm,&amp;dd);</span><br><span class="line">        <span class="keyword">if</span>(mm==<span class="number">1</span>)&#123;</span><br><span class="line">            days = dd;<span class="comment">//special situation</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;mm;i++)&#123;</span><br><span class="line">                days+=daysOfMonth[i];</span><br><span class="line">            &#125;</span><br><span class="line">            days+=dd;</span><br><span class="line">            <span class="keyword">if</span>(ISYEAP(yy))&#123;</span><br><span class="line">                <span class="keyword">if</span>(mm&gt;<span class="number">2</span>)&#123;</span><br><span class="line">                    days++;</span><br><span class="line">                &#125;                  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,days);</span><br><span class="line">        &#125;            </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -230,7 +228,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.437Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -392,8 +390,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -412,10 +409,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -429,7 +426,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -542,7 +539,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

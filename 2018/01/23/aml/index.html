@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,12 +29,14 @@
     
     <meta name="keywords" content="机器学习">
     <meta name="description" content="之前机器学习课程布置的大作业是用尽可能多的模型来探索经典的手写数字识别问题。这里分享一下Keras的基本使用">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Keras 手写数字识别">
 <meta property="og:url" content="https://antarx.com/2018/01/23/aml/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="之前机器学习课程布置的大作业是用尽可能多的模型来探索经典的手写数字识别问题。这里分享一下Keras的基本使用">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.432Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Keras 手写数字识别">
 <meta name="twitter:description" content="之前机器学习课程布置的大作业是用尽可能多的模型来探索经典的手写数字识别问题。这里分享一下Keras的基本使用">
@@ -53,7 +55,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -73,49 +75,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -182,19 +184,18 @@
     </aside>
 
 
-<article id="post-aml"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-aml" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">Keras 手写数字识别</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-01-23 18:42:42" datetime="2018-01-23T10:42:42.000Z"  itemprop="datePublished">2018-01-23</time>
+            <time class="post-time" title="2018-01-23 18:42:42" datetime="2018-01-23T10:42:42.000Z" itemprop="datePublished">2018-01-23</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -207,15 +208,15 @@
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在安装好 anaconda 的前提下，输入<code>conda install keras</code>即可进行安装。</p>
 <p>注意到，安装过程会自动判断机器是否已经安装好了TensorFlow，如果没有的话会自动进行安装。所以，如果想安装 TensorFlow GPU 版本加速计算过程的话，要先手动安装好 TensorFlow 的 GPU 版本，然后再安装 Keras。</p>
 <h1 id="实现单层感知机"><a href="#实现单层感知机" class="headerlink" title="实现单层感知机"></a>实现单层感知机</h1><p>核心代码如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">batch_size = <span class="number">128</span></div><div class="line">classes = <span class="number">10</span></div><div class="line">epoch = <span class="number">10</span></div><div class="line">img_size = <span class="number">28</span> * <span class="number">28</span></div><div class="line"></div><div class="line">print(<span class="string">'Loading Data...'</span>)</div><div class="line">(X_train, y_train),(X_test,y_test) = mnist.load_data()</div><div class="line"></div><div class="line">X_train = X_train.reshape(y_train.shape[<span class="number">0</span>], img_size).astype(<span class="string">'float32'</span>) / <span class="number">255</span></div><div class="line">X_test = X_test.reshape(y_test.shape[<span class="number">0</span>], img_size).astype(<span class="string">'float32'</span>) / <span class="number">255</span></div><div class="line"></div><div class="line"><span class="comment">#encode labels</span></div><div class="line">Y_train = np_utils.to_categorical(y_train,classes)</div><div class="line">Y_test = np_utils.to_categorical(y_test,classes)</div><div class="line"></div><div class="line"></div><div class="line">model = Sequential([Dense(<span class="number">10</span>, input_shape=(img_size,), activation=<span class="string">'softmax'</span>),])</div><div class="line">model.compile(optimizer=<span class="string">'rmsprop'</span>, loss=<span class="string">'mean_absolute_error'</span>, metrics=[<span class="string">'accuracy'</span>])</div><div class="line"></div><div class="line">print(<span class="string">"Training..."</span>)</div><div class="line">model.fit(X_train, Y_train,batch_size=batch_size, epochs=epoch, verbose=<span class="number">1</span>, validation_data=(X_test,Y_test))</div><div class="line"></div><div class="line">score = model.evaluate(X_test,Y_test,verbose=<span class="number">0</span>)</div><div class="line"></div><div class="line">print(<span class="string">'accuracy: &#123;&#125;'</span>.format(score[<span class="number">1</span>]))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">batch_size = <span class="number">128</span></span><br><span class="line">classes = <span class="number">10</span></span><br><span class="line">epoch = <span class="number">10</span></span><br><span class="line">img_size = <span class="number">28</span> * <span class="number">28</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Loading Data...'</span>)</span><br><span class="line">(X_train, y_train),(X_test,y_test) = mnist.load_data()</span><br><span class="line"></span><br><span class="line">X_train = X_train.reshape(y_train.shape[<span class="number">0</span>], img_size).astype(<span class="string">'float32'</span>) / <span class="number">255</span></span><br><span class="line">X_test = X_test.reshape(y_test.shape[<span class="number">0</span>], img_size).astype(<span class="string">'float32'</span>) / <span class="number">255</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#encode labels</span></span><br><span class="line">Y_train = np_utils.to_categorical(y_train,classes)</span><br><span class="line">Y_test = np_utils.to_categorical(y_test,classes)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">model = Sequential([Dense(<span class="number">10</span>, input_shape=(img_size,), activation=<span class="string">'softmax'</span>),])</span><br><span class="line">model.compile(optimizer=<span class="string">'rmsprop'</span>, loss=<span class="string">'mean_absolute_error'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Training..."</span>)</span><br><span class="line">model.fit(X_train, Y_train,batch_size=batch_size, epochs=epoch, verbose=<span class="number">1</span>, validation_data=(X_test,Y_test))</span><br><span class="line"></span><br><span class="line">score = model.evaluate(X_test,Y_test,verbose=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'accuracy: &#123;&#125;'</span>.format(score[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
 <p>前面很大一部分都是进行数据加载和处理，与模型有关的代码只有三行</p>
 <p><code>model = Sequential([Dense(10, input_shape=(img_size,), activation=&#39;softmax&#39;),])</code>这一行是模型基本形态的定义，以图像的 size 作为输入，激活函数采用 softmax。</p>
 <p><code>model.compile(optimizer=&#39;rmsprop&#39;, loss=&#39;mean_absolute_error&#39;, metrics=[&#39;accuracy&#39;])</code>这一行则是对模型的微观参数进行客制化。<code>optimizer</code>指定的是优化策略，<code>rmsprop</code>是一种改进的随机梯度下降策略。<code>loss</code>指的是损失函数。<code>metrics</code>是评估方法，这里用准确率进行评估。</p>
 <p><code>model.fit(X_train, Y_train,batch_size=batch_size, epochs=epoch, verbose=1, validation_data=(X_test,Y_test))</code>这一句是训练过程，指定训练数据，训练轮次（迭代次数），是否输出训练过程，验证数据。</p>
 <h1 id="多层全连接网络"><a href="#多层全连接网络" class="headerlink" title="多层全连接网络"></a>多层全连接网络</h1><p>核心代码部分</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">model = Sequential([Dense(<span class="number">512</span>,input_shape=(img_size,)),</div><div class="line">                    Activation(<span class="string">'relu'</span>),</div><div class="line">                    Dropout(<span class="number">0.2</span>),</div><div class="line">                    Dense(<span class="number">512</span>, input_shape=(<span class="number">512</span>,)),</div><div class="line">                    Activation(<span class="string">'relu'</span>),</div><div class="line">                    Dropout(<span class="number">0.2</span>),</div><div class="line">                    Dense(<span class="number">10</span>,input_shape=(<span class="number">512</span>,),activation=<span class="string">'softmax'</span>)</div><div class="line">                    ])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential([Dense(<span class="number">512</span>,input_shape=(img_size,)),</span><br><span class="line">                    Activation(<span class="string">'relu'</span>),</span><br><span class="line">                    Dropout(<span class="number">0.2</span>),</span><br><span class="line">                    Dense(<span class="number">512</span>, input_shape=(<span class="number">512</span>,)),</span><br><span class="line">                    Activation(<span class="string">'relu'</span>),</span><br><span class="line">                    Dropout(<span class="number">0.2</span>),</span><br><span class="line">                    Dense(<span class="number">10</span>,input_shape=(<span class="number">512</span>,),activation=<span class="string">'softmax'</span>)</span><br><span class="line">                    ])</span><br></pre></td></tr></table></figure>
 <p>每一个 Dense 都是一个神经元训练层。训练层输出接 ReLU 激活函数层。如此类推。最后一层接单层感知机获取结果。值得注意的是两个 Dropout 层，用于应付过拟合问题，经过 Dropout 层会随机丢弃数据集中一定比率的激活值，同时将剩余的神经元的输出进行放大。</p>
-<h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">model = Sequential()</div><div class="line">model.add(Conv2D(<span class="number">32</span>, kernel_size=(<span class="number">3</span>, <span class="number">3</span>),</div><div class="line">                 activation=<span class="string">'relu'</span>,</div><div class="line">                 input_shape=input_shape))</div><div class="line">model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">'relu'</span>))</div><div class="line">model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</div><div class="line">model.add(Dropout(<span class="number">0.25</span>))</div><div class="line">model.add(Flatten())</div><div class="line">model.add(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))</div><div class="line">model.add(Dropout(<span class="number">0.5</span>))</div><div class="line">model.add(Dense(num_classes, activation=<span class="string">'softmax'</span>))</div></pre></td></tr></table></figure>
+<h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential()</span><br><span class="line">model.add(Conv2D(<span class="number">32</span>, kernel_size=(<span class="number">3</span>, <span class="number">3</span>),</span><br><span class="line">                 activation=<span class="string">'relu'</span>,</span><br><span class="line">                 input_shape=input_shape))</span><br><span class="line">model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">model.add(Dropout(<span class="number">0.25</span>))</span><br><span class="line">model.add(Flatten())</span><br><span class="line">model.add(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dropout(<span class="number">0.5</span>))</span><br><span class="line">model.add(Dense(num_classes, activation=<span class="string">'softmax'</span>))</span><br></pre></td></tr></table></figure>
 <p>卷积神经网络中主角变成了 Conv2D （卷积层）和 Pooling 层（池化）。</p>
 
         </div>
@@ -225,7 +226,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.432Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -387,8 +388,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -407,10 +407,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -424,7 +424,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -537,7 +537,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

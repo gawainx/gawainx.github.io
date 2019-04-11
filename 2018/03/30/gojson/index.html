@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,12 +29,14 @@
     
     <meta name="keywords" content="go">
     <meta name="description" content="Golang 中处理 JSON 格式数据主要依赖encoding/json这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。">
+<meta name="keywords" content="go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go 语言中 JSON 数据的处理">
 <meta property="og:url" content="https://antarx.com/2018/03/30/gojson/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="Golang 中处理 JSON 格式数据主要依赖encoding/json这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.440Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="go 语言中 JSON 数据的处理">
 <meta name="twitter:description" content="Golang 中处理 JSON 格式数据主要依赖encoding/json这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。">
@@ -53,7 +55,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -73,49 +75,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -182,19 +184,18 @@
     </aside>
 
 
-<article id="post-gojson"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-gojson" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">go 语言中 JSON 数据的处理</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-03-30 15:20:31" datetime="2018-03-30T07:20:31.000Z"  itemprop="datePublished">2018-03-30</time>
+            <time class="post-time" title="2018-03-30 15:20:31" datetime="2018-03-30T07:20:31.000Z" itemprop="datePublished">2018-03-30</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -203,14 +204,14 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>Golang 中处理 JSON 格式数据主要依赖<code>encoding/json</code>这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。<br><a id="more"></a></p>
 <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><p>说了这么多，其实并不神秘，就是来自 gin 框架源码中的一句关键定义</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// H is a shortcup for map[string]interface&#123;&#125;</span></div><div class="line"><span class="keyword">type</span> H <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// H is a shortcup for map[string]interface&#123;&#125;</span></span><br><span class="line"><span class="keyword">type</span> H <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>定义了这个数据结构之后，gin 框架就可以处理几乎所有的 JSON 数据。</p>
 <p>同理，我们在自己的代码中想不受结构体限制灵活处理 JSON 数据时，也可以在程序代码中添加类似的定义</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> message <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> message <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>从字符串解析 JSON 数据时，只需要</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//body is string message</span></div><div class="line"><span class="keyword">var</span> result mss</div><div class="line">json.Unmarshal([]<span class="keyword">byte</span>(body),&amp;result)</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//body is string message</span></span><br><span class="line"><span class="keyword">var</span> result mss</span><br><span class="line">json.Unmarshal([]<span class="keyword">byte</span>(body),&amp;result)</span><br></pre></td></tr></table></figure>
 <p>包装 JSON 也类似</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//mes is message type</span></div><div class="line">bty,err := json.Marshal(mes)</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//mes is message type</span></span><br><span class="line">bty,err := json.Marshal(mes)</span><br></pre></td></tr></table></figure>
 <p>值得一说的是平时处理 JSON 数据经常出现的反斜杠双引号问题，用这种方法处理时并没有出现。</p>
 <h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>背后原理分析。</p>
 <p>这一行代码之所以这么实用是因为<code>interface{}</code>这个 golang 中的“万金油”。Golang 中不存在类和对象的概念，因此空接口就成了所有变量的“超类”一样的存在，可以承载一切的变量。</p>
@@ -218,7 +219,7 @@
 <p>原因是 Golang 是静态语言，代码中所有变量的类型都是在编译期确定的，我们所定义的类型中 map 的 value 部分是<code>{}interface</code>，在 运行时接收到需要解析的 JSON 数据之前编译器和我们都不知道它“事实上”是一个 slice。</p>
 <p>这个在项目应用中实际存在的矛盾也解决我学 OOP 语言一直以来的困惑，就是反射是什么？为什么现代编程语言都选择加入反射作为基本特性（Java，C#，还有本文中的 Golang），就是因为我们有在运行时获取某个对象/变量的实际类型的需要。</p>
 <p>由于目前学习还不够深入，不能对反射机制展开深入的探讨，在这里讲一下如何利用类型断言机制解决上面说到的问题。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cs,ok := result[<span class="string">"containers"</span>].([]<span class="keyword">interface</span>&#123;&#125;)</div><div class="line">	<span class="keyword">if</span> ok&#123;</div><div class="line">		<span class="keyword">for</span> i,item := <span class="keyword">range</span> cs&#123;</div><div class="line">			<span class="comment">//do something</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cs,ok := result[<span class="string">"containers"</span>].([]<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line">	<span class="keyword">if</span> ok&#123;</span><br><span class="line">		<span class="keyword">for</span> i,item := <span class="keyword">range</span> cs&#123;</span><br><span class="line">			<span class="comment">//do something</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p><code>cs,ok := result[&quot;containers&quot;].([]interface{})</code>这一句就是解决问题的关键所在，也就是称为运行时类型断言的机制。<code>a.(Type)</code>是尝试对a进行类型转换的操作，如果转换成功则返回一个转换成 Type 类型的变量和<code>true</code>指示转换成功，失败则返回<code>false</code>。</p>
 <p>值得一提的是，断言失败不会导致编译失败（要是会导致编译失败也就不能解决上面这个问题了），所以为了代码健壮性需要对转换结果进行判断比较好。</p>
 
@@ -229,7 +230,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.440Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -390,8 +391,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -410,10 +410,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -427,7 +427,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -539,7 +539,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,13 +29,15 @@
     
     <meta name="keywords" content="hexo">
     <meta name="description" content="博客迁移腾讯云实战记录源于年初的一次突发奇想，将博客站点迁移到了腾讯云，五月份终于完成了备案，然后添加了 HTTPS 支援，并完成容器化。在这里把折腾的过程记录下来。">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客迁移腾讯云小记">
 <meta property="og:url" content="https://antarx.com/2018/05/11/hexossl/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="博客迁移腾讯云实战记录源于年初的一次突发奇想，将博客站点迁移到了腾讯云，五月份终于完成了备案，然后添加了 HTTPS 支援，并完成容器化。在这里把折腾的过程记录下来。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://antarx.cn/20180514104132_CkMTT5_Screenshot.jpeg">
-<meta property="og:updated_time" content="2018-05-14T03:12:19.094Z">
+<meta property="og:updated_time" content="2018-05-14T03:12:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客迁移腾讯云小记">
 <meta name="twitter:description" content="博客迁移腾讯云实战记录源于年初的一次突发奇想，将博客站点迁移到了腾讯云，五月份终于完成了备案，然后添加了 HTTPS 支援，并完成容器化。在这里把折腾的过程记录下来。">
@@ -55,7 +57,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -75,49 +77,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -184,19 +186,18 @@
     </aside>
 
 
-<article id="post-hexossl"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-hexossl" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">博客迁移腾讯云小记</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-05-11 17:30:58" datetime="2018-05-11T09:30:58.000Z"  itemprop="datePublished">2018-05-11</time>
+            <time class="post-time" title="2018-05-11 17:30:58" datetime="2018-05-11T09:30:58.000Z" itemprop="datePublished">2018-05-11</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -208,36 +209,36 @@
 <h2 id="转移腾讯云"><a href="#转移腾讯云" class="headerlink" title="转移腾讯云"></a>转移腾讯云</h2><p>原来的博客是放到 github page 上面，访问 <strong>antarx.com</strong> 是通过 CNAME 文件解析到 gawainx.github.io，只需要在<code>config.yaml</code>配置好，写完直接<code>hexo d -g</code>完事。</p>
 <p>迁移到腾讯云之后，还想每次部署都这么方便，就免不了完成一些相关工作。</p>
 <h3 id="资源准备"><a href="#资源准备" class="headerlink" title="资源准备"></a>资源准备</h3><p>这里准备的资源主要就是服务器的购入，可以根据自己博客的规模需要选择合适的套餐。如果是学生党记得使用学生优惠。<br>买完服务器就是装系统的事，根据自己的使用习惯自行选择，我用的是 ubuntu16.04.<br>如果想容器化的话需要安装 Docker。</p>
-<h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
-<h3 id="新建-git-裸仓库"><a href="#新建-git-裸仓库" class="headerlink" title="新建 git 裸仓库"></a>新建 git 裸仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /var/repo/</div><div class="line">sudo chown -R $USER:$USER /var/repo/</div><div class="line">sudo chmod -R 755 /var/repo/</div><div class="line"></div><div class="line">cd /var/repo/</div><div class="line">git init --bare hexo_static.git</div></pre></td></tr></table></figure>
-<h3 id="创建存放-hexo-生成的网页的文件夹"><a href="#创建存放-hexo-生成的网页的文件夹" class="headerlink" title="创建存放 hexo 生成的网页的文件夹"></a>创建存放 hexo 生成的网页的文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo mkdir -p /var/www/hexo</div><div class="line">sudo chown -R $USER:$USER /var/www/hexo</div><div class="line">sudo chmod -R 755 /var/www/hexo</div></pre></td></tr></table></figure>
+<h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<h3 id="新建-git-裸仓库"><a href="#新建-git-裸仓库" class="headerlink" title="新建 git 裸仓库"></a>新建 git 裸仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /var/repo/</span><br><span class="line">sudo chown -R $USER:$USER /var/repo/</span><br><span class="line">sudo chmod -R 755 /var/repo/</span><br><span class="line"></span><br><span class="line">cd /var/repo/</span><br><span class="line">git init --bare hexo_static.git</span><br></pre></td></tr></table></figure>
+<h3 id="创建存放-hexo-生成的网页的文件夹"><a href="#创建存放-hexo-生成的网页的文件夹" class="headerlink" title="创建存放 hexo 生成的网页的文件夹"></a>创建存放 hexo 生成的网页的文件夹</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/hexo</span><br><span class="line">sudo chown -R $USER:$USER /var/www/hexo</span><br><span class="line">sudo chmod -R 755 /var/www/hexo</span><br></pre></td></tr></table></figure>
 <p>这两步要注意的是文件夹的 owner 问题，要实现自动部署的话一般新建一个 git 账户然后全权接管部署网页的相关工作，那么上面创建的两个文件夹在后期的 owner 记得要变更为 git 用户。</p>
 <h3 id="创建-git-钩子"><a href="#创建-git-钩子" class="headerlink" title="创建 git 钩子"></a>创建 git 钩子</h3><p>在<code>hexo_static.git</code>文件夹的 hooks 目录下面新建钩子文件并写入如下代码，然后将文件变更成可执行文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">vim /var/repo/hexo_static.git/hooks/post-receive</div><div class="line"></div><div class="line"># post-receive file content</div><div class="line"></div><div class="line">#!/bin/bash</div><div class="line">git --work-tree=/var/www/hexo --git-dir=/var/repo/hexo_static.git checkout -f</div><div class="line"></div><div class="line">chmod +x /var/repo/hexo_static.git/hooks/post-receive</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /var/repo/hexo_static.git/hooks/post-receive</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> post-receive file content</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">git --work-tree=/var/www/hexo --git-dir=/var/repo/hexo_static.git checkout -f</span><br><span class="line"></span><br><span class="line">chmod +x /var/repo/hexo_static.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
 <h3 id="自动部署"><a href="#自动部署" class="headerlink" title="自动部署"></a>自动部署</h3><p>所谓自动部署，就是在每次部署的时候不需要键入密码。<br>在自己电脑上，创建公钥，复制到剪贴板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;xx@xx.com&quot;</div><div class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "xx@xx.com"</span><br><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>服务器上，切换到 git 用户（没有的话请新建），输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">su git</div><div class="line">cd ~</div><div class="line">mkdir .ssh</div><div class="line">vim .ssh/authorized_keys</div><div class="line">#粘贴自己电脑的 公钥，然后保存</div><div class="line">chmod 600 ~/.ssh/authorized_keys</div><div class="line">chmod 700 ~/.ssh</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line">cd ~</span><br><span class="line">mkdir .ssh</span><br><span class="line">vim .ssh/authorized_keys</span><br><span class="line"><span class="meta">#</span><span class="bash">粘贴自己电脑的 公钥，然后保存</span></span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br><span class="line">chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure>
 <h3 id="本地-hexo-git-配置"><a href="#本地-hexo-git-配置" class="headerlink" title="本地 hexo-git 配置"></a>本地 hexo-git 配置</h3><p>在<code>config.yaml</code>键入</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">    type:</span> git</div><div class="line"><span class="attr">    repo:</span> git@CVM 云服务器的IP地址:/var/repo/hexo_static</div><div class="line"><span class="attr">    branch:</span> master</div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">    type:</span> git</span><br><span class="line"><span class="attr">    repo:</span> git@CVM 云服务器的IP地址:/var/repo/hexo_static</span><br><span class="line"><span class="attr">    branch:</span> master</span><br></pre></td></tr></table></figure>
 <h2 id="添加-SSL-证书并容器化-Nginx"><a href="#添加-SSL-证书并容器化-Nginx" class="headerlink" title="添加 SSL 证书并容器化 Nginx"></a>添加 SSL 证书并容器化 Nginx</h2><p>Linux 配置软件向来复杂，所以毫不犹豫选用 docker 容器进行 Nginx 部署。<br>输入<code>docker pull nginx</code>拉取 Nginx 镜像。</p>
 <p>首先基于镜像运行一个 nginx 容器，然后将容器里面的<code>/etc/nginx/</code>目录拷贝出来。可以看到文件内容如下图<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://antarx.cn/20180514104132_CkMTT5_Screenshot.jpeg" alt="Nginx 配置目录" title="">
+                    <img src="https://antarx.cn/20180514104132_CkMTT5_Screenshot.jpeg" alt="Nginx 配置目录" title>
                 </div>
                 <div class="image-caption">Nginx 配置目录</div>
             </figure>。<br>这里顺带一提 Nginx 的两个配置文件，<code>nginx.conf</code>和<code>deafult.conf</code>，一般而言修改<code>nginx.conf</code>然后把<code>deafult</code>里面的内容注释掉会比较妥当。</p>
 <h3 id="添加-SSL-证书"><a href="#添加-SSL-证书" class="headerlink" title="添加 SSL 证书"></a>添加 SSL 证书</h3><p>在拷贝出来的<code>nginx.conf</code>文件，在<code>http</code>的选型里面，加入以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen 443;</div><div class="line">        server_name 你的站点名称; #填写绑定证书的域名</div><div class="line">        ssl on;</div><div class="line">        ssl_certificate /cert/你的证书.crt;</div><div class="line">        ssl_certificate_key /cert/你的私钥.key;</div><div class="line">        ssl_session_timeout 5m;</div><div class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</div><div class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置</div><div class="line">        ssl_prefer_server_ciphers on;</div><div class="line">        location / &#123;</div><div class="line">            root   /blog; #站点目录</div><div class="line">            index  index.html index.htm;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 443;</span><br><span class="line">        server_name 你的站点名称; #填写绑定证书的域名</span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate /cert/你的证书.crt;</span><br><span class="line">        ssl_certificate_key /cert/你的私钥.key;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /blog; #站点目录</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>如果强制使用 HTTPS，还要加上以下配置，将80端口的流量重定向到443端口。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen 80;</div><div class="line">        server_name antarx.com;</div><div class="line">        rewrite ^(.*)$ https://$&#123;server_name&#125;$1 permanent;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name antarx.com;</span><br><span class="line">        rewrite ^(.*)$ https://$&#123;server_name&#125;$1 permanent;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>这两个 server 是独立的，都加到<code>http</code>的配置里面。<br>顺带一提 Nginx 要求的证书是 PEM 格式。</p>
 <p>运行博客容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -p 443:443 -p 80:80 -v `pwd`:/etc/nginx -v /var/www/hexo:/hexo -v &quot;$PWD/cert&quot;:/cert --name ng nginx</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 443:443 -p 80:80 -v `pwd`:/etc/nginx -v /var/www/hexo:/hexo -v "$PWD/cert":/cert --name ng nginx</span><br></pre></td></tr></table></figure>
 <p>这里注意到的是三个挂载卷，分别是配置文件，博客网页文件和证书文件。</p>
 <p>容器运行之后，在腾讯云的域名管理里面添加 DNS 记录，OK，大功告成。</p>
-<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://cloud.tencent.com/developer/article/1004587" target="_blank" rel="external">在 Ubuntu 14.04 服务器上部署 Hexo 博客</a><br><a href="https://cloud.tencent.com/developer/article/1004839" target="_blank" rel="external">Hello Hexo之静态博客搭建+自动部署</a><br><a href="https://cloud.tencent.com/document/product/400/4143" target="_blank" rel="external">证书安装指引</a><br><a href="http://www.ruanyifeng.com/blog/2018/02/nginx-docker.html" target="_blank" rel="external">Nginx 容器教程（可能无法访问）</a></p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://cloud.tencent.com/developer/article/1004587" target="_blank" rel="noopener">在 Ubuntu 14.04 服务器上部署 Hexo 博客</a><br><a href="https://cloud.tencent.com/developer/article/1004839" target="_blank" rel="noopener">Hello Hexo之静态博客搭建+自动部署</a><br><a href="https://cloud.tencent.com/document/product/400/4143" target="_blank" rel="noopener">证书安装指引</a><br><a href="http://www.ruanyifeng.com/blog/2018/02/nginx-docker.html" target="_blank" rel="noopener">Nginx 容器教程（可能无法访问）</a></p>
 
         </div>
 
@@ -246,7 +247,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-14T03:12:19.094Z" itemprop="dateUpdated">2018-05-14 11:12:19</time>
+    最后更新时间：<time datetime="2018-05-14T03:12:18.000Z" itemprop="dateUpdated">2018-05-14 11:12:18</time>
 </span><br>
 
 
@@ -407,8 +408,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -427,10 +427,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -444,7 +444,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -556,7 +556,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -28,23 +28,19 @@
     
     
     <meta name="keywords" content="TensorFlow,Docker,ML">
-    <meta name="description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。
-下面分享配置过程。
-测试环境是 G">
+    <meta name="description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。 下面分享配置过程。 测试环境是 G">
+<meta name="keywords" content="TensorFlow,Docker,ML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow For Docker 初体验">
 <meta property="og:url" content="https://antarx.com/2017/12/06/dockertf/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。
-下面分享配置过程。
-测试环境是 G">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
+<meta property="og:description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。 下面分享配置过程。 测试环境是 G">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.436Z">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow For Docker 初体验">
-<meta name="twitter:description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。
-下面分享配置过程。
-测试环境是 G">
+<meta name="twitter:description" content="TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。 下面分享配置过程。 测试环境是 G">
 <meta name="twitter:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
@@ -61,7 +57,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -81,49 +77,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -190,19 +186,18 @@
     </aside>
 
 
-<article id="post-dockertf"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-dockertf" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">TensorFlow For Docker 初体验</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-12-06 21:30:22" datetime="2017-12-06T13:30:22.000Z"  itemprop="datePublished">2017-12-06</time>
+            <time class="post-time" title="2017-12-06 21:30:22" datetime="2017-12-06T13:30:22.000Z" itemprop="datePublished">2017-12-06</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -217,12 +212,12 @@
 <a id="more"></a>
 <h1 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h1><p>可以用<code>curl -sSL https://get.daocloud.io/docker | sh</code>这条命令快速安装 Docker，不过，这个安装脚本默认会安装最新版本的 Docker（当前是17.11.0 docker-ce），而 NVIDIA Docker 并不支持这个新版本（跪</p>
 <p>所以要进行一下卸载再降级操作…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># uninstall docker</div><div class="line">sudo apt-get purge docker-ce</div><div class="line"># 查看软件库中可用的历史版本</div><div class="line">sudo apt-cache policy docker-ce</div><div class="line"># install docker-ce 17.09</div><div class="line">sudo apt-get install -y docker-ce=17.09.0~ce-0~ubuntu</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> uninstall docker</span><br><span class="line">sudo apt-get purge docker-ce</span><br><span class="line"><span class="meta">#</span> 查看软件库中可用的历史版本</span><br><span class="line">sudo apt-cache policy docker-ce</span><br><span class="line"><span class="meta">#</span> install docker-ce 17.09</span><br><span class="line">sudo apt-get install -y docker-ce=17.09.0~ce-0~ubuntu</span><br></pre></td></tr></table></figure>
 <p>值得一提的是17年的某个版本开始，docker 的软件包统一到 docker-ce（社区）和 docker-ee（付费企业版）上面来了，开发使用的主要以 docker-ce 为主，网上很多教程（尤其是2016年、2016年的）说到安装 docker 的软件包名叫例如 lxc-docker docker.io 等的都是老旧版本的。</p>
-<h1 id="安装-NVIDIA-docker"><a href="#安装-NVIDIA-docker" class="headerlink" title="安装 NVIDIA-docker"></a>安装 NVIDIA-docker</h1><p><a href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="external">Nvidia-Docker</a>是老黄提供的一套在 Docker 上制造跑核弹的工具（。</p>
+<h1 id="安装-NVIDIA-docker"><a href="#安装-NVIDIA-docker" class="headerlink" title="安装 NVIDIA-docker"></a>安装 NVIDIA-docker</h1><p><a href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="noopener">Nvidia-Docker</a>是老黄提供的一套在 Docker 上制造跑核弹的工具（。</p>
 <p>简单来说，这套工具提供了一个运行时，用来连接 Docker 容器和物理设备的 GPU 资源，使得 Docker 容器可以直接访问、调用物理机的 GPU 资源进行密集型计算操作。</p>
 <p>安装步骤如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># Add the package repositories 添加软件仓库</div><div class="line">curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \</div><div class="line">  sudo apt-key add -</div><div class="line">curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | \</div><div class="line">  sudo tee /etc/apt/sources.list.d/nvidia-docker.list</div><div class="line">sudo apt-get update</div><div class="line"></div><div class="line"># Install nvidia-docker2 and reload the Docker daemon configuration</div><div class="line">sudo apt-get install -y nvidia-docker2</div><div class="line">sudo pkill -SIGHUP dockerd</div><div class="line"></div><div class="line"># Test nvidia-smi with the latest official CUDA image</div><div class="line">docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Add the package repositories 添加软件仓库</span><br><span class="line">curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \</span><br><span class="line">  sudo apt-key add -</span><br><span class="line">curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | \</span><br><span class="line">  sudo tee /etc/apt/sources.list.d/nvidia-docker.list</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Install nvidia-docker2 and reload the Docker daemon configuration</span><br><span class="line">sudo apt-get install -y nvidia-docker2</span><br><span class="line">sudo pkill -SIGHUP dockerd</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Test nvidia-smi with the latest official CUDA image</span><br><span class="line">docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi</span><br></pre></td></tr></table></figure>
 <p>在 Ubuntu16.04测试通过。</p>
 <h1 id="安装-TensorFlow-的-Docker-镜像"><a href="#安装-TensorFlow-的-Docker-镜像" class="headerlink" title="安装 TensorFlow 的 Docker 镜像"></a>安装 TensorFlow 的 Docker 镜像</h1><p>TensorFlow 官方提供了 for Docker 的镜像，里面集成了完整的依赖关系，免去了用<code>pip</code>安装各种包的烦恼。</p>
 <p>镜像包含很多 tag，常用的有下面几个：</p>
@@ -234,16 +229,16 @@
 </ul>
 <p>我自己用的是最后一个。</p>
 <p>首先下载镜像下来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull tensorflow/tensorflow:latest-gpu-py3</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull tensorflow/tensorflow:latest-gpu-py3</span><br></pre></td></tr></table></figure>
 <p>然后跑个 python3交互环境试试水</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --runtime=nvidia --rm -it tensorflow/tensorflow:latest-gpu-py3 python3</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --runtime=nvidia --rm -it tensorflow/tensorflow:latest-gpu-py3 python3</span><br></pre></td></tr></table></figure>
 <p>在交互环境下输入<code>import tensorflow as tf</code>，如果没提示依赖库错误则说明安装成功。</p>
 <p>上面的<code>—runtime=nvidia</code>为调用 nvidia-docker 工具包（运行时）而不是标准运行时来运行镜像，只有加了这个选项才能调用 GPU。</p>
 <p>最后跑一下多重感知机训练手写数字识别，效果图</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg" alt="多重感知机训练手写数字识别模型" title="">
+                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg" alt="多重感知机训练手写数字识别模型" title>
                 </div>
                 <div class="image-caption">多重感知机训练手写数字识别模型</div>
             </figure>
@@ -256,7 +251,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.436Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -418,8 +413,7 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -438,10 +432,10 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -455,7 +449,7 @@ TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -568,7 +562,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

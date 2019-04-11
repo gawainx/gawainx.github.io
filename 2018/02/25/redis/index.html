@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,12 +29,14 @@
     
     <meta name="keywords" content="golang,Java,Redis">
     <meta name="description" content="Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧">
+<meta name="keywords" content="golang,Java,Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis的杂七杂八">
 <meta property="og:url" content="https://antarx.com/2018/02/25/redis/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.421Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis的杂七杂八">
 <meta name="twitter:description" content="Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧">
@@ -53,7 +55,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -73,49 +75,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -182,19 +184,18 @@
     </aside>
 
 
-<article id="post-redis"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-redis" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">redis的杂七杂八</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-02-25 23:09:10" datetime="2018-02-25T15:09:10.000Z"  itemprop="datePublished">2018-02-25</time>
+            <time class="post-time" title="2018-02-25 23:09:10" datetime="2018-02-25T15:09:10.000Z" itemprop="datePublished">2018-02-25</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -214,9 +215,9 @@
 <h2 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h2><h3 id="服务器（server-端）"><a href="#服务器（server-端）" class="headerlink" title="服务器（server 端）"></a>服务器（server 端）</h3><p>安装 Redis 之后，在命令行窗口输入<code>redis-server</code>即可在本机运行一个radis 的 server 端，默认的端口是6379.</p>
 <h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>Redis 服务器端和其他主流数据库一样可以很方便的放到 Docker 容器里运行。</p>
 <p>下载 Redis 镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo docker pull redis</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull redis</span><br></pre></td></tr></table></figure>
 <p>基于 redis 镜像运行容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo docker run --name redis-server -p 6379:6379 -d redis</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --name redis-server -p 6379:6379 -d redis</span><br></pre></td></tr></table></figure>
 <p>镜像内部已经设置了运行<code>redis-server</code>和监听6379端口，所以不需要额外的设置项，只需要在运行容器时将端口暴露出来（与宿主机的6379端口或者自己指定的端口绑定）就可以了</p>
 <h3 id="client-端"><a href="#client-端" class="headerlink" title="client 端"></a>client 端</h3><p>shell 界面下输入<code>redis-cli -h 127.0.0.1 -p 6379</code>启动 redis-client。其中，<code>-h</code>指定服务器的地址，<code>-p</code>指定服务器的端口。</p>
 <h4 id="基本操作命令"><a href="#基本操作命令" class="headerlink" title="基本操作命令"></a>基本操作命令</h4><p>注意到，命令的操作字段是不区分大小写的。</p>
@@ -224,24 +225,24 @@
 <li>value 为 String 类型时。<code>set key value</code>用于为 key 设置值为 value。 <code>get key</code>用于获取键为 key 的值。</li>
 <li>value 为 list类型时。<code>lpush key value1 [value2]…</code>用于将一个或者多个值。 <code>LPOP key</code>可以移出并获取列表的第一个元素。这两个操作换成<code>rpush</code>和<code>rpop</code>可以向列表尾部插入元素。<code>LLEN key</code>可以获取 key 对应的列表的长度。<code>LRANGE key start stop</code>用于获取特定key 的指定范围的元素，特别地，<code>LRANGE key 0 -1</code>可以用来遍历列表。</li>
 </ol>
-<p>更加详细的命令教程可以参考<a href="http://www.runoob.com/redis/redis-tutorial.html" target="_blank" rel="external">Redis教程-菜鸟教程</a></p>
+<p>更加详细的命令教程可以参考<a href="http://www.runoob.com/redis/redis-tutorial.html" target="_blank" rel="noopener">Redis教程-菜鸟教程</a></p>
 <h2 id="编程语言支持"><a href="#编程语言支持" class="headerlink" title="编程语言支持"></a>编程语言支持</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>在 Java 中主要通过 jedis 数据库驱动实现对 Redis 数据库的操作。</p>
 <p>安装依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="JedisPool和-JedisClient"><a href="#JedisPool和-JedisClient" class="headerlink" title="JedisPool和 JedisClient"></a>JedisPool和 JedisClient</h4><p>jedis 使用 JedisPool 作为一个Redis连接池，用于解决对Redis进行并发访问时会发生连接超时、数据转换错误、阻塞、客户端关闭连接等问题。</p>
 <p>连接池初始化代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> JedisPool <span class="title">getPool</span><span class="params">(String host, <span class="keyword">int</span> port)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(pool == <span class="keyword">null</span>)&#123;</div><div class="line">            JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</div><div class="line">            </div><div class="line">			<span class="comment">//设置最大连接数</span></div><div class="line">            config.setMaxTotal(<span class="number">100</span>);</div><div class="line"></div><div class="line">            config.setMaxIdle(<span class="number">5</span>);</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(host == <span class="keyword">null</span>)&#123;</div><div class="line">                pool = <span class="keyword">new</span> JedisPool(config, <span class="string">"127.0.0.1"</span>, port);</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                pool = <span class="keyword">new</span> JedisPool(config, host, port);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> pool;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> JedisPool <span class="title">getPool</span><span class="params">(String host, <span class="keyword">int</span> port)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pool == <span class="keyword">null</span>)&#123;</span><br><span class="line">            JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</span><br><span class="line">            </span><br><span class="line">			<span class="comment">//设置最大连接数</span></span><br><span class="line">            config.setMaxTotal(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">            config.setMaxIdle(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(host == <span class="keyword">null</span>)&#123;</span><br><span class="line">                pool = <span class="keyword">new</span> JedisPool(config, <span class="string">"127.0.0.1"</span>, port);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                pool = <span class="keyword">new</span> JedisPool(config, host, port);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pool;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>要使用Client 时，使用<code>pool.getResource()</code>方法获取单个JedisClient实例，在此基础上对 Redis 数据库进行操作。</p>
 <h3 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h3><p>Go 语言中用来连接 Redis 数据库的库五花八门，主要分两个派系，将对 Redis 的操作封装成方法的，开发者通过调用库的方法实现对 Redis 数据库的操作；另一派是直接将 Redis 命令作为字符串提供给库来实现各种操作的。</p>
 <p>这里以<code>&quot;github.com/garyburd/redigo/redis&quot;</code>为例。</p>
 <p>安装依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get github.com/garyburd/redigo/redis</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/garyburd/redigo/redis</span><br></pre></td></tr></table></figure>
 <p>获取 redis pool实例</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">redis.Pool&#123;</div><div class="line">		MaxIdle:<span class="number">10</span>,</div><div class="line">		MaxActive:<span class="number">15</span>,</div><div class="line">		IdleTimeout:<span class="number">240</span>*time.Second,</div><div class="line">		Dial: <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="params">(redis.Conn, error)</span></span> &#123;</div><div class="line">			c, err := redis.Dial(<span class="string">"tcp"</span>, redisURL)</div><div class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</div><div class="line">				<span class="keyword">return</span> <span class="literal">nil</span>, err</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> c, err</div><div class="line">		&#125;,</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">redis.Pool&#123;</span><br><span class="line">		MaxIdle:<span class="number">10</span>,</span><br><span class="line">		MaxActive:<span class="number">15</span>,</span><br><span class="line">		IdleTimeout:<span class="number">240</span>*time.Second,</span><br><span class="line">		Dial: <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="params">(redis.Conn, error)</span></span> &#123;</span><br><span class="line">			c, err := redis.Dial(<span class="string">"tcp"</span>, redisURL)</span><br><span class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">nil</span>, err</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> c, err</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p>从 pool 中获取 Client 实例</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rClient := redisPool.Get()</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rClient := redisPool.Get()</span><br></pre></td></tr></table></figure>
 <p>执行操作</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rClient.Do(<span class="string">"LPUSH"</span>,<span class="string">"key"</span>, <span class="string">"value"</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rClient.Do(<span class="string">"LPUSH"</span>,<span class="string">"key"</span>, <span class="string">"value"</span>)</span><br></pre></td></tr></table></figure>
 <p>Do 方法用于执行对 Redis 数据库的操作命令。方法的第一个参数字符串命令（就是在 shell 交互时的各种命令。</p>
 
         </div>
@@ -251,7 +252,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.421Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -412,8 +413,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -432,10 +432,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -449,7 +449,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -561,7 +561,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

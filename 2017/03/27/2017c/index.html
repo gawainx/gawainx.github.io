@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -28,19 +28,18 @@
     
     
     <meta name="keywords" content="BOJ">
-    <meta name="description" content="题目大意求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值.
-Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
+    <meta name="description" content="题目大意求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值. Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
+<meta name="keywords" content="BOJ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2017考研-北邮网研院机试试题 ProblemC">
 <meta property="og:url" content="https://antarx.com/2017/03/27/2017c/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content="题目大意求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值.
-Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.420Z">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
+<meta property="og:description" content="题目大意求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值. Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017考研-北邮网研院机试试题 ProblemC">
-<meta name="twitter:description" content="题目大意求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值.
-Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
+<meta name="twitter:description" content="题目大意求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值. Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
     
@@ -56,7 +55,7 @@ Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -76,49 +75,49 @@ Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -185,19 +184,18 @@ Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
     </aside>
 
 
-<article id="post-2017c"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-2017c" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">2017考研-北邮网研院机试试题 ProblemC</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-03-27 10:13:00" datetime="2017-03-27T02:13:00.000Z"  itemprop="datePublished">2017-03-27</time>
+            <time class="post-time" title="2017-03-27 10:13:00" datetime="2017-03-27T02:13:00.000Z" itemprop="datePublished">2017-03-27</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -213,7 +211,7 @@ Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
 <p>还有一个坑点, 就是题目给出的AVL树的高度可能会很高, 从数据规模上看, 斐波那契型的数列通项都是指数型增长的, “正常”的数据类型分分钟存不下这么大的数据.</p>
 <p>再仔细看题目, 要求的只是结果模$1e9+7$然后输出, 还给出了余数相关的定理来”暗示”, 不由得想到这样的思路, 首先建一个<code>long long</code> 类型的大数组<code>h[MAX_N]</code>, 高度为<code>i</code> 的 AVL 树的节点数对<code>1e9+7</code>取模的结果储存在<code>h[i]</code>中, 然后用相同的递推关系计算数组的每一个元素. <strong>而且</strong>, 还可以将取余操作简化为减法操作, 大大的降低算法的运行时间.</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>因为题目的原题和测试数据在考试结束之后就及时关闭了, 所以只能凭借记忆写下来.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> w = <span class="number">1000000007</span>;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> res[<span class="number">100050</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> T;</div><div class="line">  <span class="built_in">cin</span>&gt;&gt;T;</div><div class="line">  <span class="built_in">memset</span>(res,<span class="number">0</span>,<span class="keyword">sizeof</span>(res));</div><div class="line">  res[<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">  res[<span class="number">2</span>] = <span class="number">2</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;<span class="number">100050</span>;i++)&#123;</div><div class="line">    res[i] = res[i<span class="number">-1</span>]+res[i<span class="number">-2</span>];</div><div class="line">    <span class="keyword">if</span>(res[i]&gt;w) res[i]-=w;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">while</span>(T--)&#123;</div><div class="line">    <span class="keyword">int</span> h;</div><div class="line">    <span class="built_in">cin</span>&gt;&gt;h;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;res[h]&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> w = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> res[<span class="number">100050</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> T;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">  <span class="built_in">memset</span>(res,<span class="number">0</span>,<span class="keyword">sizeof</span>(res));</span><br><span class="line">  res[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  res[<span class="number">2</span>] = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;<span class="number">100050</span>;i++)&#123;</span><br><span class="line">    res[i] = res[i<span class="number">-1</span>]+res[i<span class="number">-2</span>];</span><br><span class="line">    <span class="keyword">if</span>(res[i]&gt;w) res[i]-=w;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">    <span class="keyword">int</span> h;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;h;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;res[h]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
 <li><code>long long</code> 类型最好还是使用<code>cout</code> 来处理读写, 在本机调试时发现,用 <code>printf(&quot;%lld&quot;)</code>处理出现了奇奇怪怪的 bug, 用<code>cout</code> 就没事了.</li>
 <li>数组预处理放在循环以外进行, 否则很有可能超时.</li>
@@ -227,7 +225,7 @@ Hint: $(a+b)\%p = (a\%p) + (b\%p)$">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.420Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -389,8 +387,7 @@ Hint: $(a+b)\%p = (a\%p) + (b\%p)$" data-title=" QQ">
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -409,10 +406,10 @@ Hint: $(a+b)\%p = (a\%p) + (b\%p)$" data-title=" QQ">
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -426,7 +423,7 @@ Hint: $(a+b)\%p = (a\%p) + (b\%p)$" data-title=" QQ">
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -539,7 +536,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

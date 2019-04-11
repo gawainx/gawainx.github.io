@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -28,22 +28,18 @@
     
     
     <meta name="keywords" content="Python">
-    <meta name="description" content="前言在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过pip install virtualenv命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。
-安装步骤
-首先，安装Cygwin并在软">
+    <meta name="description" content="前言在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过pip install virtualenv命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。 安装步骤 首先，安装Cygwin并在软">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cygwin安装独立的pip环境">
 <meta property="og:url" content="https://antarx.com/2015/12/25/cygpy/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content="前言在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过pip install virtualenv命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。
-安装步骤
-首先，安装Cygwin并在软">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.434Z">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
+<meta property="og:description" content="前言在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过pip install virtualenv命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。 安装步骤 首先，安装Cygwin并在软">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cygwin安装独立的pip环境">
-<meta name="twitter:description" content="前言在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过pip install virtualenv命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。
-安装步骤
-首先，安装Cygwin并在软">
+<meta name="twitter:description" content="前言在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过pip install virtualenv命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。 安装步骤 首先，安装Cygwin并在软">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
     
@@ -59,7 +55,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -79,49 +75,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -188,19 +184,18 @@
     </aside>
 
 
-<article id="post-cygpy"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-cygpy" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">Cygwin安装独立的pip环境</h1>
         <div class="post-meta">
-            <time class="post-time" title="2015-12-25 18:37:31" datetime="2015-12-25T10:37:31.000Z"  itemprop="datePublished">2015-12-25</time>
+            <time class="post-time" title="2015-12-25 18:37:31" datetime="2015-12-25T10:37:31.000Z" itemprop="datePublished">2015-12-25</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -210,7 +205,7 @@
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过<code>pip install virtualenv</code>命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。</p>
 <h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><ol>
 <li>首先，安装Cygwin并在软件包选择页面选择安装Python软件包。</li>
-<li>前往<a href="https://pip.pypa.io/en/latest/installing.html" target="_blank" rel="external">Get Pip</a>下载get-pip.py文件到cygwin的home目录.</li>
+<li>前往<a href="https://pip.pypa.io/en/latest/installing.html" target="_blank" rel="noopener">Get Pip</a>下载get-pip.py文件到cygwin的home目录.</li>
 <li>在Cygwin命令行环境下进行pip的安装。执行<code>python get-pip.py</code>命令即可。</li>
 <li>安装完毕之后，关闭Cygwin交互环境再打开，就可以进行虚拟环境的安装了。<h1 id="pip安装成功的标志"><a href="#pip安装成功的标志" class="headerlink" title="pip安装成功的标志"></a>pip安装成功的标志</h1><strong>注意</strong>: 直接输入pip命令没有提示<code>command not found</code>并不能说明pip被成功安装在cygwin的python运行环境下。如果Windows下也存在Python和pip的话，在Cygwin命令行输入pip会直接调用Windows平台下的<code>pip</code>命令。</li>
 </ol>
@@ -228,7 +223,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.434Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -389,8 +384,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -409,10 +403,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -426,7 +420,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -538,7 +532,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

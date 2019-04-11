@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,13 +29,15 @@
     
     <meta name="keywords" content="M$">
     <meta name="description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
+<meta name="keywords" content="M$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vscode配置 c++ 开发环境(一):智能提示">
 <meta property="og:url" content="https://antarx.com/2017/02/18/vscode/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.433Z">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vscode配置 c++ 开发环境(一):智能提示">
 <meta name="twitter:description" content="#前言vscode是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.">
@@ -55,7 +57,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -75,49 +77,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -184,39 +186,38 @@
     </aside>
 
 
-<article id="post-vscode"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-vscode" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">vscode配置 c++ 开发环境(一):智能提示</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-02-18 18:48:20" datetime="2017-02-18T10:48:20.000Z"  itemprop="datePublished">2017-02-18</time>
+            <time class="post-time" title="2017-02-18 18:48:20" datetime="2017-02-18T10:48:20.000Z" itemprop="datePublished">2017-02-18</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>#前言<br><a href="https://code.visualstudio.com" target="_blank" rel="external">vscode</a>是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.<br><a id="more"></a></p>
+            <p>#前言<br><a href="https://code.visualstudio.com" target="_blank" rel="noopener">vscode</a>是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.<br><a id="more"></a></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><ol>
 <li>首先, 下载对应系统的 VScode.</li>
 <li>如果是 Mac 系统,那么请安装 xcode 命令行工具,如果是 Linux 系统,请安装clang 编译器.</li>
 <li>安装 cpptools 和 C++clang 插件.其中, cpptools 可以提供代码检错等功能,而 IntelliSense 功能,是通过 C++clang 插件实现的.</li>
 <li>按<code>command+,</code>,打开用户配置文件<code>setting.json</code>, 将以下代码拷贝进去.</li>
 </ol>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   	<span class="attr">"clang.executable"</span>: <span class="string">"/usr/bin/clang++"</span>,</div><div class="line">   	<span class="attr">"clang.completion.enable"</span>: <span class="literal">true</span>,</div><div class="line">   	<span class="attr">"clang.completion.triggerChars"</span>: [</div><div class="line">   	<span class="string">"."</span>,</div><div class="line">   	<span class="string">":"</span>,</div><div class="line">   	<span class="string">"&gt;"</span>],</div><div class="line"> 		<span class="attr">"clang.cxxflags"</span>: [<span class="string">"-std=c++11"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   	<span class="attr">"clang.executable"</span>: <span class="string">"/usr/bin/clang++"</span>,</span><br><span class="line">   	<span class="attr">"clang.completion.enable"</span>: <span class="literal">true</span>,</span><br><span class="line">   	<span class="attr">"clang.completion.triggerChars"</span>: [</span><br><span class="line">   	<span class="string">"."</span>,</span><br><span class="line">   	<span class="string">":"</span>,</span><br><span class="line">   	<span class="string">"&gt;"</span>],</span><br><span class="line"> 		<span class="attr">"clang.cxxflags"</span>: [<span class="string">"-std=c++11"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>要注意到配置文件是 json 格式,所以,如果之前已经有其它的设置,请按照 json 文件的语法格式将大括号里面的内容拷贝进去.</p>
-<ol>
+<ol start="4">
 <li>重启应用程序,即可享受 vscode 带来的智能提示功能了.效果图如下.<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg" alt="" title="">
+                    <img src="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure></li>
@@ -229,7 +230,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.433Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -390,8 +391,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -410,10 +410,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -427,7 +427,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -539,7 +539,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

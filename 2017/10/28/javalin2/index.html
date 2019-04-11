@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -28,25 +28,18 @@
     
     
     <meta name="keywords" content="Java,Javalin,WebSocket">
-    <meta name="description" content="前言
-WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。
-
-最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。">
+    <meta name="description" content="前言 WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。  最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。">
+<meta name="keywords" content="Java,Javalin,WebSocket">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javalin框架使用指南(2)">
 <meta property="og:url" content="https://antarx.com/2017/10/28/javalin2/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
-<meta property="og:description" content="前言
-WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。
-
-最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.438Z">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
+<meta property="og:description" content="前言 WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。  最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javalin框架使用指南(2)">
-<meta name="twitter:description" content="前言
-WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。
-
-最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。">
+<meta name="twitter:description" content="前言 WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。  最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。">
     
         <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
     
@@ -62,7 +55,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -82,49 +75,49 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -191,19 +184,18 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
     </aside>
 
 
-<article id="post-javalin2"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-javalin2" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">Javalin框架使用指南(2)</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-10-28 20:15:17" datetime="2017-10-28T12:15:17.000Z"  itemprop="datePublished">2017-10-28</time>
+            <time class="post-time" title="2017-10-28 20:15:17" datetime="2017-10-28T12:15:17.000Z" itemprop="datePublished">2017-10-28</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -215,10 +207,10 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
 </blockquote>
 <p>最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。<br><a id="more"></a></p>
 <h1 id="依赖关系配置（基于-Maven）"><a href="#依赖关系配置（基于-Maven）" class="headerlink" title="依赖关系配置（基于 Maven）"></a>依赖关系配置（基于 Maven）</h1><p>和前面一样，使用 Maven 作为项目的包管理工具。要使 Javalin 框架的应用程序完整支持 WebSocket，需要额外添加以下的依赖关系包：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-servlet<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-servlet<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty.websocket<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>websocket-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.7.v20170914<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>为了避免一些千奇百怪的类、方法错误，建议加入的 jetty 依赖包的版本尽量保持严格一直（然而在目前的开发中还是遇到了奇奇怪怪的方法缺失错误，虽然不影响正常的运行不过看着还是蛮闹心的Orz）</p>
 <h1 id="四个基本方法"><a href="#四个基本方法" class="headerlink" title="四个基本方法"></a>四个基本方法</h1><p>和前面介绍的一样，Javalin 主要还是通过 lamada 表达式的方式来实现对特定路径的 WebSocket响应，基本的代码架构如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">app.ws(<span class="string">"/path"</span>,ws -&gt;&#123;</div><div class="line">  ws.onConnect(session -&gt; &#123;</div><div class="line">        <span class="comment">//do something</span></div><div class="line">    &#125;);</div><div class="line">  ws.onMessage((session,message) -&gt; &#123;</div><div class="line">      </div><div class="line">  &#125;);</div><div class="line">  ws.onClose(<span class="comment">/*insert you lamada expr*/</span>);</div><div class="line">  ws.onError(<span class="comment">/*insert you lamada expr*/</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.ws(<span class="string">"/path"</span>,ws -&gt;&#123;</span><br><span class="line">  ws.onConnect(session -&gt; &#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;);</span><br><span class="line">  ws.onMessage((session,message) -&gt; &#123;</span><br><span class="line">      </span><br><span class="line">  &#125;);</span><br><span class="line">  ws.onClose(<span class="comment">/*insert you lamada expr*/</span>);</span><br><span class="line">  ws.onError(<span class="comment">/*insert you lamada expr*/</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>四个以<code>on</code>开头的方法是实现 WebSocket 基本功能的方法，每个方法的基本含义如下：</p>
 <ul>
 <li><code>onConnect( session)</code>用于处理客户端与服务器端的连接事件，用<code>session</code>来指代服务器端与具体某个客户端的连接本身。<code>session</code>中有个<code>getRemoteEndpoint()</code>的方法可以获取表征客户端的“端点”一类的东西，通过这个“端点”，可以随时“主动”的向客户端发送数据。这也是 WebSocket 的优势和魅力所在（一旦建立连接之后，服务器端可以根据具体情况随时主动的向客户端推送信息）。</li>
@@ -236,7 +228,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.438Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -398,8 +390,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -418,10 +409,10 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -435,7 +426,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -548,7 +539,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

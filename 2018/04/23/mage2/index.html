@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,12 +29,14 @@
     
     <meta name="keywords" content="golang">
     <meta name="description" content="golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 gola">
+<meta name="keywords" content="golang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用mage实现交叉编译">
 <meta property="og:url" content="https://antarx.com/2018/04/23/mage2/index.html">
-<meta property="og:site_name" content="Gawainx' Blog">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 gola">
-<meta property="og:updated_time" content="2018-05-24T08:59:19.427Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-24T08:59:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用mage实现交叉编译">
 <meta name="twitter:description" content="golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 gola">
@@ -53,7 +55,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -73,49 +75,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/gawainx" target="_blank" >
+              <a href="https://github.com/gawainx" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://weibo.com/antarx75" target="_blank" >
+              <a href="https://weibo.com/antarx75" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about"  >
+              <a href="/about">
                 <i class="icon icon-lg icon-link"></i>
                 关于我
               </a>
@@ -182,28 +184,27 @@
     </aside>
 
 
-<article id="post-mage2"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-mage2" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">使用mage实现交叉编译</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-04-23 11:17:36" datetime="2018-04-23T03:17:36.000Z"  itemprop="datePublished">2018-04-23</time>
+            <time class="post-time" title="2018-04-23 11:17:36" datetime="2018-04-23T03:17:36.000Z" itemprop="datePublished">2018-04-23</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 golang 为数不多的缺点之一）。最近一直在思考有没有类似 Makefile 的方式来解决这件事（如果只想交叉编译的话直接用 go build或者借助 <a href="https://github.com/mitchellh/gox" target="_blank" rel="external">gox</a> 等工具也不是不可以，可还是，不够方便）。直到之前 ing 大神给我推荐了 Hugo 这个静态博客框架，虽然目前因为找不到合适的博客主题没有从 hexo 迁移过去，但看源代码的时候有了一个重要的收获，就是<a href="https://magefile.org" target="_blank" rel="external">mage</a><br>关于 mage 的基本安装和使用详见<a href="">mage 使用教程(一)</a><br><a id="more"></a></p>
+            <p>golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 golang 为数不多的缺点之一）。最近一直在思考有没有类似 Makefile 的方式来解决这件事（如果只想交叉编译的话直接用 go build或者借助 <a href="https://github.com/mitchellh/gox" target="_blank" rel="noopener">gox</a> 等工具也不是不可以，可还是，不够方便）。直到之前 ing 大神给我推荐了 Hugo 这个静态博客框架，虽然目前因为找不到合适的博客主题没有从 hexo 迁移过去，但看源代码的时候有了一个重要的收获，就是<a href="https://magefile.org" target="_blank" rel="noopener">mage</a><br>关于 mage 的基本安装和使用详见<a href>mage 使用教程(一)</a><br><a id="more"></a></p>
 <h2 id="golang-交叉编译的基本原理"><a href="#golang-交叉编译的基本原理" class="headerlink" title="golang 交叉编译的基本原理"></a>golang 交叉编译的基本原理</h2><p>交叉编译的实现主要是依靠三个参数，<code>CGO_ENABLE</code>,<code>GOOS</code>,<code>GOARCH</code><br><code>CGO_ENABLE</code>在源代码中使用 C/C++时必须开启，这样就无法实现交叉编译了，这部分代码还是得具体平台生成特定的代码。因此，交叉编译是在没有混编代码的前提下的。将<code>CGO_ENABLE</code>设为0，表示关闭。<br><code>GOOS</code>是目标操作系统，macOS 对应的是<code>darwin</code>，Linux 平台对应的是<code>linux</code>。<br><code>GOARCH</code>是目标架构，一般设为<code>amd64</code><br>按照如上所述设定要编译参数之后再执行<code>go build</code>即可生成目标平台的代码。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// +build mega</span></div><div class="line"><span class="comment">// magefile.go</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Linux</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="comment">//设置环境变量</span></div><div class="line">    <span class="keyword">var</span> e= <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>)</div><div class="line">	e[<span class="string">"CGO_ENABLE"</span>] = <span class="string">"0"</span></div><div class="line">	e[<span class="string">"GOOS"</span>] = <span class="string">"linux"</span></div><div class="line">	e[<span class="string">"GOARCH"</span>] = <span class="string">"amd64"</span></div><div class="line">	name := fmt.Sprintf(<span class="string">"%s-linux-%s"</span>,prefix,VERSION)</div><div class="line">	<span class="comment">//创建 bin 文件夹</span></div><div class="line">	<span class="keyword">if</span> err := os.Mkdir(<span class="string">"bin"</span>, <span class="number">0700</span>); err != <span class="literal">nil</span> &amp;&amp; !os.IsExist(err) &#123;</div><div class="line">		fmt.Errorf(<span class="string">"failed to create %s: %v"</span>, <span class="string">"bin"</span>, err)</div><div class="line">		os.Exit(<span class="number">1</span>)</div><div class="line">	&#125;</div><div class="line">	path := filepath.Join(<span class="string">"bin"</span>,name)</div><div class="line">	fmt.Println(<span class="string">"Building app for linux..."</span>)</div><div class="line">	<span class="comment">//运行构建命令</span></div><div class="line">	err := sh.RunWith(e,<span class="string">"go"</span>,<span class="string">"build"</span>,<span class="string">"-o"</span>,path,<span class="string">"main.go"</span>,<span class="string">"utils.go"</span>,<span class="string">"RESTHandler.go"</span>,<span class="string">"module.go"</span>)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</div><div class="line">		fmt.Println(err)</div><div class="line">		<span class="keyword">return</span></div><div class="line">	&#125;</div><div class="line">	fmt.Printf(<span class="string">"Sucessfully Built.Output File: %s\n"</span>,path)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +build mega</span></span><br><span class="line"><span class="comment">// magefile.go</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Linux</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//设置环境变量</span></span><br><span class="line">    <span class="keyword">var</span> e= <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>)</span><br><span class="line">	e[<span class="string">"CGO_ENABLE"</span>] = <span class="string">"0"</span></span><br><span class="line">	e[<span class="string">"GOOS"</span>] = <span class="string">"linux"</span></span><br><span class="line">	e[<span class="string">"GOARCH"</span>] = <span class="string">"amd64"</span></span><br><span class="line">	name := fmt.Sprintf(<span class="string">"%s-linux-%s"</span>,prefix,VERSION)</span><br><span class="line">	<span class="comment">//创建 bin 文件夹</span></span><br><span class="line">	<span class="keyword">if</span> err := os.Mkdir(<span class="string">"bin"</span>, <span class="number">0700</span>); err != <span class="literal">nil</span> &amp;&amp; !os.IsExist(err) &#123;</span><br><span class="line">		fmt.Errorf(<span class="string">"failed to create %s: %v"</span>, <span class="string">"bin"</span>, err)</span><br><span class="line">		os.Exit(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	path := filepath.Join(<span class="string">"bin"</span>,name)</span><br><span class="line">	fmt.Println(<span class="string">"Building app for linux..."</span>)</span><br><span class="line">	<span class="comment">//运行构建命令</span></span><br><span class="line">	err := sh.RunWith(e,<span class="string">"go"</span>,<span class="string">"build"</span>,<span class="string">"-o"</span>,path,<span class="string">"main.go"</span>,<span class="string">"utils.go"</span>,<span class="string">"RESTHandler.go"</span>,<span class="string">"module.go"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Printf(<span class="string">"Sucessfully Built.Output File: %s\n"</span>,path)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在magefile所在文件夹输入 <code>mage linux</code> 即可编译生成适用于 Linux 的运行文件。</p>
 
         </div>
@@ -213,7 +214,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-24T08:59:19.427Z" itemprop="dateUpdated">2018-05-24 16:59:19</time>
+    最后更新时间：<time datetime="2018-05-24T08:59:18.000Z" itemprop="dateUpdated">2018-05-24 16:59:18</time>
 </span><br>
 
 
@@ -374,8 +375,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -394,10 +394,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -411,7 +411,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Gawain Antarx &copy; 2015 - 2018</span>
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
@@ -523,7 +523,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 
