@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="Gawainx&#39; Blog">
 <meta property="og:description" content="gxtoml——Make your deep learning setup easy这是一个Python代码库，可以帮助深度学习开发者更快的进行项目参数配置。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-10T14:06:19.472Z">
+<meta property="og:updated_time" content="2019-07-10T14:08:21.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gxtoml——Make your deep learning setup easy">
 <meta name="twitter:description" content="gxtoml——Make your deep learning setup easy这是一个Python代码库，可以帮助深度学习开发者更快的进行项目参数配置。">
@@ -179,7 +179,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gxtoml——Make-your-deep-learning-setup-easy"><span class="post-toc-number">1.</span> <span class="post-toc-text">gxtoml——Make your deep learning setup easy</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Why-TOML"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Why TOML</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Using-TOML-in-Python"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Using TOML in Python</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Install"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Install</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#whl"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">whl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pip-online"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">pip online</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Beyond"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Beyond</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gxtoml——Make-your-deep-learning-setup-easy"><span class="post-toc-number">1.</span> <span class="post-toc-text">gxtoml——Make your deep learning setup easy</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Why-TOML"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Why TOML</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Using-TOML-in-Python"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Using TOML in Python</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Install"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Install</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#whl"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">whl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pip-online"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">pip online</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Beyond"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Beyond</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reference"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">Reference</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -223,6 +223,10 @@
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> gxtoml</span><br><span class="line">In [<span class="number">2</span>]: cfg = gxtoml.config(<span class="string">'sample.toml'</span>)</span><br><span class="line">In [<span class="number">10</span>]: cfg.gpu</span><br><span class="line">Out[<span class="number">10</span>]: <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: cfg.model.hop</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">3</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: cfg.dirs.data_dir</span><br><span class="line">Out[<span class="number">13</span>]: <span class="string">'data'</span></span><br></pre></td></tr></table></figure>
 <h2 id="Beyond"><a href="#Beyond" class="headerlink" title="Beyond"></a>Beyond</h2><p>其实背后的原理非常的简单。这个库出发点只是让我自己尽快脱离字典地狱和疯狂的<code>argparse</code>而快速开发的，因此并没有考虑性能表现等因素，只能说是做了一点微小的工作。</p>
 <p>更多功能等后面慢慢完善。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://github.com/toml-lang/toml" target="_blank" rel="noopener">toml-lang/toml: Tom’s Obvious, Minimal Language</a></li>
+<li><a href="https://github.com/uiri/toml" target="_blank" rel="noopener">uiri/toml: Python lib for TOML</a></li>
+</ul>
 
         </div>
 
@@ -231,7 +235,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-10T14:06:19.472Z" itemprop="dateUpdated">2019-07-10 22:06:19</time>
+    最后更新时间：<time datetime="2019-07-10T14:08:21.435Z" itemprop="dateUpdated">2019-07-10 22:08:21</time>
 </span><br>
 
 
