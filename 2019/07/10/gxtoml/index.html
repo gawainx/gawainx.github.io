@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65749138"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>gxtoml——Make your deep learning setup easy | Gawainx&#39; Blog | Antarx is the heart of Scorpio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python">
+    <meta name="description" content="gxtoml——Make your deep learning setup easy这是一个Python代码库，可以帮助深度学习开发者更快的进行项目参数配置。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gxtoml——Make your deep learning setup easy">
+<meta property="og:url" content="https://antarx.com/2019/07/10/gxtoml/index.html">
+<meta property="og:site_name" content="Gawainx&#39; Blog">
+<meta property="og:description" content="gxtoml——Make your deep learning setup easy这是一个Python代码库，可以帮助深度学习开发者更快的进行项目参数配置。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-10T14:06:19.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gxtoml——Make your deep learning setup easy">
+<meta name="twitter:description" content="gxtoml——Make your deep learning setup easy这是一个Python代码库，可以帮助深度学习开发者更快的进行项目参数配置。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Gawainx&#39; Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/sicp.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Gawain Antarx</h5>
+          <a href="mailto:liangyixp@live.cn" title="liangyixp@live.cn" class="mail">liangyixp@live.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/gawainx" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/antarx75" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">gxtoml——Make your deep learning setup easy</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">gxtoml——Make your deep learning setup easy</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-10T13:34:06.000Z" itemprop="datePublished" class="page-time">
+  2019-07-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gxtoml——Make-your-deep-learning-setup-easy"><span class="post-toc-number">1.</span> <span class="post-toc-text">gxtoml——Make your deep learning setup easy</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Why-TOML"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Why TOML</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Using-TOML-in-Python"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Using TOML in Python</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Install"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Install</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#whl"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">whl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pip-online"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">pip online</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Beyond"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Beyond</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-gxtoml" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">gxtoml——Make your deep learning setup easy</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-10 21:34:06" datetime="2019-07-10T13:34:06.000Z" itemprop="datePublished">2019-07-10</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="gxtoml——Make-your-deep-learning-setup-easy"><a href="#gxtoml——Make-your-deep-learning-setup-easy" class="headerlink" title="gxtoml——Make your deep learning setup easy"></a>gxtoml——Make your deep learning setup easy</h1><p>这是一个Python代码库，可以帮助深度学习开发者更快的进行项目参数配置。<br><a id="more"></a></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一个完整的深度学习项目中，往往需要在运行代码之前设置很多的参数。目前流行的方法是使用<code>argparse</code>或者<code>tensorflow</code>自带的<code>FLAGS</code>类来完成。在运行代码的时候，可以修改程序入口或者以附加命令行参数的方式完成参数的设置。</p>
+<p>这样做优缺点都很明显。优点就是在代码中以访问对象属性的形式，比如<code>arg.batch_size</code>来访问参数。缺点就在于，参数非常多的时候，会有十几二十行来进行参数配置。显得非常冗余。比如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">parser = argparse.ArgumentParser(description=<span class="string">'Train a memory neural network'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--edim'</span>, type=int, default=<span class="number">150</span>,</span><br><span class="line">                    help=<span class="string">'internal state dimension [150]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--lindim'</span>, type=int, default=<span class="number">75</span>,</span><br><span class="line">                    help=<span class="string">'linear part of the state [75]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--nhop'</span>, type=int, default=<span class="number">6</span>,</span><br><span class="line">                    help=<span class="string">'number of hops [6]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--mem_size'</span>, type=int, default=<span class="number">100</span>,</span><br><span class="line">                    help=<span class="string">'memory size [100]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--batch_size'</span>, type=int, default=<span class="number">128</span>,</span><br><span class="line">                    help=<span class="string">'batch size [128]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--nepoch'</span>, type=int, default=<span class="number">100</span>,</span><br><span class="line">                    help=<span class="string">'number of epoch to use during training [100]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--init_lr'</span>, type=float, default=<span class="number">0.01</span>,</span><br><span class="line">                    help=<span class="string">'initial learning rate [0.01]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--init_hid'</span>, type=float, default=<span class="number">0.1</span>,</span><br><span class="line">                    help=<span class="string">'initial internal state value [0.1]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--init_std'</span>, type=float, default=<span class="number">0.05</span>,</span><br><span class="line">                    help=<span class="string">'weight initialization std [0.05]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--max_grad_norm'</span>, type=float, default=<span class="number">50</span>,</span><br><span class="line">                    help=<span class="string">'clip gradients to this norm [50]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--data_dir'</span>, type=str, default=<span class="string">'data'</span>,</span><br><span class="line">                    help=<span class="string">'data directory [data]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--checkpoint_dir'</span>, type=str, default=<span class="string">'checkpoints'</span>,</span><br><span class="line">                    help=<span class="string">'checkpoint directory [checkpoints]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--data_name'</span>, type=str, default=<span class="string">'ptb'</span>,</span><br><span class="line">                    help=<span class="string">'data set name [ptb]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--is_test'</span>, type=bool, default=<span class="literal">False</span>,</span><br><span class="line">                    help=<span class="string">'True for testing, False for Training [False]'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'--show'</span>, type=bool, default=<span class="literal">False</span>,</span><br><span class="line">                    help=<span class="string">'print progress [False]'</span>)</span><br><span class="line">args = parser.parse_args()</span><br></pre></td></tr></table></figure>
+<p>没办法快速修改想要的参数。</p>
+<p>这时候，最直观的想法就是创建一个配置文件来解决问题。要改直接改配置文件就完事了嘛。</p>
+<h2 id="Why-TOML"><a href="#Why-TOML" class="headerlink" title="Why TOML"></a>Why TOML</h2><p>常用的配置文件格式有<code>json</code>，<code>YAML</code>和后起之秀的<code>TOML</code>。</p>
+<p>前两者应用范围非常广泛，但都是给计算机看的。<code>json</code>眼花缭乱的大括号还是没有解决可读性问题，<code>YAML</code>起步成本非常高。</p>
+<p><code>TOML</code>这这里面最<strong>正常</strong>的选择，只要你愿意，直接将文件写成<code>k-v</code>的方式就可以了。<br>上面的配置文件可以改写成下面的形式。</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gpu</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">test</span> = <span class="literal">false</span></span><br><span class="line"><span class="attr">show</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">data_name</span> = <span class="string">"ptb"</span></span><br><span class="line"></span><br><span class="line"><span class="section">[init]</span></span><br><span class="line"><span class="attr">lr</span> = <span class="number">0.01</span></span><br><span class="line"><span class="attr">hidVal</span> = <span class="number">0.1</span></span><br><span class="line"><span class="attr">weight_std</span> = <span class="number">0.05</span></span><br><span class="line"></span><br><span class="line"><span class="section">[dirs]</span></span><br><span class="line"><span class="attr">data_dir</span> = <span class="string">"data"</span></span><br><span class="line"><span class="attr">checkpoint_dir</span> = <span class="string">"checkpoints"</span></span><br><span class="line"></span><br><span class="line"><span class="section">[model]</span></span><br><span class="line"><span class="attr">hop</span> = <span class="number">3</span></span><br><span class="line"><span class="attr">edim</span> = <span class="number">150</span></span><br><span class="line"><span class="attr">lindim</span> = <span class="number">75</span></span><br><span class="line"><span class="attr">epoch</span> = <span class="number">5</span></span><br><span class="line"><span class="attr">max_grad_norm</span> = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="section">[size]</span></span><br><span class="line"><span class="attr">mem</span> = <span class="number">100</span></span><br><span class="line"><span class="attr">batch</span> = <span class="number">128</span></span><br></pre></td></tr></table></figure>
+<h2 id="Using-TOML-in-Python"><a href="#Using-TOML-in-Python" class="headerlink" title="Using TOML in Python"></a>Using TOML in Python</h2><p>这时候问题又来了，现有的python库只会将<code>TOML</code>转成字典的形式。访问参数的时候需要频繁的<code>index</code>操作，还是不够方便，毕竟要写几次中括号和引号，比如使用<code>cfg[&#39;size&#39;][&#39;mem&#39;]</code>来访问<code>mem_size</code>这个参数。</p>
+<p>如果能转换成对象的方式就爽了，直接用<code>.</code>就可以完成所有事情。</p>
+<p><code>gxtoml</code>就是干这件事的。</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>安装方式有两种，<code>whl</code>文件或者<code>pip</code>网路安装。</p>
+<h3 id="whl"><a href="#whl" class="headerlink" title="whl"></a>whl</h3><p>在项目主页<a href="https://github.com/gawainx/gx-toml/releases/tag/0.1-alpha" target="_blank" rel="noopener">Release· gawainx/gx-toml</a>下载<code>whl</code>到本地。</p>
+<p>执行<code>pip install gxtoml-0.1a1-py2.py3-none-any.whl</code>完成安装</p>
+<h3 id="pip-online"><a href="#pip-online" class="headerlink" title="pip online"></a>pip online</h3><p>键入<code>pip install gxtoml</code></p>
+<p>使用清华软件源的需要等清华更新上游之后才能搜索安装。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> gxtoml</span><br><span class="line">In [<span class="number">2</span>]: cfg = gxtoml.config(<span class="string">'sample.toml'</span>)</span><br><span class="line">In [<span class="number">10</span>]: cfg.gpu</span><br><span class="line">Out[<span class="number">10</span>]: <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: cfg.model.hop</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">3</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: cfg.dirs.data_dir</span><br><span class="line">Out[<span class="number">13</span>]: <span class="string">'data'</span></span><br></pre></td></tr></table></figure>
+<h2 id="Beyond"><a href="#Beyond" class="headerlink" title="Beyond"></a>Beyond</h2><p>其实背后的原理非常的简单。这个库出发点只是让我自己尽快脱离字典地狱和疯狂的<code>argparse</code>而快速开发的，因此并没有考虑性能表现等因素，只能说是做了一点微小的工作。</p>
+<p>更多功能等后面慢慢完善。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-10T14:06:19.472Z" itemprop="dateUpdated">2019-07-10 22:06:19</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/07/10/gxtoml/" target="_blank" rel="external">https://antarx.com/2019/07/10/gxtoml/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://antarx.com">
+            <img src="/img/sicp.jpg" alt="Gawain Antarx">
+            Gawain Antarx
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2019/07/10/gxtoml/&title=《gxtoml——Make your deep learning setup easy》 — Gawainx' Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2019/07/10/gxtoml/&title=《gxtoml——Make your deep learning setup easy》 — Gawainx' Blog&source=gxtoml——Make your deep learning setup easy这是一个Python代码库，可以帮助深度学习开发者更快的进行项目参数配置。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2019/07/10/gxtoml/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gxtoml——Make your deep learning setup easy》 — Gawainx' Blog&url=https://antarx.com/2019/07/10/gxtoml/&via=https://antarx.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2019/07/10/gxtoml/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/10/vscode-remote/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">VSCode Remote is all you need!</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "bef7KjExx84d0WIAng43g8TR-gzGzoHsz",
+            appKey: "zcQ6ManXu1G9dIzh0pzMepOd",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支援
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechatpay.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Gawain Antarx &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18023847号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://antarx.com/2019/07/10/gxtoml/&title=《gxtoml——Make your deep learning setup easy》 — Gawainx' Blog&pic=https://antarx.com/img/sicp.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://antarx.com/2019/07/10/gxtoml/&title=《gxtoml——Make your deep learning setup easy》 — Gawainx' Blog&source=gxtoml——Make your deep learning setup easy这是一个Python代码库，可以帮助深度学习开发者更快的进行项目参数配置。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://antarx.com/2019/07/10/gxtoml/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gxtoml——Make your deep learning setup easy》 — Gawainx' Blog&url=https://antarx.com/2019/07/10/gxtoml/&via=https://antarx.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://antarx.com/2019/07/10/gxtoml/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB0UlEQVR42u3aSYrDMBAF0Nz/0m7oVUNi+1dpiBueViEO0nMWRQ16veJ1/K78l3/X+w7vTycvXFzcYe5xuZLDzp5ef588/fBKuLi4G7nXwetmizicJS98Y8PFxX0Yt5pvnEGr++Pi4j6Zmweg67CFi4v7X7h5cZIHpiT8LazVcHFxB7jVhumKzwv7u7i4uEXuUVxJ63Mkbbo5HRcXdwv3bOtCKVIsgRL6zZ64uLiLuUmRkw9U8sIpL40+hDBcXNwvcXvB7nqfkVbIh4wMFxd3MbeaReQXMo5J69X7D3BxcVvcfCCahLDe9Ys8bcLFxd3DTVKcPGCNzHOi4IWLi7uFWx2CjjytJkC4uLjP4Satz97IpNpwOT0XFxd3CzcpRarfjDdWcHFxv8XNi5984Jr/vjzIwcXF3cLtjU9G6L0dcHFxd3JHjsmvU1TLKlxc3Cdwx4ci5YNbIxZcXNyd3AkXpIIXyANic/aCi4s7iTtyfHVwsnpki4uLO5c70sqs9mDyQBbdJsPFxV3M7aUpeajqXeA47e/i4uI+hltNYqoJU3SdCxcX98HcWZct8pQIFxd3PzffOmmFVNsohWCHi4u7hVtNSqKBaGtY0mvK4OLiTuX+AATblYw7SG0GAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+
+
+</body>
+</html>
